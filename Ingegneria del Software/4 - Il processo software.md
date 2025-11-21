@@ -1,192 +1,172 @@
 
 # Process iteration
 
-Requirements **always** evolve in the course of a project, so process iteration where earlier stages
-are reworked is always part of the process for large products.
+I requisiti evolvono **SEMPRE** nel corso di un progetto, quindi lo sviluppo di grandi prodotti avviene in fasi in cui gli stage precedenti sono rielaborati.
 
-It can be applied to any of the generic process models and there are two related approaches:
-
+Lo sviluppo è suddiviso in iterazioni più piccole e gestibili, con due approcci:
 - Incremental development.
 - Spiral development.
 # Incremental development
 
-![[Pasted image 20250516114352.png]]
+![[Pasted image 20251121123643.png]]
 
-- The product is developed and delivered in increments after establishing an overall architecture.
-- Requirements and specifications for each increment may be developed.
-- Users may experiment with delivered increments while others are being developed. Therefore, these serve as a form of prototype.
-- Intended to combine some of the advantages of prototyping but with a more manageable process and better structure.
+L'**incremental development** consiste nello sviluppo del software in "pezzi", detti *incrementi* (build), ognuno dei quali aggiunge nuove funzionalità a quelle già esistenti e alla fine l'insieme degli incrementi costituisce il prodotto finale. 
 
-- Il prodotto software viene sviluppato e rilasciato per incrementi (build) successivi.
+- Efficace quando il cliente vuole continuamente verificare i progressi nello sviluppo del prodotto e quando i requisiti subiscono modifiche.
 - Include aspetti tipici del modello basato su rapid prototyping (l’utente può sperimentare l’utilizzo del prodotto contenente gli incrementi consegnati, mentre i restanti sono ancora in fase di sviluppo).
-- Si rivela efficace quando il cliente vuole continuamente verificare i progressi nello sviluppo del prodotto e quando i requisiti subiscono modifiche.
+
 - Può essere realizzato in due versioni:
 	- Versione con overall architecture.
 	- Versione senza overall architecture (più rischiosa).
 
 ## Versione con overall architecture
 
-![[Pasted image 20250516114741.png]]
-
+![[Pasted image 20251121124248.png]]
 ## Versione senza overall architecture
 
-![[Pasted image 20250516114812.png]]
-
+![[Pasted image 20251121124301.png]]
 ## Impatto sui costi del software
 
-![[Pasted image 20250516114838.png]]
-
+![[Pasted image 20251121124312.png]]
 ## Confronto con modello a cascata
-### Modello a cascata 
 
-- Requisiti “congelati” al termine della fase di specifica.
-- Feedback del cliente solo una volta terminato lo sviluppo.
-- Fasi condotte in rigida sequenza (l’output di una costituisce input per la successiva).
-- Prevede fasi di progetto dettagliato e codifica dell’intero prodotto.
-- Team di sviluppo costituito da un numero elevato di persone.
-### Modello incrementale
 
-- Requisiti suddivisi in classi di priorità e facilmente modificabili.
-- Continuo feedback da parte del cliente durante lo sviluppo.
-- Fasi che possono essere condotte in parallelo.
-- Progetto dettagliato e codifica vengono effettuate sul singolo build.
-- Differenti team di sviluppo, ciascuno di piccole dimensioni.
+| **Modello a cascata                                                         | Modello incrementale                                                |
+| --------------------------------------------------------------------------- | ------------------------------------------------------------------- |
+| Requisiti "congelati" alla fine della fase di specifica                     | Requisiti suddivisi in classi di priorità e facilmente modificabili |
+| Feedback del cliente solo dopo il termine dello sviluppo                    | Feedback del cliente continuo durante lo sviluppo                   |
+| Fasi condotte in sequenza (l'output di una diventa input per la successiva) | Fasi che possono essere condotte in parallelo                       |
+| Prevede fasi di progetto dettagliato e codifica dell'intero prodotto        | Progetto dettagliato e codifica sono fatte sul singolo *build*      |
+| Team di sviluppo con numero elevato di persone                              | Team di sviluppo differenti, ciascuno di piccole dimensioni         |
 # Modello a spirale
 
-![[Pasted image 20250516115706.png]]
-
+![[Pasted image 20251121124736.png]]
 ## Modello a spirale semplificato (versione lineare)
 
-![[Pasted image 20250516115741.png]]
-
+![[Pasted image 20251121124747.png]]
 ## Modello a spirale semplificato
 
-![[Pasted image 20250516115816.png]]
-
+![[Pasted image 20251121124806.png]]
 ## Modello full-spiral [Boehm, 1988]
 
-![[Pasted image 20250516115838.png]]
-
+![[Pasted image 20251121124819.png]]
 # Risk management
 
-Risk management is concerned with identifying risks and drawing up plans to minimize their effect on a project.
+Il **Risk management** è il processo di identificazione, analisi e gestione dei rischi che potrebbero influenzare l'esito e la qualità del progetto
 
-A **risk** is a probability that some adverse circumstance will occur. There's 3 main categories of risk:
-- **Project risks** affect schedule or resources.
-- **Product risks** affect the quality or performance of the software being developed.
-- **Business risks** affect the organization developing or procuring the software.
+**Def.**
+Un *rischio* è un evento potenziale che potrebbe avere un impatto negativo. Ci sono tre categorie principali:
+- **Project risks** influenzano la pianificazione o le risorse.
+- **Product risks** influenzano la qualità e le prestazioni del software in sviluppo.
+- **Business risks** influenzano l'organizzazione che sviluppa o acquista il software.
 ## Risks by category
 
-| Risk                    | Risk Type         | Description                                                                 |
-|-------------------------|-------------------|-----------------------------------------------------------------------------|
-| Staff turnover          | Project            | Experienced staff will leave the project before it is finished.            |
-| Management change       | Project            | There will be a change of organisational management with different priorities. |
-| Hardware unavailability | Project            | Hardware which is essential for the project will not be delivered on schedule. |
-| Requirements change     | Project and product| There will be a larger number of changes to the requirements than anticipated. |
-| Specification delays    | Project and product| Specifications of essential interfaces are not available on schedule.      |
-| Size underestimate      | Project and product| The size of the system has been underestimated.                            |
-| CASE tool under-performance | Product        | CASE tools which support the project do not perform as anticipated.        |
-| Technology change       | Business           | The underlying technology on which the system is built is superseded by new technology. |
-| Product competition     | Business           | A competitive product is marketed before the system is completed.          |
-## The risk management process
+| Risk                        | Risk Type           | Description                                                                            |
+| --------------------------- | ------------------- | -------------------------------------------------------------------------------------- |
+| Staff turnover              | Project             | Lo staff esperto lascerà il progetto prima del termine.                                |
+| Management change           | Project             | Cambiamento nel management dell'organizzazione con nuove priorità.                     |
+| Hardware unavailability     | Project             | L'hardware essenziale per il progetto non è consegnato nei tempi previsti.             |
+| Requirements change         | Project and product | Ci sarà un numero maggiore di cambiamenti ai requisiti rispetto a quanto previsto.     |
+| Specification delays        | Project and product | Le specifiche delle interfacce essenziali non saranno disponibili nei tempi previsti.  |
+| Size underestimate          | Project and product | La dimensione del sistema è stata sottostimata.                                        |
+| CASE tool under-performance | Product             | I tool CASE che supportano il progetto non performano come previsto.                   |
+| Technology change           | Business            | La tecnologia su cui si basa il sistema viene superata da una nuova tecnologia.        |
+| Product competition         | Business            | Un prodotto concorrente viene immesso sul mercato prima che il sistema sia completato. |
+## Fasi del risk management
 
-- **Identification**: Identify project, product and business risks.
-- **Analysis**: Assess the likelihood and consequences of these risks.
-- **Planning**: Draw up plans to avoid or minimize the effects of the risk.
-- **Monitoring**: Monitor the risks throughout the project.
+- **Identificazione**: identificare i possibili rischi del progetto.
+- **Analisi**: Si valuta ogni rischio in base alla probabilità che accada e l'impatto che può avere.
+- **Pianificazione**: si definiscono dei piani per evitare o ridurre gli effetti del rischio
+- **Monitoring**: Durante il progetto si monitorano i rischi.
 
-![[Pasted image 20250516160316.png]]
+![[Pasted image 20251121130202.png]]
+### Risk identification
 
-## Risk identification
+| Risk Type          | Possible Risks                                                                                                                                                                                                          |
+| ------------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Technology**     | - Il database utilizzato nel sistema non può processare il numero di transazioni al secondo previsto.<br>- I componenti software che dovrebbero essere riutilizzati contengono difetti che ne limitano la funzionalità. |
+| **People**         | - È impossibile reclutare personale con le competenze richieste.<br>- Il personale chiave è malato o non disponibile in momenti critici.<br>- La formazione necessaria per il personale non è disponibile.              |
+| **Organisational** | - L’organizzazione viene ristrutturata, con conseguente cambio di management responsabile del progetto.<br>- Problemi finanziari dell’organizzazione impongono riduzioni nel budget del progetto.                       |
+| **Tools**          | - Il codice generato dai tool CASE è inefficiente.<br>- I tool CASE non possono essere integrati.                                                                                                                       |
+| **Requirements**   | - I cambiamenti ai requisiti richiedono un’ampia revisione del design.<br>- I clienti non comprendono l’impatto dei cambiamenti ai requisiti.                                                                           |
+| **Estimation**     | - Il tempo necessario per sviluppare il software è sottostimato.<br>- Il tasso di riparazione dei difetti è sottostimato.<br>- La dimensione del software è sottostimata.                                               |
+Visual Basic è un esempio di CASE (Computer-Aided Software Engineering) tool
+### Risk analysis
 
-| Risk Type          | Possible Risks                                                                                                                                                                          |
-| ------------------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **Technology**     | The database used in the system cannot process as many transactions per second as expected. Software components which should be reused contain defects which limit their functionality. |
-| **People**         | It is impossible to recruit staff with the skills required. <br> Key staff are ill and unavailable at critical times. <br> Required training for staff is not available.                |
-| **Organisational** | The organisation is restructured so that different management are responsible for the project. Organisational financial problems force reductions in the project budget.                |
-| **Tools**          | The code generated by CASE tools is inefficient. <br> CASE tools cannot be integrated.                                                                                                  |
-| **Requirements**   | Changes to requirements which require major design rework are proposed. <br> Customers fail to understand the impact of requirements changes.                                           |
-| **Estimation**     | The time required to develop the software is underestimated. <br> The rate of defect repair is underestimated. <br> The size of the software is underestimated.                         |
-Example of CASE tool: Visual Basic.
-## Risk analysis
-
-Assesses the probability and seriousness of each risk. Risk probability may be:
-
+Valutà la probabilità e la conseguenza di ogni rischio. 
+La probabilità dei rischi può essere:
 - **Very low** (<10%)
 - **Low** (10-25%)
 - **Moderate** (25-50%)
 - **High** (50-75%)
 - **Very** high (>75%)
 
-Risk effects might be:
+Le conseguenze possono essere:
+- **Catastrofiche**
+- **Serie**
+- **Tollerabili**
+- **Insignificanti**
 
-- **Catastrophic**
-- **Serious**
-- **Tolerable**
-- **Insignificant**
+| Risk                                                                                                    | Probability | Effects       |
+| ------------------------------------------------------------------------------------------------------- | ----------- | ------------- |
+| Problemi finanziari nell'organizzazione forzano la riduzione del project budget.                        | Low         | Catastrophic  |
+| Impossibile trovare staff con le skill richieste per il progetto                                        | High        | Catastrophic  |
+| Il personale importante è malato nei punti critici del progetto.                                        | Moderate    | Serious       |
+| Componenti software da riutilizzare contengono difetti che limitano le loro funzionalità                | Moderate    | Serious       |
+| Proposta di cambiamento di requisiti che richiedono una grande rielaborazione                           | Moderate    | Serious       |
+| L'organizzazione è rivista e nuovi dirigenti sono responsabili del progetto                             | High        | Serious       |
+| Il database utilizzato nel sistema non può elaborare il numero di transazioni al secondo come previsto. | Moderate    | Serious       |
+| Il tempo necessario per sviluppare il software è sottovalutato.                                         | High        | Serious       |
+| I CASE tools non sono utilizzabili.                                                                     | High        | Tolerable     |
+| I clienti non comprendono l'impatto dei cambiamenti nei requisiti.                                      | Moderate    | Tolerable     |
+| La formazione obbligatoria per il personale non è disponibile.                                          | Moderate    | Tolerable     |
+| Il tasso di riparazione dei difetti è sottostimato.                                                     | Moderate    | Tolerable     |
+| La dimensione del software è sottovalutata.                                                             | High        | Tolerable     |
+| Il codice generato dagli strumenti CASE è inefficiente.                                                 | Moderate    | Insignificant |
 
-| Risk                                                                 | Probability | Effects       |
-|----------------------------------------------------------------------|-------------|----------------|
-| Organisational financial problems force reductions in the project budget. | Low         | Catastrophic   |
-| It is impossible to recruit staff with the skills required for the project. | High        | Catastrophic   |
-| Key staff are ill at critical times in the project.                 | Moderate    | Serious        |
-| Software components which should be reused contain defects which limit their functionality. | Moderate    | Serious        |
-| Changes to requirements which require major design rework are proposed. | Moderate    | Serious        |
-| The organisation is restructured so that different management are responsible for the project. | High        | Serious        |
-| The database used in the system cannot process as many transactions per second as expected. | Moderate    | Serious        |
-| The time required to develop the software is underestimated.       | High        | Serious        |
-| CASE tools cannot be integrated.                                   | High        | Tolerable      |
-| Customers fail to understand the impact of requirements changes.   | Moderate    | Tolerable      |
-| Required training for staff is not available.                      | Moderate    | Tolerable      |
-| The rate of defect repair is underestimated.                       | Moderate    | Tolerable      |
-| The size of the software is underestimated.                        | High        | Tolerable      |
-| The code generated by CASE tools is inefficient.                   | Moderate    | Insignificant  |
-Identify the main risks by considering:
+Si identificano i rischi principali considerando:
+- tutti i rischi catastrofici
+- tutti i rischi seri che hanno probabilità di accadere oltre la moderata
 
-- All catastrophic risks.
-- All serious risks that have more than a moderate probability of occurrence.
+Si classificano i rischi in ordine di importanza
 
-Rank such risks by order of importance.
+### Risk planning
 
-## Risk planning
+Si considera ogni rischio e si sviluppa una strategia per gestirlo:
+- **Avoidance strategies**: ridurre la probabilità che il rischio si presenti.
+- **Minimization strategies**: ridurre l'impatto del rischio sul progetto.
+- **Contingency plans**: se si verifica il rischio, si utilizza un piano di emergenza per affrontare il rischio
 
-Consider each risk and develop a strategy to manage that risk:
-- **Avoidance strategies**: The probability that the risk will arise is reduced.
-- **Minimization strategies**: The impact of the risk on the project or product will be reduced.
-- **Contingency plans**: If the risk arises, contingency plans are strategies to deal with that risk.
+### Risk management strategies
 
-## Risk management strategies
+| Risk                                                                     | Strategy                                                                                                                                                        |
+| ------------------------------------------------------------------------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Problemi finanziari dell'organizzazione / ristrutturazione organizzativa | Si prepara un documento informativo per il senior management che mostra come il progetto stia dando un contributo molto importante agli obiettivi dell'azienda. |
+| Problemi di reclutamento                                                 | Si avvisa il cliente delle potenziali difficoltà e possibili ritardi; si verificano componenti acquistabili per ridurre il carico di sviluppo.                  |
+| Malattia del personale                                                   | Si riorganizza il team per aumentare la sovrapposizione delle attività e fare in modo che le persone svolgano il compito degli altri                            |
+| Componenti difettosi                                                     | Sostituire i componenti difettosi con componenti nuovi e affidabili                                                                                             |
+| Cambio ai requisiti                                                      | Derivare informazione di tracciabilità per valutare l'impatto del cambio dei requisiti; massimizzare l'information hiding nella progettazione                   |
+| Database performance                                                     | Valutare la possibilità di comprare un database con performance migliori                                                                                        |
+| Tempo di sviluppo sottovalutato                                          | Valutare l'acquisto di componenti già pronti; valutare l'uso di un generatore di programmi                                                                      |
+### Risk monitoring
 
-| Risk                            | Strategy                                                                 |
-|---------------------------------|--------------------------------------------------------------------------|
-| Organisational financial problems | Prepare a briefing document for senior management showing how the project is making a very important contribution to the goals of the business. |
-| Recruitment problems            | Alert customer of potential difficulties and the possibility of delays, investigate buying-in components. |
-| Staff illness                   | Reorganise team so that there is more overlap of work and people therefore understand each other’s jobs. |
-| Defective components            | Replace potentially defective components with bought-in components of known reliability. |
-| Requirements changes            | Derive traceability information to assess requirements change impact, maximise information hiding in the design. |
-| Organisational restructuring    | Prepare a briefing document for senior management showing how the project is making a very important contribution to the goals of the business. |
-| Database performance            | Investigate the possibility of buying a higher-performance database. |
-| Underestimated development time | Investigate buying in components, investigate use of a program generator. |
-## Risk monitoring
+Valutare regolarmente ogni rischio per decidere se sta diventando più o meno probabili da verificarsi. Per la valutazione si considerano i fattori di rischio
 
-Assess each identified risks regularly to decide whether or not it is becoming less or more probable. To perform assessment look at **risk factors**.
+Valutare anche se gli effetti del rischio sono cambiati (e nel caso rivalutarli). Ogni rischio principale dovrebbe essere discusso durante riunioni di gestione del progresso del progetto.
+#### Risk factors
 
-Also assess whether the effects of the risk have changed (in such case go back to risk analysis). Each key risk should be discussed at management progress meetings.
-## Risk factors
-
-| Risk Type      | Potential Indicators                                                                 |
-|----------------|----------------------------------------------------------------------------------------|
-| Technology     | Late delivery of hardware or support software, many reported technology problems       |
-| People         | Poor staff morale, poor relationships amongst team members, job availability           |
-| Organisational | Organisational gossip, lack of action by senior management                             |
-| Tools          | Reluctance by team members to use tools, complaints about CASE tools, demands for higher-powered workstations |
-| Requirements   | Many requirements change requests, customer complaints                                 |
-| Estimation     | Failure to meet agreed schedule, failure to clear reported defects                     |
+| Risk Type     | Potential Indicators                                                                                                       |
+| ------------- | -------------------------------------------------------------------------------------------------------------------------- |
+| Teconologia   | Consegna tardiva di hardware o software di supporto; molti hanno segnalato problemi tecnologici                            |
+| People        | Basso morale del personale; scarsi rapporti tra i membri del team; disponibilità di lavoro                                 |
+| Organizzativa | Gossip organizzativi, mancanza di azione da parte della direzione                                                          |
+| Tools         | Riluttanza dei membri del team a usare gli strumenti, lamentele sugli strumenti CASE, richieste di workstation più potenti |
+| Requirements  | Molte richieste di cambiamento dei requisiti, reclami dei clienti                                                          |
+| Stima         | Mancato rispetto del calendario concordato, mancata risoluzione dei difetti segnalati                                      |
 # Altri modelli
 ## Modello object-oriented
 
-![[Pasted image 20250517040718.png]]
-
+![[Pasted image 20251121133754.png]]
 1. Minori costi di manutenzione
 ## Modello di ingegneria Concorrente
 
