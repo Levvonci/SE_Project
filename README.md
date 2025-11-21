@@ -3,3 +3,5 @@
 - Ascenzi Leonardo
 - Spadoni Nicoló
 - Folco Damiano
+
+Sasso
