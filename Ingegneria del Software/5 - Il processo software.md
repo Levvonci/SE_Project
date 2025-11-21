@@ -1,215 +1,234 @@
 # Il Modello Microsoft
-
-Organizzazioni che sviluppano software commerciale, hanno dovuto affrontare, fin dalla metà degli anni 80, problemi di:
+Le organizzazioni che sviluppano software commerciale, fin dalla metà degli anni ’80, hanno dovuto affrontare problemi legati a:
 
 - Incremento della qualità dei prodotti software.
-- Riduzione di tempi e costi di sviluppo
+- Riduzione dei tempi e dei costi di sviluppo.
 
-Per cercare di risolvere tali problemi si è adottato un processo che è **iterativo**, **incrementale** e **concorrente** e che permette di esaltare le doti di creatività delle persone coinvolte nello sviluppo di prodotti software.
+Per affrontare tali sfide è stato adottato un processo **iterativo**, **incrementale** e **concorrente**, che valorizza la creatività delle persone coinvolte nello sviluppo.
+
 # Approccio Synch & Stabilize
+L’approccio attualmente utilizzato da Microsoft si basa su:
 
-Approccio usato attualmente da Microsoft, si basa su:
+- **Sincronizzazione giornaliera** del lavoro di singoli sviluppatori o piccoli team mediante una **daily build**, ottenuta assemblando componenti software completi o parziali, successivamente testati e corretti.
+- **Stabilizzazione** periodica del prodotto in diversi **milestone** durante lo sviluppo, invece che un’unica stabilizzazione finale. 
 
-- **Sincronizzazione giornaliera** del lavoro di persone singole o piccoli team, mediante assemblaggio dei componenti software completi o parziali in una **daily build** che viene testato e corretto.
-- **Stabilizzazione** periodica del prodotto in vari **milestone**  durante lo sviluppo del progetto, piuttosto che un'unica volta alla fine.
 # Ciclo di sviluppo a 3 fasi
-Per quanto riguarda il ciclo di sviluppo è diviso in 3 fasi:
+Il ciclo di sviluppo è suddiviso in tre fasi:
 
-- **Planning phase**: Define product vision, specification and schedule.
-- **Development phase**: Feature development in 3/4 sequential sub-projects, each resulting in a milestone release.
-- **Stabilization phase**: Comprehensive internal and external testing, final product, stabilization and ship.
+- **Planning phase**: definizione della visione del prodotto, della specifica e della pianificazione.
+- **Development phase**: sviluppo delle funzionalità in 3/4 sotto-progetti sequenziali, ciascuno dei quali produce una milestone release.
+- **Stabilization phase**: test interno ed esterno, stabilizzazione finale e rilascio del prodotto. 
+
 ## Planning phase
+- **Vision statement**: il product e il program management utilizzano il feedback degli utenti per identificare e ordinare per priorità le funzionalità del prodotto.
+- **Specification document**: basandosi sulla visione, il program management e il gruppo di sviluppo definiscono funzionalità, architettura e interdipendenze dei componenti.
+- **Schedule and Feature Team Formation**: il program management pianifica e organizza team funzionali, composti da circa 1 program manager, 3–8 sviluppatori e 3–8 tester (in rapporto 1:1 con gli sviluppatori).  
 
-- **Vision statement**: Product and program management use extensive customer input to identify and priority-order product features.
-- **Specification document**: Based on vision statement, program management and development group define feature functionality, architectural issues, and component interdependencies.
-- **Schedule and Feature Team Formation**: Based on specification document, program management coordinates schedule and arranges feature teams that each contain approximately 1 program manager, 3-8 developers, and 3-8 testers (who work in parallel 1:1 with developers).
 ## Development phase
+I program manager coordinano l’evoluzione della specifica. Gli sviluppatori progettano, codificano e fanno debug. I tester lavorano in parallelo con gli sviluppatori.
 
-Program managers coordinate evolution of specification. Developers design, code, and debug. Testers pair with developers for continuous testing.
+- Sottoprogetto 1: primo terzo delle funzionalità (le più critiche e componenti condivisi).
+- Sottoprogetto 2: secondo terzo delle funzionalità.  
+- Sottoprogetto 3: ultimo terzo delle funzionalità (le meno critiche e componenti condivisi).
 
-- Subproject 1: first 1/3 of the features (Most critical features and shared components).
-- Subproject 2: second 1/3 of the features.
-- Subproject 3: final 1/3 of the features (Least critical features and shared components).
 ## Stabilization phase
+I program manager coordinano OEM e ISV e monitorano il feedback degli utenti. Gli sviluppatori completano debug e stabilizzazione. I tester replicano e isolano gli errori.
 
-Program managers coordinate OEMs and ISVs and monitor customer feedback. Developers perform final debugging and code stabilization. Testers recreate and isolate errors.
+- **Internal testing**: test approfonditi interni all’azienda.
+- **External testing**: test approfonditi da parte di beta tester, OEM, ISV e utenti finali.
+- **Release preparation**: preparazione della versione finale (golden master) e della documentazione. 
 
-- **Internal testing**: Thorough testing of the complete product within the company.
-- **External testing**: Thorough testing of the complete product outside the company by "beta" sites, such as OEMs, ISVs, and end users.
-- **Release preparation**: Prepare final release of "golden master" disks and documentation for manufacturing.
 # Strategie e Principi
+**Strategia per definire prodotto e processo**: considerare la creatività come elemento fondamentale.
 
-**Strategia per definire prodotto e processo**: "considerare la creatività come elemento essenziale".
+Principi:
+1. Suddividere il progetto in 3 o 4 milestone.
+2. Definire una visione del prodotto e una specifica funzionale che evolverà nel tempo.
+3. Selezionare funzionalità e priorità basandosi sulle esigenze degli utenti.
+4. Definire un’architettura modulare coerente con la struttura del prodotto.
+5. Assegnare task piccoli e limitare le risorse.
 
-Principi di realizzazione:
+**Strategia per sviluppo e consegna**: lavorare in parallelo con frequenti sincronizzazioni.
 
-1. Dividere il progetto in 3 o 4 milestone.
-2. Definire una "product vision" e produrre una specifica funzionale che evolverà durante il progetto.
-3. Selezionare le funzionalità e le relative priorità in base alle necessità utente.
-4. Definire un'architettura modulare per replicare nel progetto la struttura del prodotto.
-5. Assegnare task elementari e limitare le risorse.
-
-**Strategia per lo sviluppo e la consegna dei prodotti**: "lavorare in parallelo con frequenti
-sincronizzazioni".
-
-Principi di realizzazione:
-
-1. Definire team paralleli ed utilizzare daily build per la sincronizzazione.
-2. Avere sempre un prodotto da consegnare, con versioni per ogni piattaforma e mercato.
-3. Usare lo stesso linguaggio di programmazione all'interno dello stesso sito di sviluppo.
-4. Testare continuamente il prodotto durante il suo sviluppo.
-5. Usare metriche per il supporto alle decisioni.
-
-Esempio di metriche collezionate:
-![[Pasted image 20250517122407.png]]
+Principi:
+1. Creare team paralleli e utilizzare daily build.
+2. Avere sempre una versione consegnabile.
+3. Utilizzare lo stesso linguaggio di programmazione per sito di sviluppo.
+4. Testare continuamente il prodotto.
+5. Utilizzare metriche per supportare le decisioni.
 
 # Milestones
-
-![[Pasted image 20250517122431.png]]
+![[Milestone.png|center|600]]
 
 # Modello del ciclo di sviluppo "synch and stabilize"
+![[Ciclo_S&S.png|center|600]]
 
-![[Pasted image 20250517122513.png]]
-
-# Confronto tra modelli synch-and-stabilize e waterfall
-
-![[Pasted image 20250517122542.png]]
+# Confronto tra synch-and-stabilize e waterfall
+![[S&S_VS_Waterfall.png|center|600]]
 
 # Il Modello Netscape
+Anche Netscape adottò un modello di synchronize-and-stabilize, con adattamenti per browser e prodotti server.
 
-Anche Netscape ha adottato un modello di  synchronize-and-stabilize, con adattamenti per sviluppo di browser e prodotti server:
+Caratteristiche:
+- Dimensione dello staff: in media 1 tester ogni 3 sviluppatori (produttività simile a Microsoft su prodotti comparabili).
 
-Dimensione dello staff: in media 1 tester ogni 3 sviluppatori (ma stessa produttività di Microsoft nello sviluppo di prodotti comparabili, ad es. IE vs. Communicator).
-
-Processo
-- scarso effort di pianificazione (tranne che su prodotti server).
-- documentazione incompleta.
-- scarso controllo sullo stato di avanzamento del progetto (lasciato all’esperienza e all’influenza dei project manager).
-- scarso controllo su attività di ispezione del codice (code review).
-- pochi dati storici per il supporto alle decisioni.
+Processo:
+- Pianificazione limitata (eccetto prodotti server).
+- Documentazione incompleta.
+- Controllo limitato dell’avanzamento, basato sull’esperienza dei project manager.
+- Scarso controllo sulle code review.
+- Pochi dati storici per decisioni.
 
 # Staffing
-
-![[Pasted image 20250517122837.png]]
+![[Staffing.png|center|600]]
 
 # Netscape Development Process
+**Step 1**: Raccolta requisiti e proposta di progetto**
 
-![[Pasted image 20250517122858.png]]
+- Si tiene un _Advance Planning Meeting (APM)_ per generare idee e discutere obiettivi (coinvolgendo marketing, sviluppo ed executive).
+- Viene definita una prima visione del prodotto, inizialmente elaborata dagli ingegneri senior, poi principalmente dai product manager.
+- Gli ingegneri iniziano attività preliminari di design e prototipazione per esplorare tecnologie alternative o nuove funzionalità.
+- I product manager, con il supporto degli sviluppatori, redigono il documento dei requisiti.
+- Gli ingegneri eseguono una revisione informale della specifica preliminare.
+- Viene redatta una specifica funzionale da parte degli ingegneri, talvolta con l’aiuto dei product manager.
+- Marketing e ingegneria compilano un piano iniziale di tempi e budget, che viene poi discusso informalmente con i dirigenti.
+---
+**Step 2: Prima revisione esecutiva**
 
-![[Pasted image 20250517122914.png]]
+- Gli executive valutano il documento dei requisiti, la pianificazione e la proposta di budget.
+- Se necessario, il piano viene corretto e aggiornato.
+---
+**Step 3: Avvio della fase di sviluppo**
 
-![[Pasted image 20250517122924.png]]
+- Gli sviluppatori iniziano la progettazione e la codifica delle funzionalità previste, modificando l’architettura quando necessario.
+- I componenti vengono integrati quotidianamente tramite _build_ continue.
+- Si generano liste di bug e si avviano le prime attività di correzione.
+---
+**Step 4: Revisione esecutiva intermedia (se necessaria)**
+
+- A questo punto la specifica funzionale dovrebbe essere completa.    
+- Vengono eventualmente introdotte modifiche a metà percorso, sia nella specifica sia nella gestione delle risorse, ove necessario.
+- Si coordinano eventuali dipendenze con altri prodotti o progetti.
+- Lo sviluppo procede normalmente.
+---
+**Step 5: Prima release interna (alpha) – circa 6 settimane**
+
+- Lo sviluppo viene momentaneamente sospeso. 
+- Si esegue un ciclo intensivo di debug e test del codice esistente.
+- La versione _alpha_ viene distribuita internamente per ottenere feedback (talvolta come _developer’s release_).
+- Lo sviluppo riprende successivamente.
+- Il feedback ricevuto viene integrato nel progetto.
+- L’obiettivo delle funzionalità principali viene raggiunto (nei server questo requisito è particolarmente importante).
+- È prevista circa una settimana per stabilizzare la versione _beta_.
+---
+**Step 6: Public beta 1 o field test 1 (circa sei settimane)**
+
+- Si ripetono le attività di sviluppo e test già svolte nello Step 5. 
+- Per i prodotti server si passa a _field test_ con un gruppo ristretto di clienti, invece delle classiche beta pubbliche.
+---
+**Step 7: Public beta 2 e 3 (ognuna dura circa sei settimane)**
+
+- Si ripetono le attività di sviluppo e verifica come nello Step 5.    
+- Avviene il _UI freeze_, cioè nessun cambiamento significativo all’interfaccia utente è più consentito.
+- Lo stato _feature-complete_ è obbligatorio: tutte le funzionalità devono essere implementate, anche se sono ancora permesse piccole modifiche o rifiniture.
+---
+**Step 8: Code complete**
+
+- Da questo momento non viene aggiunto nuovo codice, eccetto quello necessario per correggere bug.    
+- Tutte le funzionalità sono considerate complete a livello implementativo.
+---
+**Step 9: Test finale e rilascio**
+
+- Ultima fase di debugging e stabilizzazione della _release candidate_.    
+- Incontri di certificazione con i dirigenti senior per approvare la decisione di rilascio.
+- Preparazione della versione destinata alla produzione (_Release to Manufacturing - RTM_) e rilascio commerciale.
+---
 # Agile Methods
+All’inizio degli anni 2000 si sviluppò una reazione ai processi troppo pianificati, considerati vincolanti.
 
-In the early 2000’s, there was a reaction against the importance of carefully planned
-software processes, stating that such processes are too restrictive on the developers.
+Il termine **agile method** estende l’idea di sviluppo iterativo e incrementale includendo comunicazione intensa, feedback rapido e poche regole esterne.
 
-The term **agile method** was introduced to extend the original concept of iterative and incremental development to concepts such as intensive communication within the project, fast feedback, few external rules for the way of working, etc.
 ## The Agile Manifesto (2001)
 
-It defines **agile values**.
+Definisce i valori agili.
 
-“We are uncovering better ways of developing software by doing it and helping others do it. Through this work we have come to value:
+> "Stiamo scoprendo modi migliori di sviluppare software…"
 
-- Individuals and interactions over processes and tools.
-- Working software over comprehensive documentation.
-- Customer collaboration over contract negotiation.
-- Responding to change over following a plan.
-- That is, while there is value in the items on the right, we value the items on the left more.”
+Valori:
 
-In addition to values, the Agile Manifesto contains the twelve agile principles that provide additional guidance on the use of agile methods.
+- Individui e interazioni più dei processi e strumenti.
+- Software funzionante più della documentazione completa.
+- Collaborazione con il cliente più della negoziazione contrattuale.
+- Risposta al cambiamento più del seguire un piano.
 
-Together, these values and principles define the basic concepts that are today known as **agile development**.
+Sono inoltre definiti dodici principi agili.
 
 ## Scrum
+Il metodo agile più diffuso.
+![[Scrum.png|center|600]]
 
-Il metodo agile più famoso è il metodo SCRUM
-
-![[Pasted image 20250517131926.png]]
 ## Scrum Roles
-
-- **The Scrum master**: ensures that the methodology is understood and properly implemented by the development team and the product owner. He also supports the team by helping everyone else to interact with the team according to the Scrum rules.
-- **The product owner**: manages and helps prioritizing the requirements to be implemented as documented in the product backlog.
-- **The development team**: is responsible for developing the product, including all relevant tasks (e.g., designing, coding and testing).
+- **Scrum master**: garantisce la corretta applicazione del metodo.
+- **Product owner**: gestisce e prioritizza i requisiti nel product backlog.
+- **Development team**: sviluppa il prodotto (design, coding, testing).
 
 ### Sprints
+Gli sprint durano tipicamente 2–4 settimane.
+Attività:
 
-Concetto fondamentale dello Scrum.
-
-A **sprint** is carried out to deliver a new increment of working software, and typically takes 2 to 4 weeks. It is started with the **sprint planning** meeting where the Scrum team transfers the items to be developed from the product backlog into the sprint backlog.
-
-During the sprint, the development team works on the increment, with short **daily Scrum** meetings (aka stand-up meeting) of the development team to synchronize work and address any problems.
-
-At the end of a sprint, the increment is presented to the product owner and other stakeholders in a **sprint review**. 
-
-Finally, the **sprint retrospective** meeting is performed to identify and plan any improvements for the next sprint.
+- **Sprint planning**: selezione elementi dal product backlog.
+- **Daily Scrum**: meeting quotidiano di sincronizzazione.
+- **Sprint review**: presentazione dell’incremento.
+- **Sprint retrospective**: analisi e miglioramento del processo.
 
 ### Definition of Done
+Il team definisce cosa significa che un’attività è completata.  
+Requisiti tipici:
 
-Scrum requires the development team defines for itself what it means for a work item to be done (i.e., before it is allowed to be integrated into the main branch).
-
-Typical minimum requirements included in this “definition of done” include an adequate number
-of test cases, as well as checking the integration of the new code to ensure that it does not break
-the main development branch.
-
-The definition of done also requires that the code has been documented adequately, where the
-team defines for itself what ”adequate” means.
+- Test sufficienti.
+- Integrazione verificata.
+- Documentazione adeguata.
 
 ### User Stories
+Formato comune per descrivere requisiti nello sviluppo agile.
+Template: **Come (ruolo), voglio (obiettivo) in modo da (beneficio)**.
 
-A common practice, used in agile development, often in combination with Scrum (but not defined
-in the Scrum Guide). 
+Storie grandi che successivamente verranno splittate in piú storie piccole → **epic**.
 
-A user story is a format for describing user requirements as a “story”. Is should be short, typically just one sentence, and described from the user point of view.
-
-It uses a common template, such as As a **(role), I want (goal) so that (benefit)**.
-
-Example: “As a process engineer, I want to see the dependencies between different process steps so that I can easily verify and validate them”.
-
-Large user stories which are later broken down into smaller ones are often called **epics**.
 # Capability Maturity Model (CMM)
+Il **SEI** ha sviluppato un modello per valutare la maturità dei processi software di un’organizzazione.
 
-ll **SEI** (**Software Engineering Institute**) ha predisposto un modello per determinare il livello di maturità del processo software di un'organizzazione (ovvero un indice dell'efficacia nell'applicare tecniche di ingegneria del software).
+Il modello utilizza un questionario e uno schema a **cinque livelli**.
 
-Il modello è basato su un questionario ed uno **schema valutativo a cinque livelli**.
-
-Ogni livello comprende tutte le caratteristiche definite per il livello precedente.
 ## I 5 livelli del CMM
+![[CMM_5lvl.png|center|600]]
 
-![[Pasted image 20250517134930.png]]
 ## Key Process Areas
-
-Il CMM associa a ogni livello di maturità alcune **KPA** (Key Process Area), tra le 18 definite, che descrivono le funzioni che devono essere presenti per garantire l'appartenenza ad un certo livello.
-
-Ogni KPA è descritta rispetto a:
-
-- obiettivi.
-- impegni e responsabilità da assumere.
-- capacità e risorse necessarie per la realizzazione.
-- attività da realizzare.
-- metodi di "monitoring" della realizzazione.
-- metodi di verifica della realizzazione
+Ogni livello include alcune **KPA**, definite secondo:
+- obiettivi;
+- responsabilità;
+- risorse;
+- attività richieste;
+- metodi di monitoraggio;
+- metodi di verifica.
 
 ## CMM KPAs
+![[CMM_KPA.png|center|600]]
 
-![[Pasted image 20250517135055.png]]
 ## Statistiche a Febbraio 2000
+Organizzazioni ai livelli più alti:
 
-La lista delle organizzazioni a livello 4 e 5 (maturità elevata) include:
+- USA (71):
+	- 44 a Livello 4 (Oracle, NCR, Siemens Info Systems, IBM Global Services).
+	- 27 a Livello 5 (Motorola, Lockeed-Martin, Boeing, Honeywell).
 
-71 organizzazioni negli USA:
-- 44 organizzazioni a Livello 4 (tra cui Oracle, NCR, Siemens Info Systems, IBM Global Services).
-- 27 organizzazioni a Livello 5 (tra cui Motorola, Lockeed-Martin, Boeing, Honeywell).
-
-25 organizzazioni al di fuori degli USA:
-- 1 organizzazione a Livello 4 in Australia.
-- 14 organizzazioni a Livello 4 in India.
-- 10 organizzazioni a Livello 5 in India.
+- Fuori USA (25):
+	- 1 a Livello 4 in Australia.
+	- 14 a Livello 4 in India.
+	- 10 a Livello 5 in India. 
 
 ## Number of appraisals by country (06/15)
-
-![[Pasted image 20250517135244.png]]
+![[by_Country.png|center|600]]
 
 ## Trends (as of June 2015)
-
-![[Pasted image 20250517135304.png]]
+![[Trends.png|center|600]]
