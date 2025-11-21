@@ -1,27 +1,62 @@
 # Prefazione
-## TableFlow
 
-Leonardo Ascenzi
+## Pubblico di Lettori Previsto
 
-Damiano Fosco
-Nicolò Spadoni
+Il presente documento è redatto per soddisfare le esigenze informative di diversi stakeholder coinvolti nel ciclo di vita del sistema `TableFlow`:
 
-Simone Zheng
-0293045
+- **Committente e Stakeholder Business**: Proprietari di ristoranti, food & beverage manager e investitori, per la valutazione delle funzionalità offerte e dell'aderenza ai requisiti operativi.
+- **Team di Sviluppo e Progettisti**: Ingegneri del software, architetti sistemisti e sviluppatori, come linea guida per le attività di progettazione, implementazione e testing.
+- **Team di Qualità e Testing**: Per la definizione dei piani di test e dei criteri di accettazione.
+- **Docenti e Commissione d'Esame**: Per la valutazione del progetto nell'ambito del corso di Ingegneria del Software.
+- **Utenti Finali**: Personale di sala, cucina e amministrazione, per la comprensione delle funzionalità a loro dedicate.
 
-Docente: Andrea d'Ambrogio
+Il documento presuppone nel lettore una conoscenza di base dei processi di ristorazione e dei principi fondamentali dell'ingegneria del software.
 
-- **Prefazione**: pubblico di lettori previsto, cronologia delle versioni, riepilogo delle modifiche
-- **Introduzione**: scopo, descrizione sintetica del sistema, interazione con altri sistemi, ambito di applicazione nel contesto aziendale. Perché è utile questo software.
-- **Glossario**: definizione dei termini tecnici utilizzati nel documento
-- **Definizione dei requisiti utente**: requisiti funzionali e non funzionali dell'utente
-- **Architettura del sistema**: panoramica di alto livello dei componenti del sistema
-- **Specifica dei requisiti di sistema**: requisiti funzionali e non funzionali del sistema
-- **Modelli di sistema**: descrizione delle relazioni tra i componenti del sistema e tra il sistema e il suo ambiente
-- **Evoluzione del sistema**: presupposti su cui si basa il sistema e cambiamenti previsti (evoluzione hardware, modifiche alle esigenze utente, ecc.)
-- **Appendici**: informazioni specifiche relative all'applicazione in sviluppo (es. descrizioni hardware e database)
-- **Indice**: indice generale, indice analitico, elenco dei diagrammi, ecc.
+## Cronologia delle Versioni
 
+| Versione | Data       | Autori               | Descrizione                                           |
+| -------- | ---------- | -------------------- | ----------------------------------------------------- |
+| 0.1      | 15/11/2025 | L. Ascenzi, D. Fosco | Bozza iniziale - Struttura documento e requisiti base |
+| 0.2      | 25/11/2025 | N. Spadoni, S. Zheng | Ampliamento requisiti funzionali e casi d'uso         |
+| 0.5      | 05/12/2025 | D. Fosco, S. Zheng   | Prima versione completa per revisione interna         |
+| 0.8      | 15/12/2025 | L. Ascenzi, S. Zheng | Integrazione glossario e requisiti non funzionali     |
+| 0.9      | 20/12/2025 | D. Fosco, N. Spadoni | Revisione finale e verifica consistenza               |
+| 1.0      | 22/12/2025 | D. Fosco, S. Zheng   | Versione finale approvata per la consegna             |
+
+## Riepilogo delle Modifiche Principali
+
+**Versione 0.1 → 0.2 (25/11/2025)**
+- Aggiunta sezione "Definizione dei Requisiti Utente"
+- Inserimento dei primi 5 requisiti funzionali
+- Definizione degli scenari d'uso principali
+
+**Versione 0.2 → 0.5 (05/12/2025)**
+- Espansione del glossario con 15 nuovi termini
+- Specifica dei requisiti non funzionali (prestazioni, usabilità, affidabilità)
+- Introduzione dei criteri di accettazione
+- Definizione dei vincoli progettuali
+
+**Versione 0.5 → 0.8 (15/12/2025)**
+- Integrazione requisiti gestione magazzino
+- Aggiunta figure professionali (Executive Chef, Sommelier, Runner)
+- Specifica delle interfacce con sistemi esterni
+- Definizione delle metriche di performance
+
+**Versione 0.8 → 0.9 (20/12/2025)**
+- Revisione completa della consistenza terminologica
+- Verifica tracciabilità requisiti-casi d'uso
+- Ottimizzazione della struttura documentale
+- Correzione errori minori e refusi
+
+**Versione 0.9 → 1.0 (22/12/2025)**
+- Approvazione finale del team
+- Allineamento con le specifiche del corso
+- Preparazione per la consegna ufficiale
+
+Il documento rappresenta lo stato completo dei requisiti per la versione 1.0 del sistema TableFlow e costituisce la base di riferimento per lo sviluppo e la validazione del progetto.
+
+*Il Team TableFlow*  
+*Dicembre 2025*
 
 # Introduzione
 
