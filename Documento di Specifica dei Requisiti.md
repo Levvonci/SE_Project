@@ -219,11 +219,7 @@ Questo progetto si inserisce nella strategia di innovazione digitale e miglioram
 - Singolo elemento vendibile (piatto, bevanda, extra)
 - Caratteristiche: prezzo, descrizione, categoria, allergeni, giacenza
 
-# Requisiti Utente
-
-Ecco una definizione strutturata dei requisiti utente per un software di gestione ristorante:
-
-# DEFINIZIONE DEI REQUISITI UTENTE
+# Definizione dei Requisiti Utente
 
 ## 1. REQUISITI FUNZIONALI
 
