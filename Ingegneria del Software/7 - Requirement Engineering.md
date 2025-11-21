@@ -25,7 +25,7 @@ Domande tipiche dello studio di fattibilità:
 2. Può il sistema software essere sviluppato usando le **tecnologie** correnti e rispettando i **vincoli** di durata e costo complessivo?
 3. Può il sistema software essere **integrato** con altri sistemi già in uso?
 
-# Identificazione e analisi dei requisiti
+# Identificazione e Analisi dei Requisiti
 
 Il team di sviluppo incontra il cliente e gli utenti finali al fine di identificare i requisiti utente, dalla cui analisi si generano i requisiti di sistema (specifiche). Questo processo coinvolge tipicamente personale di vari ruoli sia all'interno dell'organizzazione del cliente che in altre organizzazioni o tra gli utenti finali.
 
@@ -51,7 +51,7 @@ Il team di sviluppo incontra il cliente e gli utenti finali al fine di identific
 Si dividono in:
 - **Semi-formali**: basate su modelli del sistema e usate dai metodi di analisi strutturata o analisi orientata agli oggetti.
 - **Formali**: basate su Petri Net, FSM, Z, ecc.
-# Convalida dei requisiti
+# Convalida dei Requisiti
 
 La convalida dei requisiti ha l'obiettivo di controllare che il documento dei requisiti, ottenuto dalla fase di analisi, descriva accuratamente il sistema software che il cliente si aspetta. Scoprire gli errori in questa fase è fondamentale per evitare modifiche costose in fasi successive.
 
@@ -73,31 +73,215 @@ Tecniche di convalida dei requisiti:
 - **Generazione dei test-case**.
 - **Analisi di consistenza automatizzata**: per requisiti formali.
 
-# Gestione dei requisiti.
+# Gestione dei Requisiti.
 
-Consiste nell'identificazione e **controllo delle modifiche** subite dai requisiti di un sistema software durante il ciclo di vita. I requisiti di un sistema software possono essere classificati in termini della loro evoluzione come:
+Consiste nell'**identificazione e controllo delle modifiche** che i requisiti ricevono durante la vita del software. I requisiti possono essere classificati in base alla loro evoluzione come:
 
-- **Requisiti stabili**: Con probabilità minima di essere modificati nel tempo.
-- **Requisiti volatili**: Con probabilità elevata di essere modificati nel tempo, essi si dividono in:
-	- **Mutabili**: modifiche legate a cambiamenti nell'ambiente operativo.
-	- **Emergenti**: modifiche causate da una migliore comprensione del sistema software.
-	- **Consequenziali**: modifiche legate all'introduzione di sistemi informatici nel flusso di lavoro.
-	- **di compatibilità**: modifiche legate a cambiamenti nei sistemi e nei processi aziendali.
+- **Requisiti stabili**: se hanno bassa probabilità di essere modificati nel tempo.
+- **Requisiti volatili**: se hanno alta probabilità di essere modificati nel tempo, si dividono in:
+	- **Mutabili**: se le modifiche sono legate a cambiamenti nell'ambiente operativo.
+	- **Emergenti**: se le modifiche sono causate da una migliore comprensione del sistema software.
+	- **Consequenziali**: se le modifiche sono legate all'introduzione di sistemi informatici nel flusso di lavoro.
+	- **Di Compatibilità**: se le modifiche sono legate a cambiamenti nei sistemi e nei processi aziendali.
 ## Gestione delle modifiche di requisiti
 
-Le modifiche dei requisiti vanno opportunamente pianificate mediante:
-- Identificazione univoca dei requisiti.
-- Gestione delle modifiche
+Le modifiche dei requisiti vanno pianificate mediante:
+
+1. **Identificazione univoca dei requisiti**.
+2. **Gestione delle modifiche**: con
 	- Analisi dei costi.
 	- Analisi dell'impatto.
 	- Analisi della realizzazione.
-- Politiche di tracciabilità: relazioni tra requisiti e tra requisiti e progetto del sistema software.
-- Uso di tool CASE per il supporto alle modifiche.
-## Specifiche formali vs. informali
+3. **Tracciabilità**: relazioni tra requisiti e tra requisiti e progetto del sistema software.
+4. **Uso di tool CASE** per il supporto alle modifiche.
+# Specifiche Formali vs. Informali
 
-![[Pasted image 20250517193334.png]]
-## Specifiche formali con Petri Net
+![[Pasted image 20251121150804.png]]
 
-Usate in ambito di ingegneria delle comunicazioni. 
+# Specifiche Formali con Petri Net
 
-![[Pasted image 20250517193356.png]]
+Sono usate in ambito di ingegneria delle comunicazioni. 
+
+![[Pasted image 20251121151132.png]]
+
+## Marked Petri Net 
+
+![[Pasted image 20251121151215.png]]
+
+after firing transition $t_1$:
+
+![[Pasted image 20251121151249.png]]
+
+after firing transition $t_2$:
+
+![[Pasted image 20251121151318.png]]
+
+## Esempio
+
+![[Pasted image 20251121151351.png]]
+
+# Specifiche Formali con Finite State Machine (FSM)
+
+![[Pasted image 20251121151448.png]]
+# Specifiche Formali con linguaggio Z
+
+Consiste di un set di schemi, ogni schema Z ha il seguente formato:
+
+![[Pasted image 20251121151535.png]]
+## Esempio di Specifica di Stato
+
+![[Pasted image 20251121151610.png]]
+
+## Esempio di Specifica di Operazione
+
+![[Pasted image 20251121151647.png]]
+
+# Spec. Semi-Formali: Modelli del Sistema
+
+Un modello del sistema è una **rappresentazione astratta del sistema** ottenuta attraverso linguaggi visuali (**UML**) che facilita la comprensione delle proprietà e del  funzionamento del sistema, prima che esso venga costruito.
+
+L'uso di modelli nei sistemi software è formalizzato all'interno dei metodi di analisi dei requisiti del software che fanno uso di tecniche semi-formali.
+
+I metodi di analisi dei requisiti software sono di due tipi:
+
+1. **Metodi di analisi strutturata (o procedurale)**.
+2. **Metodi di analisi orientata agli oggetti**.
+
+I medoti di analisi sono nati come conseguenza dei metodi di programmazione.
+
+Per descrivere completamente un sistema è necessario costruire vari modelli che rappresentino il sistema da vari punti di vista (**informazioni**, **funzioni** e **comportamento dinamico**).
+
+# Tipi di modelli del sistema
+
+Per descrivere la specifica semi-formale di un sistema software esistono 3 tipi di modelli:
+
+1. **Modello dei dati**: rappresenta gli aspetti statici e strutturali relativi ai dati (data requirements):
+	Notazioni usate:
+	- ERD (not UML).
+	- Class diagram (UML).
+2. **Modello comportamentale**: rappresenta gli aspetti funzionali del sistema (functional requirements):
+	Notazioni usate:
+	- Data flow diagram (not UML).
+	- Use case diagram (UML).
+	- Activity diagram (UML).
+	- Interaction diagram (UML).
+3. **Modello dinamico**: rappresenta gli aspetti di "controllo“ e di come le funzioni del modello comportamentale modificano i dati introdotti nel modello dei dati.
+	Notazioni usate:
+	- State diagram (UML).
+
+Le notazioni elencate erano utilizzate prima dell'introduzione dell'UML. Molti sono ora in disuso.
+# Entity Relationship Diagram (ERD)
+
+## Relazioni Uno-a-Molti
+
+![[Pasted image 20251121152235.png]]
+
+## Relazioni Molti-a-Molti
+
+![[Pasted image 20251121152308.png]]
+# Data Flow Diagram (DFD)
+
+Formalismo non UML usato per formalizzare il modello comportamentale. Utilizza le seguenti notazioni:
+
+![[Pasted image 20251121152325.png]]
+
+## Esempio di DFD
+
+### 1° raffinamento
+
+![[Pasted image 20251121152349.png]]
+
+### 2° raffinamento
+
+![[Pasted image 20251121152412.png]]
+# Structured System Analysis (SSA)
+
+Analizzeremo un modello procedurale per capire le principali differenze con un modello ad oggetti.
+
+Introdotto da Gane and Sarson (1979) e basato sul concetto di step-wise refinement, è costituito da 9 step. Era in voga negli anni '80, oramai desueto.
+
+Altri metodi di analisi strutturata sono:
+- DeMarco (1978).
+- Yourdon and Constantine (1979).
+## 1 - Disegna il DFD (Diagramma di Flusso dei Dati)
+
+Usando il documento dei requisiti (o il prototipo), identifica i flussi di dati, con le rispettive sorgenti e destinazioni (dove i dati iniziano e terminano il loro flusso) e i processi che li trasformano.
+
+Affina poi il DFD (Diagramma di Flusso dei Dati) aggiungendo nuovi flussi di dati o dettagli a quelli esistenti.
+
+## 2 - Decidi quali Sezioni Computerizzare e Come
+
+Usando un'analisi dei costi e benefici decidi quali sezioni del DFD automatizzare e come, se con 
+**operazioni batch** (in lotti) o **elaborazione online** (in tempo reale).
+
+**Esempio**:
+- **Inserimento degli ordini**: operazioni in batch.
+- **Convalida degli ordini**: elaborazione online.
+
+Le prossime 3 fasi costituiscono il raffinamento graduale dei flussi di dati, dei processi e degli archivi di dati.
+
+## 3 - Determina i Dettagli dei Flussi di Dati
+
+Decidi quali  dati devono andare  nei vari flussi.
+
+**Esempio**: Il flusso di dati `ordine` può essere scomposto come segue:
+- identificazione_ordine
+- dati_cliente
+- dati_pacchetto
+
+Quindi, scomporre ogni flusso gradualmente:
+- `identificazione_ordine` è un intero a 12 cifre.
+- `dati_cliente` consiste in `nome_cliente`, `indirizzo_cliente`, ecc.
+
+## 4 - Definisci la Logica dei Processi
+
+Esempio: costruire l'albero decisionale per un processo `concedi_sconto_istruzione`.
+
+![[Pasted image 20251121163219.png]]
+
+## 5 - Determina gli Archivi di Dati
+
+Definire il contenuto esatto di ogni archivio e la sua rappresentazione (formato specifico in un dato linguaggio di programmazione). Definire il livello di accesso utilizzando un diagramma di accesso immediato ai dati (**DIAD**).
+
+Esempio:
+
+![[Pasted image 20251121163323.png]]
+
+## 6 - Definisci le Risorse Fisiche
+
+Esempi:
+- Per ogni file, specificare: nome del file, organizzazione (sequenziale, indicizzata, ecc.), supporto di memorizzazione, record, fino al livello del campo.
+- Se si utilizza un DBMS, specificare le informazioni rilevanti per ogni tabella.
+
+## 7 - Determina le Specifiche di Input/Output
+
+- I form di input devono essere specificate (componenti e layout).
+- Anche le schermate di output devono essere determinate allo stesso modo.
+- L'output stampato deve essere specificato (lunghezza stimata e dettagli).
+
+## 8 - Determina il Dimensionamento
+
+Calcolare:
+- il volume di input (giornaliero o orario).
+- la frequenza di ogni report stampato e la sua scadenza.
+- la dimensione e il numero di record che devono passare tra la CPU e la memoria di massa.
+- la dimensione di ogni file.
+
+## 9 - Determinare i Requisiti Hardware
+
+Sulla base delle informazioni di dimensionamento specificate nella Fase 8, determinare:
+- Requisiti di memoria di massa.
+- Requisiti di memoria di massa per il backup.
+- Caratteristiche dei terminali utente.
+- Caratteristiche dei dispositivi di output.
+- Adeguatezza dell'hardware esistente.
+- Costi dell'hardware da acquistare.
+
+## Output della SSA
+
+La 9 è l'ultima fase della SSA. Dopo l'approvazione del cliente, il documento di specifica risultante viene consegnato al team di progettazione e il processo software prosegue.
+
+**Svantaggi:**
+- La SSA non può essere utilizzata per determinare i tempi di risposta.
+- La dimensione e la tempistica della CPU non possono essere determinate con un grado di accuratezza sufficiente.
+
