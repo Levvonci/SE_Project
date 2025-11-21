@@ -1,2 +1,5 @@
 # SE_Project
-Software_Engineering_Project - Uniroma2
+- Zheng Simone
+- Ascenzi Leonardo
+- Spadoni Nicoló
+- Folco Damiano
