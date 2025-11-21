@@ -4,7 +4,7 @@ TableFlow è un sistema software completo per la gestione digitale di ristoranti
 
 # Team
 - **Leonardo Ascenzi**
-- **Damiano Fosco** 
+- **Damiano Folco** 
 - **Nicolò Spadoni**
 - **Simone Zheng**
 

@@ -16,12 +16,12 @@ Il documento presuppone nel lettore una conoscenza di base dei processi di risto
 
 | Versione | Data       | Autori               | Descrizione                                           |
 | -------- | ---------- | -------------------- | ----------------------------------------------------- |
-| 0.1      | 15/11/2025 | L. Ascenzi, D. Fosco | Bozza iniziale - Struttura documento e requisiti base |
+| 0.1      | 15/11/2025 | L. Ascenzi, D. Folco | Bozza iniziale - Struttura documento e requisiti base |
 | 0.2      | 25/11/2025 | N. Spadoni, S. Zheng | Ampliamento requisiti funzionali e casi d'uso         |
-| 0.5      | 05/12/2025 | D. Fosco, S. Zheng   | Prima versione completa per revisione interna         |
+| 0.5      | 05/12/2025 | D. Folco, S. Zheng   | Prima versione completa per revisione interna         |
 | 0.8      | 15/12/2025 | L. Ascenzi, S. Zheng | Integrazione glossario e requisiti non funzionali     |
-| 0.9      | 20/12/2025 | D. Fosco, N. Spadoni | Revisione finale e verifica consistenza               |
-| 1.0      | 22/12/2025 | D. Fosco, S. Zheng   | Versione finale approvata per la consegna             |
+| 0.9      | 20/12/2025 | D. Folco, N. Spadoni | Revisione finale e verifica consistenza               |
+| 1.0      | 22/12/2025 | D. Folco, S. Zheng   | Versione finale approvata per la consegna             |
 
 ## Riepilogo delle Modifiche Principali
 
