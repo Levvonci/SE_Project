@@ -136,30 +136,49 @@ L'**obiettivo dell’affidabilità software** è invece quello della **crescita 
 decrescere la frequenza di guasto.
 
 Andamento della frequenza di un guasto hardware:
-![[Pasted image 20250512082220.png]]
+![[andamento-guasto-hw.png]]
 
-Andamento frequenza di un guasto software:
-![[Pasted image 20250512082258.png]]
+Andamento della frequenza di un guasto software:
+![[andamento-guasto-sw.png]]
 
 # Cos'è la Software Availability
 
 La disponibilità software è la percentuale di tempo che il software è risultato usabile nel corso della sua vita. Dipende dal numero di guasti bloccanti che si verificano e dal tempo necessario a ripararli.
 
-# L' importanza della Software Reliability/Availability
+# L'importanza della Software Reliability/Availability
 
 Essi sono metriche particolarmente importanti per i sistemi in cui la caduta del servizio crea gravi perdite economiche e sociali.
 
 Esempi:
-1. Sistemi di governo del traffico aereo.
-2. Sistemi produzione e distribuzione di energia.
-3. Sistemi di comunicazione.
-4. Ecc.
+1. Sistemi di trasporto
+2. Sistemi di governo del traffico aereo
+3. Sistemi di governo del volo
+4. Sistemi di produzione e distribuzione di energia
+5. Sistemi di comunicazione
+6. Ecc.
 
-# Conclusione
+# Conclusioni
+
+Nel corso degli anni la produzione del software ha seguito varie fasi:
+- Fase di **abilità** - in cui prevalgono gli aspetti di lavoro individuale e creativo
+- Fase **artigianale** - in cui il software viene prodotto da piccoli gruppi specializzati di alto livello professionale
+- Fase **industriale** - in cui l'attività di sviluppo e manutenzione del software viene pianificata e coordinata, il lavoro svolto dal progettista inoltre viene sempre più supportato da strumenti automatici.
+
+Il software è considerato come un insieme di elementi che formano una "configurazione" che include:
+- Programmi
+- Documenti
+- Dati multimediali
+
+Inoltre questo viene realizzato dall'ingegnere del software che applica un processo per ottenere risultati di qualità elevata. Si applica al software quindi un approccio ingegneristico.
+
+Caratteristiche del software:
+1. Il software va "ingegnerizzato"
+2. Il software non si consuma
+3. Il software è complesso, invisibile, si conforma, si cambia.
+
 # I miti da sfatare del software
-
-- In caso di ritardo, basta aumentare il numero di programmatori.
-- Una descrizione generica è sufficiente a scrivere i programmi. Eventuali modifiche si possono facilmente effettuare in seguito.
+- In caso di ritardo, basta aumentare il numero di programmatori
+- Una descrizione generica è sufficiente a scrivere programmi. Eventuali modifiche si possono modificare in seguito con facilità.
 - Una volta messo in opera il programma, il lavoro è finito.
 - Non c'è modo di valutare la qualità fino a quando non si ha a disposizione il prodotto finale.
 - L'ingegneria del software è costosa e rallenta la produzione.
