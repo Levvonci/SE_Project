@@ -6,7 +6,7 @@ OOA e OOD devono fornire, ciascuno dal proprio punto di vista, una rappresentazi
 - degli aspetti funzionali del sistema (modello comportamentale).
 - degli aspetti di "controllo" e di come le funzioni del modello.
 - comportamentale modificano i dati introdotti nel modello dei dati (modello dinamico).
-# Metodi di OOA[[7 - Requirement Engineering]]
+# Metodi di OOA
 
 Un metodo di OOA definisce l'insieme di procedure, tecniche e strumenti per un approccio sistematico alla gestione e allo sviluppo della fase di OOA.
 
