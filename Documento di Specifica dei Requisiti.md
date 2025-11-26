@@ -350,6 +350,9 @@ Chiedere se farne uno unico oppure farlo splittato
 ## Documentazione 
 Chiedere Prof
 
+# System Architecture
+# System requirements specification
+Da Chiedere
 # System Architectural Models
 ## Activity Diagrams
 ### Prenotazioni
@@ -363,6 +366,13 @@ Chiedere Prof
 ![[class_Diagram.png | center | 600]]
 ### Class diagram refined
 Chiedere Prof
+
 # Design Pattern
 Chiedere Prof
 # Evoluzione del sistema
+## **Estensibilità verso Camerieri Robot e Droni di Consegna**
+Il sistema è progettato con un'architettura API-first e modulare per permettere l'integrazione futura di camerieri robotici e droni per la consegna a domicilio. Le interfacce di gestione ordini e comande sono già strutturate per supportare dispositivi autonomi, con protocolli di comunicazione standardizzati che potranno essere estesi per includere comandi di navigazione, gestione tray robotizzati e coordinamento multi-agente. L'infrastruttura di gestione ordini a domicilio include già hook per l'integrazione con sistemi di delivery autonomo, prevedendo API specifiche per la pianificazione rotte drone, monitoraggio stato consegne in tempo reale e gestione autonoma degli slot di ricarica. L'astrazione dei layer di business logic dalla presentation layer consentirà di sostituire progressivamente le interfacce umane con controller per robot e flotte drone, mantenendo invariata la logica operativa mentre si evolve l'implementazione fisica del servizio.
+
+# Appendice
+Qualcosa
+
