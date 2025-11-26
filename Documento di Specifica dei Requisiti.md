@@ -351,6 +351,7 @@ Chiedere se farne uno unico oppure farlo splittato
 Chiedere Prof
 
 # System Architecture
+Da chiedere
 # System requirements specification
 Da Chiedere
 # System Architectural Models
