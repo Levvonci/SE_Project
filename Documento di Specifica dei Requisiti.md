@@ -341,11 +341,25 @@ Questo progetto si inserisce nella strategia di innovazione digitale e miglioram
 - Media: Reportistica, gestione magazzino
 - Bassa: Funzioni avanzate di marketing
 
-## Class Diagram
-![[class_Diagram.png | center | 600]]
 
-## Use Case Diagram
+## Use Case Diagram o Diagrams
+Chiedere se farne uno unico oppure farlo splittato
 ![[use_case_diagram.png | center | 400]]
+## Documentazione 
+Chiedere Prof
 
-## Activity Diagram Prenotazioni
+# System Architectural Models
+## Activity Diagrams
+### Prenotazioni
 ![[activity_diagram_prenotazione.png | center | 400]]
+### + altri da aggiungere
+Chiedere prof
+## Sequence Diagrams
+Chiedere Prof
+## Class Diagram
+### Class diagram unrefined
+![[class_Diagram.png | center | 600]]
+### Class diagram refined
+Chiedere Prof
+# Design Pattern
+Chiedere Prof
