@@ -340,3 +340,12 @@ Questo progetto si inserisce nella strategia di innovazione digitale e miglioram
 - Alta: Gestione ordini, conti, prenotazioni
 - Media: Reportistica, gestione magazzino
 - Bassa: Funzioni avanzate di marketing
+
+## Class Diagram
+![[class_Diagram.png | center | 600]]
+
+## Use Case Diagram
+![[use_case_diagram.png | center | 400]]
+
+## Activity Diagram Prenotazioni
+![[activity_diagram_prenotazione.png | center | 400]]
