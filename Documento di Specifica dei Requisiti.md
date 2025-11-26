@@ -58,6 +58,8 @@ Il documento rappresenta lo stato completo dei requisiti per la versione 1.0 del
 *Il Team TableFlow*  
 *Dicembre 2025*
 
+# Indice
+Da Scrivere
 # Introduzione
 
 ## 1. Scopo del Documento
@@ -363,3 +365,4 @@ Chiedere Prof
 Chiedere Prof
 # Design Pattern
 Chiedere Prof
+# Evoluzione del sistema
