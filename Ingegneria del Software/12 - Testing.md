@@ -139,7 +139,7 @@ I test di integrazione riguardano sistemi completi o sottosistemi composti da co
 
 ## Incremental Integration Testing
 L'integrazione incrementale riduce la complessità della localizzazione degli errori. Vengono definite sequenze di test progressivi in cui i componenti vengono integrati gradualmente:
-![[IMG_lvnc/Int_Test.png]]
+![[Int_Test.png]]
 
 ## Approcci all'Integration Testing
 ### Top-Down Testing
@@ -152,7 +152,7 @@ Si inizia dal sistema di alto livello e si integra procedendo dall'alto verso il
 **Sfide**:
 - Osservazione dei test può richiedere codice aggiuntivo.
 
-![[IMG_lvnc/TopDown_Testing.png]]
+![[TopDown_Testing.png]]
 
 ### Bottom-Up Testing
 Si integrano i singoli componenti in livelli fino a creare il sistema completo. Ogni livello viene testato utilizzando driver di test che simulano i componenti di livello superiore.
@@ -165,7 +165,7 @@ Si integrano i singoli componenti in livelli fino a creare il sistema completo. 
 - Validazione dell'architettura più difficile.
 - Nessuna dimostrazione anticipata del sistema.
 
-![[IMG_lvnc/BottomUp_Testing.png]]
+![[BottomUp_Testing.png]]
 
 ## Testing Approaches
 | Aspetto                    | Top-Down                                            | Bottom-Up                             |
@@ -178,7 +178,7 @@ Si integrano i singoli componenti in livelli fino a creare il sistema completo. 
 # Interface testing
 Quando moduli o sottosistemi vengono integrati per creare sistemi più grandi, è fondamentale testare le interfacce. Gli obiettivi sono rilevare difetti dovuti a errori di interfaccia o assunzioni non valide riguardanti le interfacce. Questo è particolarmente importante nello sviluppo orientato agli oggetti, dove gli oggetti sono definiti dalle loro interfacce.
 
-![[IMG_lvnc/Interface_Testing.png]]
+![[Interface_Testing.png]]
 
 ## Interfaces Types
 - **Interfacce di parametro:** Dati passati da una procedura a un'altra
@@ -222,7 +222,7 @@ La copertura completa del test di una classe comporta:
 L'ereditarietà complica la progettazione dei test di classe di oggetto, poiché le informazioni da testare non sono localizzate in un'unica classe.
 
 ## Weather station class and state diagram
-![[IMG_lvnc/Weather_Station.png]]
+![[Weather_Station.png]]
 
 I **diagrammi di stato** identificano le transizioni di stato per il testing. Ad esempio, per una stazione meteo si potrebbero testare sequenze come:
 
@@ -240,10 +240,10 @@ I livelli di integrazione sono meno distinti nei sistemi orientati agli oggetti.
 
 ### Scenario-Based testing
 Per il test basato su scenario si identificano scenari dai casi d'uso e si integrano con diagrammi di interazione che mostrano gli oggetti coinvolti nello scenario (ad esempio diagrammi di sequenza).
-![[IMG_lvnc/Weather_Data.png]]
+![[Weather_Data.png]]
 
 # Testing Workbenches
 Il testing è una fase costosa del processo di sviluppo. I workbench di test forniscono una gamma di strumenti per ridurre il tempo richiesto e i costi totali di test. La maggior parte dei workbench di test sono sistemi aperti perché le esigenze di testing sono specifiche dell'organizzazione.
 
 ## Esempio
-![[IMG_lvnc/Workbench_Testing.png]]
+![[Workbench_Testing.png]]

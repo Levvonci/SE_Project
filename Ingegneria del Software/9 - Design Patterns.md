@@ -60,7 +60,7 @@ Elenco dei 23 deign pattern definiti dal GoF
 23. Abstract Factory
 
 ### Classificazione Completa
-![[IMG_lvnc/Classificazione_Completa.png]]
+![[Classificazione_Completa.png]]
 
 # Descrizione dei design pattern
 - Nome e Classificazione: Il nome illustra l'essenza di un pattern; la classificazione lo identifica in termini di scopo e raggio d'azione.
@@ -92,10 +92,10 @@ Un framework non é una semplice libreria; rappresenta il design riutilizzabile 
 >+ Look&Feel2 -> Window2 e ScrollBar2
 
 Usiamo una **Abstract Factory:**
-![[IMG_lvnc/Ab_Factory.png]]
+![[Ab_Factory.png]]
 
 Struttura della **Abstract Factory:**
-![[IMG_lvnc/Ab_Factory_Struttura.png]]
+![[Ab_Factory_Struttura.png]]
 
 ## Vantaggi
 - Isolamento delle classi complete.
@@ -117,26 +117,26 @@ Struttura della **Abstract Factory:**
 >Gli utilizzatori devono definire delle sottoclassi per ottenere delle implementazioni adatte all'applicazione specifica.
 >Application contiene la logica per sapere quando un nuovo documento sará creato, ma non per sapere quale tipo di documento creare.
 >Il Pattern Factory incapsula la conoscenza della specifica classe da creare al di fuori del framework
-![[IMG_lvnc/Factory_Method_es.png]]
+![[Factory_Method_es.png]]
 
 ## Struttura
-![[IMG_lvnc/Factory_Method_Struttura.png]]
+![[Factory_Method_Struttura.png]]
 
 # Adapter
 **Scopo:** Convertire l'interfaccia di una classe esistente incompatibile con un client, in una compatibile.
 
 >**Esempio:**
 >Supponiamo di voler integrare il componente Circle nell'editor che giá supporta le forme Triangle e Rectangle
-![[IMG_lvnc/Adapter_Ex1.png]]
+![[Adapter_Ex1.png]]
 
 >Soluzione_1: Object Adapter
-![[IMG_lvnc/Adapter_Ex1.png]]
+![[Adapter_Ex1.png]]
 
 >Class Adapter
-![[IMG_lvnc/Adapter_Ex2.png]]
+![[Adapter_Ex2.png]]
 
 >Struttura:
-![[IMG_lvnc/Adapter_Struttura.png]]
+![[Adapter_Struttura.png]]
 
 - **Object Adapter:** Usa la composizione.
 - **Class Adapter:** Usa l'ereditarietá multipla.
@@ -146,10 +146,10 @@ Struttura della **Abstract Factory:**
 
 >**Esempio:**
 >Consideriamo un editor grafico in grado di gestire forme elementari e figure composte. Gli oggetti elementari e quelli composti devono essere trattati in modo uniforme
-![[IMG_lvnc/Composite_Ex1.png]]
+![[Composite_Ex1.png]]
 
 >**Struttura:**
-![[IMG_lvnc/Composite_Struttura.png]]
+![[Composite_Struttura.png]]
 
 - Component (interfaccia comune),
 - Leaf (oggetti semplici),
