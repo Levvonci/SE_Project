@@ -73,6 +73,22 @@ Il documento rappresenta lo stato completo dei requisiti per la versione 1.0 del
 	- [[#3. Interazione con Altri Sistemi]]
 	- [[#4. Ambito di Applicazione nel Contesto Aziendale]]
 - [[#Glossario]]
+	- [[#A]]
+	- [[#B]]
+	- [[#C]]
+	- [[#D]]
+	- [[#E]]
+	- [[#F]]
+	- [[#G]]
+	- [[#I]]
+	- [[#M]]
+	- [[#O]]
+	- [[#P]]
+	- [[#R]]
+	- [[#S]]
+	- [[#T]]
+	- [[#U]]
+	- [[#V]]
 - [[#Definizione dei Requisiti Utente]]
 	- [[#1. REQUISITI FUNZIONALI]]
 		- [[#1.1 Gestione Prenotazioni]]
@@ -104,8 +120,17 @@ Il documento rappresenta lo stato completo dei requisiti per la versione 1.0 del
 		- [[#RF008 - Controllo Giacenze]]
 		- [[#RF009 - Gestione Turni]]
 		- [[#RF010 - Analisi Finanziaria]]
-- [Use Case Diagram](#use-case-diagram)
-- [Documentazione](#documentazione)
+- [[#Analisi Dei Requisiti]]
+	- [[#Class Diagram]]
+- [[#Modello Comportamentale]]
+	- [[#Diagramma dei casi d’uso]]
+	- [[#Activity Diagrams]]
+		- [[#Prenotazione Tavoli]]
+		- [[#Presa Comanda]]
+		- [[#Modifica Comanda]]
+		- [[#Comunicazione Cucina Sala]]
+		- [[#Controllo Giacenze]]
+	- [[#Sequence Diagrams]]
 - [[#Architettura di Sistema]]
 	- [[#1. Struttura Generale]]
 	- [[#2. Componenti Principali]]
@@ -115,17 +140,13 @@ Il documento rappresenta lo stato completo dei requisiti per la versione 1.0 del
 	- [[#4. Tecnologie Proposte]]
 	- [[#5. Modalità Operativa]]
 	- [[#6. Sicurezza Base]]
-- [System Architectural Models](#system-architectural-models)
-  - [Activity Diagrams](#activity-diagrams)
-    - [Prenotazioni](#prenotazioni)
-  - [Sequence Diagrams](#sequence-diagrams)
-  - [Class Diagram](#class-diagram)
-    - [Class diagram unrefined](#class-diagram-unrefined)
-    - [Class diagram refined](#class-diagram-refined)
 - [Design Pattern](#design-pattern)
-- [Evoluzione del sistema](#evoluzione-del-sistema)
-  - [Estensibilità verso Camerieri Robot e Droni di Consegna](#estensibilità-verso-camerieri-robot-e-droni-di-consegna)
-- [Appendice](#appendice)
+- [[#Evoluzione del sistema]]
+  - [[#Estensibilità verso Camerieri Robot e Droni di Consegna]]
+- [[#Appendice]]
+	- [[#A. Riferimenti Normativi]]
+	- [[#B. Matrice di Tracciabilità Requisiti]]
+	- [[#C. Acronimi e Terminologia Tecnica]]
 
 # Introduzione
 
@@ -583,11 +604,31 @@ Questo progetto si inserisce nella strategia di innovazione digitale e miglioram
 ### RF010 - Analisi Finanziaria
 _Scenario:_ General Manager apre dashboard lunedì mattina: vede grafico fatturato settimanale €12.500 (+15% vs scorsa), torta categorie (primi 42%, vini 28%). Clicca "Dettaglio camerieri": Luca generato €3.200 (top), Mario €1.800. Sistema genera report PDF con previsioni affluenza weekend (+20% prenotazioni) e alert "Costo ingredienti carbonara salito 12% causa pomodori" – esporta Excel per commercialista.
 
-## Use Case Diagram o Diagrams
 
-![[use_case_diagram_definitivo.png| center | 500]]
-## Documentazione 
-Chiedere Prof
+# Analisi Dei Requisiti
+## Class Diagram
+![[class_Diagram.png | center | 600]]
+# Modello Comportamentale
+
+## Diagramma dei casi d’uso
+![[use_case_diagram_definitivo.jpg| center | 300]]
+
+## Activity Diagrams
+### Prenotazione Tavoli
+![[Prenotazioni.png | center | 300]]
+
+### Presa Comanda
+![[Presa_Comanda.png | center | 300]]
+
+### Modifica Comanda
+![[Modifica_Comanda.png | center | 300]]
+
+### Comunicazione Cucina Sala
+![[Comunicazione_Cucina_Sala.png | center | 300]]
+
+### Controllo Giacenze
+![[Controllo_Giacenze.png | center | 300]]
+## Sequence Diagrams
 
 # Architettura di Sistema
 
@@ -634,26 +675,52 @@ Cucina ← WebSocket ← Notifiche
 - Accessi separati: camerieri vedono solo loro funzioni, titolare vede tutto
 - Backup automatico giornaliero
 
-# System Architectural Models
-## Activity Diagrams
-### Prenotazioni
-![[activity_diagram_prenotazione.png | center | 400]]
-### + altri da aggiungere
-Chiedere prof
-## Sequence Diagrams
-Chiedere Prof
-## Class Diagram
-### Class diagram unrefined
-![[class_Diagram.png | center | 600]]
-### Class diagram refined
-Chiedere Prof
-
 # Design Pattern
 Chiedere Prof
 # Evoluzione del sistema
-## **Estensibilità verso Camerieri Robot e Droni di Consegna**
+
+## Estensibilità verso Camerieri Robot e Droni di Consegna
 Il sistema è progettato con un'architettura API-first e modulare per permettere l'integrazione futura di camerieri robotici e droni per la consegna a domicilio. Le interfacce di gestione ordini e comande sono già strutturate per supportare dispositivi autonomi, con protocolli di comunicazione standardizzati che potranno essere estesi per includere comandi di navigazione, gestione tray robotizzati e coordinamento multi-agente. L'infrastruttura di gestione ordini a domicilio include già hook per l'integrazione con sistemi di delivery autonomo, prevedendo API specifiche per la pianificazione rotte drone, monitoraggio stato consegne in tempo reale e gestione autonoma degli slot di ricarica. L'astrazione dei layer di business logic dalla presentation layer consentirà di sostituire progressivamente le interfacce umane con controller per robot e flotte drone, mantenendo invariata la logica operativa mentre si evolve l'implementazione fisica del servizio.
 
 # Appendice
-Qualcosa
 
+## A. Riferimenti Normativi 
+**Regolamento UE 1169/2011** - Obblighi informativi in materia di alimenti: gestione allergeni obbligatoria su comande cucina (RF002, RV002).
+**D.Lgs. 127/2015** - Registratore di cassa telematico (RCF): integrazione plug-and-play per scontrini/fatture (RF007, RNF05).
+**GDPR Reg. UE 2016/679** - Anonimizzazione dati clienti dopo 24 mesi inattività; audit trail 10 anni operazioni finanziarie (RNF03).
+
+## B. Matrice di Tracciabilità Requisiti
+
+| **RF/RNF ID** | **Use Case/Scenario** | **Test Case Proposto**            | **Status**   |
+| ------------- | --------------------- | --------------------------------- | ------------ |
+| RF001         | Prenotazione Tavoli   | TC001: Conferma WhatsApp          | Implementato |
+| RF002         | Creazione Comanda     | TC002: Modifiche piatto           | Implementato |
+| RF007         | Gestione Conto        | TC007: Divisione conto            | Implementato |
+| RF009         | Gestione Turni        | TC009: Conflitti turni            | Da Testare   |
+| RNF01         | Performance <1s       | TC_NF01: Load test 50 comande     | Da Testare   |
+| RNF03         | Audit Trail           | TC_NF03: Traccia modifiche prezzi | Implementato |
+
+## C. Acronimi e Terminologia Tecnica
+
+| **Acronimo** | **Definizione**                       | **Riferimento**             |
+| ------------ | ------------------------------------- | --------------------------- |
+| RCF          | Registratore Cassa Fiscale Telematico | RF007, RV001                |
+| MTTR         | Mean Time To Repair                   | RNF02 (<30 minuti)          |
+| KPI          | Key Performance Indicator             | RF010 DashBoard             |
+| POS          | Point of Sale                         | Introduzione Front-Of-House |
+| 2FA          | Two Factor Authentication             | RNF03 Amministratori        |
+
+## Dati Test Fittizi
+```json
+{  
+"ingredienti": [  
+{"id": "pomodorini", "giacenza": 45, "soglia_min": 10, "prezzo_unit": 2.5},  
+{"id": "burro", "giacenza": 3, "soglia_min": 5, "prezzo_unit": 8.0},  
+{"id": "farina", "giacenza": 20, "soglia_min": 15, "prezzo_unit": 1.2}  
+],  
+
+"piatti": [  
+{"nome": "Pizza Margherita", "ingredienti": ["pomodorini", "farina"], "prezzo": 12}  
+]  
+}
+```
