@@ -67,48 +67,54 @@ Il documento rappresenta lo stato completo dei requisiti per la versione 1.0 del
 
 # Indice
 
-- [Introduzione](#introduzione)
-  - [1. Scopo del Documento](#1-scopo-del-documento)
-  - [2. Descrizione Sintetica del Sistema](#2-descrizione-sintetica-del-sistema)
-  - [3. Interazione con Altri Sistemi](#3-interazione-con-altri-sistemi)
-  - [4. Ambito di Applicazione nel Contesto Aziendale](#4-ambito-di-applicazione-nel-contesto-aziendale)
-- [Glossario](#glossario)
-- [Definizione dei Requisiti Utente](#definizione-dei-requisiti-utente)
-  - [1. REQUISITI FUNZIONALI](#1-requisiti-funzionali)
-    - [1.1 Gestione Prenotazioni](#11-gestione-prenotazioni)
-      - [RF001 - Prenotazione Tavoli](#rf001---prenotazione-tavoli)
-    - [1.2 Gestione Ordinazioni](#12-gestione-ordinazioni)
-      - [RF002 - Creazione Comanda](#rf002---creazione-comanda)
-      - [RF003 - Modifica Comanda](#rf003---modifica-comanda)
-    - [1.3 Gestione Produzione](#13-gestione-produzione)
-      - [RF004 - Invio Ordini a Cucina/Bar](#rf004---invio-ordini-a-cucinabar)
-      - [RF005 - Visualizzazione Comande in Cucina/Bar](#rf005---visualizzazione-comande-in-cucinabar)
-      - [RF006 - Comunicazione Cucina/Bar - Sala](#rf006---comunicazione-cucinabar---sala)
-    - [1.4 Gestione Pagamenti](#14-gestione-pagamenti)
-      - [RF007 - Gestione Conto](#rf007---gestione-conto)
-    - [1.5 Gestione Magazzino](#15-gestione-magazzino)
-      - [RF008 - Controllo Giacenze](#rf008---controllo-giacenze)
-    - [1.6 Gestione Personale](#16-gestione-personale)
-      - [RF009 - Gestione Turni](#rf009---gestione-turni)
-    - [1.7 Gestione Finanziaria e Reportistica](#17-gestione-finanziaria-e-reportistica)
-      - [RF010 - Analisi Finanziaria](#rf010---analisi-finanziaria)
-  - [2. REQUISITI NON FUNZIONALI](#2-requisiti-non-funzionali)
-    - [RNF01 - PERFORMANCE TEMPI REALI](#rnf01---performance-tempi-reali)
-    - [RNF02 - AFFIDABILITÀ OPERATIVA CONTINUA](#rnf02---affidabilità-operativa-continua)
-    - [RNF03 - SICUREZZA E TRACCIABILITÀ](#rnf03---sicurezza-e-tracciabilità)
-    - [RNF04 - USABILITÀ E FORMAZIONE](#rnf04---usabilità-e-formazione)
-    - [RNF05 - INTEGRAZIONE E INTEROPERABILITÀ](#rnf05---integrazione-e-interoperabilità)
-    - [RNF06 - SCALABILITÀ E CARICO](#rnf06---scalabilità-e-carico)
-    - [BONUS: RNF07 - MANUTENIBILITÀ OPERATIVA](#bonus-rnf07---manutenibilità-operativa)
-  - [3. REQUISITI DI DOMINIO](#3-requisiti-di-dominio)
-    - [3.1 Legali e Fiscali](#31-legali-e-fiscali)
-      - [RV001 - Conformità Legale](#rv001---conformità-legale)
-      - [RV002 - Gestione Allergeni](#rv002---gestione-allergeni)
-    - [3.2 Hardware](#32-hardware)
-      - [RV003 - Specifiche Minime Dispositivi](#rv003---specifiche-minime-dispositivi)
+- [[#Introduzione]]
+	- [[#1. Scopo del Documento]]
+	- [[#2. Descrizione Sintetica del Sistema]]
+	- [[#3. Interazione con Altri Sistemi]]
+	- [[#4. Ambito di Applicazione nel Contesto Aziendale]]
+- [[#Glossario]]
+- [[#Definizione dei Requisiti Utente]]
+	- [[#1. REQUISITI FUNZIONALI]]
+		- [[#1.1 Gestione Prenotazioni]]
+		- [[#1.2 Gestione Ordinazioni]]
+		- [[#1.3 Gestione Produzione]]
+		- [[#1.4 Gestione Pagamenti]]
+		- [[#1.5 Gestione Magazzino]]
+		- [[#1.6 Gestione Personale]]
+		- [[#1.7 Gestione Finanziaria e Reportistica]]
+	- [[#2. REQUISITI NON FUNZIONALI]]
+		- [[#RNF01 - PERFORMANCE TEMPI REALI]]
+		- [[#RNF02 - AFFIDABILITÀ OPERATIVA CONTINUA]]
+		- [[#RNF03 - SICUREZZA E TRACCIABILITÀ]]
+		- [[#RNF04 - USABILITÀ E FORMAZIONE]]
+		- [[#RNF05 - INTEGRAZIONE E INTEROPERABILITÀ]]
+		- [[#RNF06 - SCALABILITÀ E CARICO]]
+		- [[#BONUS RNF07 - MANUTENIBILITÀ OPERATIVA]]
+	- [[#3. REQUISITI DI DOMINIO]]
+		- [[#3.1 Legali e Fiscali]]
+		- [[#3.2 Hardware]]
+	- [[#4. SCENARI D'USO]]
+		- [[#RF001 - Prenotazione Tavoli]]
+		- [[#RF002 - Presa Comanda]]
+		- [[#RF003 - Modifica Comanda]]
+		- [[#RF004 - Invio Cucina]]
+		- [[#RF005 - Gestione Conto]]
+		- [[#RF006 - Visualizzazione Cucina]]
+		- [[#RF007 - Comunicazione Cucina-Sala]]
+		- [[#RF008 - Controllo Giacenze]]
+		- [[#RF009 - Gestione Turni]]
+		- [[#RF010 - Analisi Finanziaria]]
 - [Use Case Diagram](#use-case-diagram)
 - [Documentazione](#documentazione)
-- [System Architecture](#system-architecture)
+- [[#Architettura di Sistema]]
+	- [[#1. Struttura Generale]]
+	- [[#2. Componenti Principali]]
+		- [[#Backend (Server)]]
+		- [[#Client (Dispositivi)]]
+	- [[#3. Comunicazione]]
+	- [[#4. Tecnologie Proposte]]
+	- [[#5. Modalità Operativa]]
+	- [[#6. Sicurezza Base]]
 - [System Architectural Models](#system-architectural-models)
   - [Activity Diagrams](#activity-diagrams)
     - [Prenotazioni](#prenotazioni)
@@ -571,11 +577,15 @@ Questo progetto si inserisce nella strategia di innovazione digitale e miglioram
 ### RF008 - Controllo Giacenze
 *Scenario:* Arriva fornitura pomodori. Cuoco aggiorna magazzino: +50kg. Sistema ricalcola totale. A fine giornata, controlla soglie: burro sotto minimo (3kg vs 5kg) → invia alert a titolare. Nel frattempo, "Pizza margherita" mostra "NON DISP." sui tablet.
 
-### RF010 - Gestione Turni
+### RF009 - Gestione Turni
 *Scenario:* Direttore pianifica turni settimana su calendario drag-drop. Sistema avvisa: "Mario supera 40 ore". Fine mese, titolare genera report: Mario 160 ore, 2 malattie, 1 permesso. Esporta Excel per paghe.
+
+### RF010 - Analisi Finanziaria
+_Scenario:_ General Manager apre dashboard lunedì mattina: vede grafico fatturato settimanale €12.500 (+15% vs scorsa), torta categorie (primi 42%, vini 28%). Clicca "Dettaglio camerieri": Luca generato €3.200 (top), Mario €1.800. Sistema genera report PDF con previsioni affluenza weekend (+20% prenotazioni) e alert "Costo ingredienti carbonara salito 12% causa pomodori" – esporta Excel per commercialista.
+
 ## Use Case Diagram o Diagrams
-Chiedere se farne uno unico oppure farlo splittato
-![[use_case_diagram.png | center | 400]]
+
+![[use_case_diagram_definitivo.png| center | 500]]
 ## Documentazione 
 Chiedere Prof
 
