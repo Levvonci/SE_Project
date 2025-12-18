@@ -1,3 +1,10 @@
+# Table Flow
+![[TableFlow_Logo.png | center | 600]]
+- Ascenzi Leonardo (0310858)
+- Folco Damiano (0310549)
+- Spadoni Nicoló (0311175)
+- Zheng Simone (0293045)
+
 # Prefazione
 
 ## Pubblico di Lettori Previsto
@@ -59,7 +66,61 @@ Il documento rappresenta lo stato completo dei requisiti per la versione 1.0 del
 *Dicembre 2025*
 
 # Indice
-Da Scrivere
+
+- [Introduzione](#introduzione)
+  - [1. Scopo del Documento](#1-scopo-del-documento)
+  - [2. Descrizione Sintetica del Sistema](#2-descrizione-sintetica-del-sistema)
+  - [3. Interazione con Altri Sistemi](#3-interazione-con-altri-sistemi)
+  - [4. Ambito di Applicazione nel Contesto Aziendale](#4-ambito-di-applicazione-nel-contesto-aziendale)
+- [Glossario](#glossario)
+- [Definizione dei Requisiti Utente](#definizione-dei-requisiti-utente)
+  - [1. REQUISITI FUNZIONALI](#1-requisiti-funzionali)
+    - [1.1 Gestione Prenotazioni](#11-gestione-prenotazioni)
+      - [RF001 - Prenotazione Tavoli](#rf001---prenotazione-tavoli)
+    - [1.2 Gestione Ordinazioni](#12-gestione-ordinazioni)
+      - [RF002 - Creazione Comanda](#rf002---creazione-comanda)
+      - [RF003 - Modifica Comanda](#rf003---modifica-comanda)
+    - [1.3 Gestione Produzione](#13-gestione-produzione)
+      - [RF004 - Invio Ordini a Cucina/Bar](#rf004---invio-ordini-a-cucinabar)
+      - [RF005 - Visualizzazione Comande in Cucina/Bar](#rf005---visualizzazione-comande-in-cucinabar)
+      - [RF006 - Comunicazione Cucina/Bar - Sala](#rf006---comunicazione-cucinabar---sala)
+    - [1.4 Gestione Pagamenti](#14-gestione-pagamenti)
+      - [RF007 - Gestione Conto](#rf007---gestione-conto)
+    - [1.5 Gestione Magazzino](#15-gestione-magazzino)
+      - [RF008 - Controllo Giacenze](#rf008---controllo-giacenze)
+    - [1.6 Gestione Personale](#16-gestione-personale)
+      - [RF009 - Gestione Turni](#rf009---gestione-turni)
+    - [1.7 Gestione Finanziaria e Reportistica](#17-gestione-finanziaria-e-reportistica)
+      - [RF010 - Analisi Finanziaria](#rf010---analisi-finanziaria)
+  - [2. REQUISITI NON FUNZIONALI](#2-requisiti-non-funzionali)
+    - [RNF01 - PERFORMANCE TEMPI REALI](#rnf01---performance-tempi-reali)
+    - [RNF02 - AFFIDABILITÀ OPERATIVA CONTINUA](#rnf02---affidabilità-operativa-continua)
+    - [RNF03 - SICUREZZA E TRACCIABILITÀ](#rnf03---sicurezza-e-tracciabilità)
+    - [RNF04 - USABILITÀ E FORMAZIONE](#rnf04---usabilità-e-formazione)
+    - [RNF05 - INTEGRAZIONE E INTEROPERABILITÀ](#rnf05---integrazione-e-interoperabilità)
+    - [RNF06 - SCALABILITÀ E CARICO](#rnf06---scalabilità-e-carico)
+    - [BONUS: RNF07 - MANUTENIBILITÀ OPERATIVA](#bonus-rnf07---manutenibilità-operativa)
+  - [3. REQUISITI DI DOMINIO](#3-requisiti-di-dominio)
+    - [3.1 Legali e Fiscali](#31-legali-e-fiscali)
+      - [RV001 - Conformità Legale](#rv001---conformità-legale)
+      - [RV002 - Gestione Allergeni](#rv002---gestione-allergeni)
+    - [3.2 Hardware](#32-hardware)
+      - [RV003 - Specifiche Minime Dispositivi](#rv003---specifiche-minime-dispositivi)
+- [Use Case Diagram](#use-case-diagram)
+- [Documentazione](#documentazione)
+- [System Architecture](#system-architecture)
+- [System Architectural Models](#system-architectural-models)
+  - [Activity Diagrams](#activity-diagrams)
+    - [Prenotazioni](#prenotazioni)
+  - [Sequence Diagrams](#sequence-diagrams)
+  - [Class Diagram](#class-diagram)
+    - [Class diagram unrefined](#class-diagram-unrefined)
+    - [Class diagram refined](#class-diagram-refined)
+- [Design Pattern](#design-pattern)
+- [Evoluzione del sistema](#evoluzione-del-sistema)
+  - [Estensibilità verso Camerieri Robot e Droni di Consegna](#estensibilità-verso-camerieri-robot-e-droni-di-consegna)
+- [Appendice](#appendice)
+
 # Introduzione
 
 ## 1. Scopo del Documento
@@ -225,135 +286,344 @@ Questo progetto si inserisce nella strategia di innovazione digitale e miglioram
 
 ## 1. REQUISITI FUNZIONALI
 
-### 1.1 Gestione Sala
+### 1.1 Gestione Prenotazioni
 **RF001 - Prenotazione Tavoli**
-- L'utente deve poter prenotare un tavolo specificando: data, ora, numero persone, note speciali
-- Deve visualizzare la disponibilità in tempo reale
-- Deve poter modificare/cancellare prenotazioni
+**Attori:** Receptionist, Cliente
+**Descrizione:** Sistema di prenotazione tavoli con conferma automatica.
 
-**RF002 - Presa Comanda**
-- Il cameriere deve poter creare una nuova comanda per un tavolo
-- Selezione multipla di piatti e bevande in una singola operazione
-- Deve poter applicare modifiche ai piatti (es. "senza glutine")
-- Possibilità di specificare quantità per ogni voce ordinata
-- Sistema deve calcolare automaticamente il totale parziale
+**Receptionist deve poter:**
+- Creare prenotazioni specificando: data, ora, numero persone, note speciali (allergie, celebrazioni).
+- Visualizzare disponibilità tavoli in tempo reale con calendario/planimetria.
+- Modificare/cancellare prenotazioni esistenti.
+- Gestire liste d'attesa automatiche.
+
+**Software deve:**
+- Inviare automaticamente conferma via WhatsApp/email al numero/indirizzo associato alla prenotazione
+- Inviare promemoria 24 ore prima della prenotazione
+- Bloccare sovrapposizioni di prenotazioni sullo stesso tavolo
+- Generare report statistiche prenotazioni (tasso occupazione, no-show)
+
+### 1.2 Gestione Ordinazioni
+**RF002 - Creazione Comanda**
+**Attori:** Cameriere, Maitre
+**Descrizione:** Creazione e gestione comande tavolo.
+
+**Cameriere deve poter:**
+- Creare nuova comanda associata a tavolo specifico
+- Selezionare articoli (piatti/bevande) dal menù
+- Applicare modifiche ai piatti (es. "senza coriandolo", "al sangue")
+- Specificare quantità per ogni articolo
+- Salvare comanda parziale/in sospeso
+
+**Software deve:**
+- Calcolare automaticamente totale parziale con IVA inclusa
+- Visualizzare disponibilità articoli in tempo reale (collegamento magazzino)
+- Gestire gli ordini d'asporto in maniera separata dagli ordini ai tavoli.
 
 **RF003 - Modifica Comanda**
-- Aggiunta di nuovi items a comanda esistente
-- Rimozione/cancellazione di voci già inserite
-- Modifica quantità di voci già ordinare    
-- Tracciamento storico delle modifiche
+**Attori:** Cameriere, Maitre, Titolare
+**Descrizione:** Modifica comande esistenti e tracciamento storico.
 
-**RF004 - Gestione Ordini Cucina**
-- Invio automatico comanda alla cucina con timestamp
-- Suddivisione automatica ordini per categoria (antipasti, primi, secondi, etc.)
-- Possibilità di priorità/urgenza su specifiche voci
+**Cameriere/Maitre devono poter:**
+- Aggiungere nuovi articoli a comanda esistente
+- Rimuovere articoli già inseriti
+- Modificare quantità articoli esistenti
 
-**RF005 - Gestione Conti**
-- Deve essere possibile dividere il conto per persone
-- Applicazione automatica del coperto
-- Stampa/sinvio email dello scontrino
+**Titolare/General Manager deve poter:**
+- Visualizzare storico completo modifiche per ogni comanda
+- Tracciare chi ha effettuato ogni modifica (audit trail)
+- Annullare modifiche in caso di errore
 
-### 1.2 Gestione Cucina
-**RF006 - Visualizzazione Comande**
-- Display comande in arrivo con dettagli completi
-- Organizzazione per tipo di piatto e ordine cronologico
+### 1.3 Gestione Produzione
+**RF004 - Invio Ordini a Cucina/Bar**
+**Descrizione:** Comunicazione automatica ordini alle aree produzione.
+
+**Software deve:**
+- Inviare automaticamente comanda a cucina/bar con timestamp
+- Suddividere ordini per categoria (antipasti, primi, secondi, bevande)
+- Supportare flag priorità/urgenza su voci specifiche
+- Gestire ordini fuori menù con note speciali per la cucina
+
+**RF005 - Visualizzazione Comande in Cucina/Bar**
+**Descrizione:** Sistema di visualizzazione ottimizzato per aree produzione.
+
+**Software deve visualizzare:**
+- Comande in arrivo con dettagli completi (note, priorità)
+- Organizzazione per tipo piatto e ordine cronologico
 - Evidenziazione modifiche speciali (allergie, preferenze)
 
-### 1.3 Gestione Magazzino
-**RF007 - Controllo Giacenze**
-- Avviso automatico quando le scorte sono basse.
-- Tracciamento dei consumi per ogni voce del menù.
+**RF006 - Comunicazione Cucina/Bar - Sala**
+**Descrizione:** Sistema notifiche per coordinamento produzione-servizio.
+
+**Software deve:**
+- Notificare ai camerieri quando articoli sono "pronti al ritiro"
+- Implementare sistema allerta ritardi (oltre tempo atteso)
+- Permettere marcatura ordini come "completati/consegnati"
+- Gestire annullamenti produzione (cambiamenti post-invio)
+
+### 1.4 Gestione Pagamenti
+**RF007 - Gestione Conto**
+**Attori:** Receptionist, Cliente
+**Descrizione:** Sistema completo gestione pagamenti.
+
+**Receptionist deve poter:**
+- Dividere conto per numero persone/gruppi
+- Applicare automaticamente coperto (se previsto)
+- Emettere fattura/scontrino fiscale elettronico
+- Stornare/annullare pagamenti errati
+
+**Software deve:**
+- Calcolare automaticamente IVA per categoria prodotto
+- Integrarsi con registratore di cassa telematico
+- Generare ricevuta digitale inviabile via email/WhatsApp
+- Tracciare mance (se applicabili)
+
+### 1.5 Gestione Magazzino
+**RF008 - Controllo Giacenze**
+**Attori:** Cuoco, Barman, Titolare, General Manager
+**Descrizione:** Sistema tracciamento inventario e scorte.
+
+**Personale autorizzato deve poter:**
+- Aggiornare quantità disponibili per ogni articolo (rifornimenti)
+- Registrare uscite/consumi giornalieri
+- Segnalare danni/perdite/avarie
+
+**Software deve:**
+- Generare notifiche automatiche quando scorte scendono sotto soglia minima
+- Mostrare articoli non disponibili in tempo reale su terminali sala
+- Generare report consumi giornalieri/settimanali
+- Calcolare costo ingredienti per piatto
+- Suggerire ordini fornitori basati su consumi storici
+
+### 1.6 Gestione Personale
+**RF009 - Gestione Turni**
+**Attori:** Titolare, General Manager
+**Descrizione:** Sistema pianificazione e controllo risorse umane.
+
+**Direttore deve poter:**
+- Creare e modificare turni di lavoro
+- Assegnare personale a zone specifiche (sale)
+- Gestire richieste ferie/permessi
+
+**Software deve:**
+- Generare report ore lavorate per dipendente (periodo personalizzabile)
+- Calcolare totale assenze/malattie/permessi
+- Avvisare in caso di conflitti turni/sottodimensionamento
+
+### 1.7 Gestione Finanziaria e Reportistica
+**RF010 - Analisi Finanziaria**
+**Attori:** Titolare, General Manager
+**Descrizione:** Sistema reportistica avanzata per analisi business.
+
+**Titolare/General Manager deve poter visualizzare:**
+- Fatturato totale per periodo personalizzabile (giorno/settimana/mese/anno)
+- Contributo percentuale di ogni articolo/categoria al fatturato
+- Andamento prenotazioni e tasso occupazione
+- Tempo medio permanenza cliente per tavolo
+
+**Software deve generare:**
+- Report performance camerieri (ordini gestiti, errori, feedback)
+- Analisi vendite incrociate (piatti più abbinati)
+- Previsioni di affluenza basate su dati storici
+- Report fiscali per commercialista
 
 ## 2. REQUISITI NON FUNZIONALI
 
-### 2.1 Prestazioni
-**RNF001 - Tempi di Risposta**
-- Risposta < 2 secondi per operazioni comuni (ordini, prenotazioni)
-- Sistema disponibile 24/7 con uptime > 99.5%
+### RNF01 - PERFORMANCE TEMPI REALI
 
-**RNF002 - Concurrent Users**
-- Supporto fino a 50 utenti contemporanei
-- 10 dispositivi in sala + 5 in cucina + amministrazione
+**Descrizione:** Il sistema deve garantire sincronizzazione in tempo reale tra tutti i dispositivi per operazioni critiche.
 
-### 2.2 Usabilità
-**RNF003 - Interfaccia Intuitiva**
-- Formazione base < 30 minuti per nuovo personale
-- Interfaccia touch-friendly per tablet sala
+**Specifiche:**
+- Sincronizzazione comande sala/cucina: **< 1 secondi**
+- Aggiornamento disponibilità articoli su tutti i terminali: **< 1 secondi**
+- Notifica "pronto al ritiro" a camerieri: **< 1 secondi** dalla marcatura in cucina
+- Calcolo conto complesso (divisione per 8+ persone): **< 1 secondi**
 
-### 2.3 Affidabilità
-**RNF004 - Backup Automatico**
-- Backup giornaliero automatico dei dati
-- Ripristino sistema < 1 ora in caso di guasto
+### RNF02 - AFFIDABILITÀ OPERATIVA CONTINUA
 
-## 3. SCENARI D'USO PRINCIPALI
+**Descrizione:** Il sistema deve garantire continuità operativa anche in condizioni parzialmente degradate.
 
-### Scenario 1: Prenotazione Telefonica
-**Attore:** Addetto reception
-**Pre-condizione:** Cliente chiama per prenotare
-**Flusso principale:**
-1. Sistema mostra disponibilità tavoli
-2. Inserimento dati prenotazione
-3. Conferma e invio SMS di riepilogo
-**Post-condizione:** Prenotazione registrata nel calendario
+**Specifiche:**
+- **Disponibilità:** > 99.7% durante orario apertura (12:00-24:00)
+- **Modalità offline limitata:** Funzionalità base devono rimanere operative anche in caso di assenza di internet.
+- **MTTR (Mean Time to Repair):** < 30 minuti per guasti software
+- **Ripristino dati:** < 15 minuti di perdita dati in caso di crash
 
-### Scenario 2: Ordinazione al Tavolo
-**Attore:** Cameriere
-**Pre-condizione:** Cliente seduto al tavolo
-**Flusso principale:**
-1. Scan codice tavolo
-2. Selezione piatti dal menu
-3. Invio ordine alla cucina
-4. Conferma avvenuta stampa
-**Post-condizione:** Ordine in lavorazione in cucina
+### RNF03 - SICUREZZA E TRACCIABILITÀ
 
-## 4. VINCOLI PROGETTUALI
+**Descrizione:** Sistema di autorizzazioni granulari e tracciamento completo per compliance.
 
-### 4.1 Tecnologici
-- Compatibilità con dispositivi mobile (tablet)
-- Integrazione con registratore di cassa telematico
-- Supporto stampanti di cucina, pasticceria e bar esistenti
+**Specifiche:**
+- **Autenticazione:** Login univoco per ogni utente con 2FA per ruoli amministrativi
+- **Autorizzazioni:** 5 livelli distinti (cameriere, maitre, cuoco, receptionist, titolare)
+- **Audit Trail:** Registrazione completa di:
+    - Modifiche prezzi (RF007/IVA) - chi, quando, da quale valore a quale valore
+    - Storno pagamenti (RF007) - con motivo obbligatorio
+    - Modifiche giacenze (RF008) - differenza quantità, operatore
+- **Retention log:** 10 anni per operazioni finanziarie (compliance fiscale)
+- **GDPR:** Anonimizzazione automatica dati clienti dopo 24 mesi di inattività
 
-### 4.2 Operativi
-- Multilingua (Italiano, Inglese)
-- Conformità normativa privacy GDPR
-- Adesione standard fiscali italiani
+### RNF04 - USABILITÀ E FORMAZIONE
 
-## 5. CRITERI DI ACCETTAZIONE
+**Descrizione:** Interfaccia ottimizzata per ambienti ad alto stress con curva apprendimento rapida.
 
-### Per RF001 - Prenotazione Tavoli
-- [ ] Il sistema impedisce doppie prenotazioni stesso tavolo/ora
-- [ ] Invio SMS conferma automatico
-- [ ] Alert per prenotazioni che non si presentano
+**Specifiche:**
+- **Tempo formazione base:** < 30 minuti per ruolo operativo (cameriere, receptionist)
+- **Operazioni frequenti:** Massimo 3 tap/clic per:
+    - Creare nuova comanda (RF002)
+    - Applicare modifiche piatto (RF002)
+    - Stampare conto (RF007)
+- **Interfaccia tablet:** Ottimizzata per uso con guanti da cucina (minimo elementi 44x44px)
+- **Contrasto schermi cucina:** Rapporto 7:1 per ambienti luminosi/affumicati
+- **Fallback linguistico:** Terminologia standard italiana settore ristorazione
 
-### Per RF002 - Gestione Ordini
-- [ ] Tempo medio inserimento ordine < 1 minuto
-- [ ] Errori di inserimento < 2%
-- [ ] Sync immediato con cucina
+### RNF05 - INTEGRAZIONE E INTEROPERABILITÀ
 
-**Stakeholder Coinvolti:**
-- Proprietario/General Manager
-- Maître/Sala
-- Executive Chef
-- Cassiere
-- Addetto alle Prenotazioni
+**Descrizione:** Sistema deve integrarsi con ecosistemi esterni senza richiedere intervento manuale.
 
-**Priorità:**
-- Alta: Gestione ordini, conti, prenotazioni
-- Media: Reportistica, gestione magazzino
-- Bassa: Funzioni avanzate di marketing
+**Specifiche:**
+- **API Standard:** RESTful API documentata per:
+    - Importazione/exportazione menù (RF002)
+    - Sincronizzazione dati contabili (RF010)
+    - Integrazione piattaforme delivery
+- **Formati supportati:**
+    - Import: CSV, Excel (xlsx), JSON
+    - Export: PDF (scontrini), Excel (report), XML (fatture elettroniche)
+- **Stampanti:** Supporto nativo per 10+ modelli comuni cucina/bar (Epson, Star)
+- **RCF Telematico:** Integrazione plug-and-play con principali marchi (Datev, Zucchetti)
+- **Notifiche:** Supporto multiplo (WhatsApp Business API, SMTP, SMS gateway)
+
+### RNF06 - SCALABILITÀ E CARICO
+
+**Descrizione:** Sistema deve gestire picchi di carico tipici della ristorazione.
+
+**Specifiche:**
+- **Utenti concorrenti:** Supporto fino a:
+    - 50 dispositivi sala contemporaneamente attivi
+    - 15 terminali cucina/bar
+    - 300 prenotazioni attive in stesso servizio
+        
+- **Comande simultanee:** Gestione fino a 50 comande aperte contemporaneamente
+- **Performance under load:** Degrado massimo 20% dei tempi di risposta con:
+    - 30+ tavoli occupati
+    - 10+ comande in preparazione contemporanea
+- **Storage:** Capacità minima 10.000 comande/storico senza degradazione performance
+- **Backup:** Incrementale notturno senza impatto performance diurna
+
+### BONUS: RNF07 - MANUTENIBILITÀ OPERATIVA
+
+**Descrizione:** Il personale non tecnico deve poter gestire configurazioni quotidiane.
+
+**Specifiche:**
+- **Modifica menù:** Operatore autorizzato può modificare prezzi/articoli senza riavvio sistema
+- **Aggiornamenti:** Patch e aggiornamenti applicabili in orario di chiusura (01:00-06:00) automaticamente
+- **Dashboard monitoraggio:** Stato sistema visibile in tempo reale (server, stampanti, connessioni)
+- **Self-diagnostic:** Sistema rileva automaticamente:
+    - Stampante cucina offline > 5 minuti
+    - Soglia magazzino raggiunta (RF008)
+    - Errori integrazione RCF
+- **Rollback configurazione:** Ripristino ultima configurazione stabile con 1 clic
+
+## 3. REQUISITI DI DOMINIO
+
+### 3.1 Legali e Fiscali
+**RV001 - Conformità Legale**
+- Integrazione registratore di cassa telematico (obbligo di legge)
+- Tracciabilità IVA per categoria prodotto
+- Conservazione documenti fiscali: 10 anni
+- Conformità GDPR per dati clienti
+
+**RV002 - Gestione Allergeni**
+- Sistema segnalazione allergeni per ogni piatto (Reg. UE 1169/2011)
+- Stampa automatica avvertenze su comande cucina
+- Blocco ordinazioni in caso di allergie gravi segnalate
+
+### 3.2 Hardware
+**RV003 - Specifiche Minime Dispositivi**
+- Tablet: Android 9.0+, 4GB RAM, schermo 10"
+- Server: Windows 10/Server 2019+, 8GB RAM, 250GB SSD
+- Connessione internet: banda minima 10 Mbps in download
 
 
+## 4. SCENARI D'USO
+
+### RF001 - Prenotazione Tavoli
+*Scenario:* Cliente Rossi chiama per prenotare. Receptionist Marco inserisce data/ora/6 persone/note compleanno. Sistema mostra tavolo 12 disponibile. Marco conferma → sistema invia WhatsApp automatico a Rossi: "Prenotazione confermata, tavolo 12, sabato 20:30".
+
+### RF002 - Presa Comanda  
+*Scenario:* Cameriere Luca al tavolo 7. Sul tablet: seleziona tavolo → aggiunge "Carbonara" → modifica "senza pancetta" → aggiunge "Vino rosso" x2. Sistema calcola totale parziale €44. Comanda salvata.
+
+### RF003 - Modifica Comanda
+*Scenario:* Cliente chiede di aggiungere insalata e togliere patate. Maître Andrea modifica comanda esistente → sistema registra modifica nello storico. Giorno dopo, titolare controlla storico per reclamo: vede che patate furono rimosse ma riapparvero in conto per bug.
+
+### RF004 - Invio Cucina
+*Scenario:* Sara invia comanda tavolo 3 con bistecca urgente (cliente ha treno). Sistema: timestamp 20:45, priorità ALTA, bordi rossi. In cucina, appare in cima a "SECONDI" con timer countdown.
+
+### RF005 - Gestione Conto
+*Scenario:* Tavolo 8 persone, conto €320. Receptionist divide per 4 coppie: sistema separa automaticamente gli ordini di ogni coppia. Stampa scontrino separato per ciascuna coppia + fattura per chi la richiede.
+
+### RF006 - Visualizzazione Cucina
+*Scenario:* In cucina, monitor mostra: a sinistra antipasti ordinati, centro primi, destra secondi. Ordine cronologico. Carbonara "senza pancetta" evidenziata in giallo. Allergia "glutine" in rosso lampeggiante.
+
+### RF007 - Comunicazione Cucina-Sala
+*Scenario:* Chef completa risotto → clicca "PRONTO". Sistema invia notifica a tablet camerieri: "Tavolo 5 - Risotto pronto". Dopo 20 minuti se non ritirato → sistema avvisa maître: "RITARDO - Risotto tavolo 5 in attesa".
+
+### RF008 - Controllo Giacenze
+*Scenario:* Arriva fornitura pomodori. Cuoco aggiorna magazzino: +50kg. Sistema ricalcola totale. A fine giornata, controlla soglie: burro sotto minimo (3kg vs 5kg) → invia alert a titolare. Nel frattempo, "Pizza margherita" mostra "NON DISP." sui tablet.
+
+### RF010 - Gestione Turni
+*Scenario:* Direttore pianifica turni settimana su calendario drag-drop. Sistema avvisa: "Mario supera 40 ore". Fine mese, titolare genera report: Mario 160 ore, 2 malattie, 1 permesso. Esporta Excel per paghe.
 ## Use Case Diagram o Diagrams
 Chiedere se farne uno unico oppure farlo splittato
 ![[use_case_diagram.png | center | 400]]
 ## Documentazione 
 Chiedere Prof
 
-# System Architecture
-Da chiedere
-# System requirements specification
-Da Chiedere
+# Architettura di Sistema
+
+## 1. Struttura Generale
+TableFlow usa un'architettura **client-server** moderna:
+- **Backend centrale** in cloud o server locale
+- **Client leggeri** su vari dispositivi (tablet, PC, monitor cucina)
+- **Database unico** sincronizzato per tutti
+
+## 2. Componenti Principali
+
+### Backend (Server)
+- **API Centrali:** Gestiscono tutte le operazioni
+- **Database:** PostgreSQL per dati strutturati (ordini, prenotazioni, magazzino)
+- **Servizio Notifiche:** Invia WhatsApp/email/SMS
+
+### Client (Dispositivi)
+- **Tablet Sala:** App React Native per camerieri
+- **Monitor Cucina:** Interfaccia web semplice per chef
+- **PC Reception:** Applicazione desktop per gestione
+- **Mobile Manager:** App per titolare (iOS/Android)
+
+## 3. Comunicazione
+```
+Tablet → WiFi/LTE → Server → Database
+  ↓                    ↓
+Cucina ← WebSocket ← Notifiche
+```
+
+## 4. Tecnologie Proposte
+- **Backend:** Node.js o Python (API veloci)
+- **Database:** PostgreSQL (affidabile, gratis)
+- **Tablet App:** React Native (un codice per iOS/Android)
+- **Monitor Cucina:** Web App semplice (HTML/JS)
+- **Comunicazione:** REST API + WebSocket per notifiche
+
+## 5. Modalità Operativa
+- **Online principale:** Tutti i dispositivi connessi a internet
+- **Offline limitato:** Tablet salvano ordini localmente se internet cade
+- **Sincronizzazione automatica** quando connessione ritorna
+
+## 6. Sicurezza Base
+- Login con username/password per ogni ruolo
+- Accessi separati: camerieri vedono solo loro funzioni, titolare vede tutto
+- Backup automatico giornaliero
+
 # System Architectural Models
 ## Activity Diagrams
 ### Prenotazioni
