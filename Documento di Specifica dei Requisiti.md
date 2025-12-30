@@ -675,8 +675,124 @@ Cucina ← WebSocket ← Notifiche
 - Accessi separati: camerieri vedono solo loro funzioni, titolare vede tutto
 - Backup automatico giornaliero
 
+
 # Design Pattern
-Chiedere Prof
+
+Questa sezione descrive i design pattern selezionati per la progettazione e implementazione del sistema TableFlow. La scelta è motivata dalla necessità di garantire modularità, manutenibilità, estendibilità e conformità ai requisiti non funzionali specificati, in particolare RNF07 (Manutenibilità Operativa). I pattern individuati sono applicabili a diversi livelli dell'architettura e risolvono problemi specifici del dominio ristorativo.
+
+## Pattern Selezionati & La Loro Applicazione
+
+### 1. Factory Method
+**Problema risolto:** Creazione flessibile e centralizzata delle diverse tipologie di utenti del sistema, ciascuna con permessi, interfacce e comportamenti specifici.
+
+**Applicazione in TableFlow:**
+- **Creazione Utenti:** Implementazione di un metodo factory per istanziare oggetti `Utente` in base al ruolo (Cameriere, Cuoco, Maître, Receptionist, Titolare/General Manager). Ciascun ruolo possiede un set distinto di autorizzazioni definite in RNF03.
+- **Configurazione Dinamica:** Il pattern permette di aggiungere nuovi ruoli futuri (es. Sommelier, Runner, Executive Chef) senza modificare il codice client esistente.
+- **Esempio di Utilizzo:** Il sistema di autenticazione, dopo aver validato le credenziali, invoca `UserFactory.createUser(role, userData)` per ottenere l'istanza corretta con il profilo autorizzativo configurato.
+
+**Vantaggi per il Sistema:**
+- Isolamento della logica di creazione
+- Aderenza al principio Open/Closed
+- Supporto alla configurabilità richiesta in RNF07
+
+### 2. Observer
+**Problema risolto:** Sincronizzazione in tempo reale e notifica automatica di eventi critici a multipli componenti del sistema, come richiesto da RNF01 (Performance Tempi Reali).
+
+**Applicazione in TableFlow:**
+- **Notifica Stato Ordini:** La cucina (Subject) notifica automaticamente tutti i camerieri (Observers) quando un piatto passa allo stato "PRONTO", come descritto in RF007.
+- **Aggiornamento Giacenze:** Il modulo magazzino (Subject) notifica i terminali di sala e il sistema di ordinazione quando la disponibilità di un articolo cambia (RF006, RNF01).
+- **Sistema di Alert:** Generazione di notifiche per soglie magazzino (RF008), ritardi di ritiro ordini (RF007) e conflitti di turnazione (RF009).
+
+**Vantaggi per il Sistema:**
+- Accoppiamento debole tra produttori e consumatori di eventi
+- Scalabilità nella gestione di notifiche
+- Implementazione efficiente dei requisiti di tempo reale
+
+### 3. Decorator
+**Problema risolto:** Gestione dinamica e flessibile delle modifiche e personalizzazioni dei piatti ordinati, senza creare un'esplosione di sottoclassi.
+
+**Applicazione in TableFlow:**
+- **Modifiche ai Piatti:** Ogni modifica richiesta dal cliente (es. "senza pancetta", "ben cotto", "aggiunta formaggio") viene rappresentata come un Decorator che avvolge l'oggetto `PiattoBase`, aggiungendo o sovrascrivendo attributi (RF002).
+- **Calcolo Costi Aggiornato:** I decoratori possono modificare il prezzo finale del piatto in base alla modifica applicata.
+- **Comunicazione in Cucina:** Le modifiche decorate vengono visualizzate in modo evidenziato sui monitor cucina (RF004).
+
+**Vantaggi per il Sistema:**
+- Estensibilità delle funzionalità a runtime
+- Struttura a composizione anziché ereditarietà
+- Supporto a combinazioni complesse di modifiche
+
+### 4. Composite
+**Problema risolto:** Gestione uniforme di strutture gerarchiche parte-tutto, in particolare per la divisione dei conti e l'organizzazione del menu.
+
+**Applicazione in TableFlow:**
+- **Divisione Conti:** Gestione della suddivisione del conto totale in sotto-conti per gruppi o singoli clienti (RF005). Sia `ContoSingolo` che `ContoComposto` implementano la stessa interfaccia `Conto`, permettendo operazioni uniformi come `calcolaTotale()`.
+- **Struttura Menu:** Rappresentazione gerarchica del menu con categorie (es. "Antipasti", "Primi") che contengono voci di menu (Composite Pattern ricorsivo).
+
+**Vantaggi per il Sistema:**
+- Trattamento uniforme di oggetti singoli e compositi
+- Semplificazione del codice client
+- Supporto naturale a operazioni ricorsive
+
+### 5. Strategy
+**Problema risolto:** Incapsulamento di famiglie di algoritmi intercambiabili, rendendoli indipendenti dal client che li utilizza.
+
+**Applicazione in TableFlow:**
+- **Metodi di Pagamento:** Implementazione di strategie per ogni modalità di pagamento (`CartaCreditoStrategy`, `ContantiStrategy`, `SatispayStrategy`, ecc.) come richiesto in RF005 e RNF05.
+- **Calcolo IVA:** Strategie diverse per l'applicazione delle aliquote IVA in base alla categoria prodotto (alimentari, bevande alcoliche, ecc.), in conformità con RV001.
+- **Algoritmi di Forecast:** Differenti strategie per la generazione di previsioni di affluenza basate su dati storici (RF010).
+
+**Vantaggi per il Sistema:**
+- Facile aggiunta di nuovi algoritmi
+- Isolamento della logica di business
+- Testabilità migliorata
+
+### 6. Adapter
+**Problema risolto:** Integrazione di interfacce incompatibili tra il sistema TableFlow e i vari servizi esterni, come specificato in RNF05 (Integrazione e Interoperabilità).
+
+**Applicazione in TableFlow:**
+- **Piattaforme Delivery:** Adapter per convertire il formato interno degli ordini TableFlow nei formati richiesti da Just Eat, Deliveroo, Glovo.
+- **Stampanti Cucina:** Adapter per normalizzare le comunicazioni verso i diversi modelli di stampanti (Epson, Star, ecc.).
+- **Sistemi di Pagamento:** Adapter per interfacciarsi con le API eterogenee dei vari provider di pagamento elettronico.
+
+**Vantaggi per il Sistema:**
+- Minimizzazione dell'acoppiamento con sistemi esterni
+- Riuso di componenti esistenti con interfacce incompatibili
+- Facilità di sostituzione di provider esterni
+
+### 7. Template Method
+**Problema risolto:** Definizione dello scheletro di algoritmi complessi con passaggi variabili delegati alle sottoclassi.
+
+**Applicazione in TableFlow:**
+- **Flusso di Prenotazione:** La classe astratta `PrenotazioneProcess` definisce la sequenza fissa: verifica disponibilità → creazione prenotazione → invio conferma → aggiornamento calendario. Le variazioni (es. tipo di notifica) sono implementate dalle sottoclassi.
+- **Processo di Ordinazione:** Scheletro comune per la creazione di comande (RF002) con passaggi specifici per tipologie diverse (asporto vs tavolo).
+- **Generazione Report:** Template per la produzione di report finanziari (RF010) con formattazione variabile (PDF, Excel, XML).
+
+**Vantaggi per il Sistema:**
+- Eliminazione di duplicazione di codice
+- Controllo centralizzato della struttura dell'algoritmo
+- Flessibilità nei punti di variazione
+
+## Tracciabilità con Requisiti
+
+| Pattern | Requisiti Supportati | Beneficio Principale |
+|---------|---------------------|---------------------|
+| Factory Method | RNF03 (Autorizzazioni), RF009 (Gestione Personale) | Gestione ruoli flessibile |
+| Observer | RNF01 (Performance Tempi Reali), RF007 (Comunicazione) | Notifiche in tempo reale |
+| Decorator | RF002 (Modifiche Piatto), RF004 (Visualizzazione) | Personalizzazione ordini |
+| Composite | RF005 (Divisione Conti), RF002 (Struttura Menu) | Gestione gerarchie |
+| Strategy | RF005 (Pagamenti), RV001 (Calcolo IVA) | Algoritmi intercambiabili |
+| Adapter | RNF05 (Integrazione), RNF07 (Manutenibilità) | Interoperabilità |
+| Template Method | RF001 (Prenotazione), RF010 (Report) | Processi standardizzati |
+
+## Implicazioni Architetturali
+
+L'adozione di questi pattern influenza positivamente l'architettura di sistema descritta nella sezione 5:
+
+1. **Modularità Aumentata:** Ogni pattern contribuisce a separare le responsabilità, allineandosi con l'architettura a componenti proposta.
+2. **Estensibilità Futura:** La struttura basata su pattern facilita l'evoluzione del sistema verso l'integrazione con camerieri robot e doni di consegna, come descritto nella sezione "Evoluzione del sistema".
+3. **Manutenibilità Operativa:** RNF07 è supportato dalla capacità di modificare comportamenti senza riavvii del sistema, abilitata da pattern come Strategy e Decorator.
+4. **Testabilità:** L'isolamento delle responsabilità e l'uso di interfacce definite migliorano la copertura dei test, supportando i criteri di accettazione definiti.
+
 # Evoluzione del sistema
 
 ## Estensibilità verso Camerieri Robot e Droni di Consegna
