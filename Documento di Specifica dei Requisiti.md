@@ -103,9 +103,8 @@ Il documento rappresenta lo stato completo dei requisiti per la versione 1.0 del
 		- [[#RNF02 - AFFIDABILITÀ OPERATIVA CONTINUA]]
 		- [[#RNF03 - SICUREZZA E TRACCIABILITÀ]]
 		- [[#RNF04 - USABILITÀ E FORMAZIONE]]
-		- [[#RNF05 - INTEGRAZIONE E INTEROPERABILITÀ]]
-		- [[#RNF06 - SCALABILITÀ E CARICO]]
-		- [[#BONUS RNF07 - MANUTENIBILITÀ OPERATIVA]]
+		- [[#RNF05 - SCALABILITÀ E CARICO]]
+		- [[#BONUS RNF06 - MANUTENIBILITÀ OPERATIVA]]
 	- [[#3. REQUISITI DI DOMINIO]]
 		- [[#3.1 Legali e Fiscali]]
 		- [[#3.2 Hardware]]
@@ -137,9 +136,8 @@ Il documento rappresenta lo stato completo dei requisiti per la versione 1.0 del
 		- [[#Backend (Server)]]
 		- [[#Client (Dispositivi)]]
 	- [[#3. Comunicazione]]
-	- [[#4. Tecnologie Proposte]]
-	- [[#5. Modalità Operativa]]
-	- [[#6. Sicurezza Base]]
+	- [[#4. Modalità Operativa]]
+	- [[#5. Sicurezza Base]]
 - [[#Design Pattern]]
 	- [[#Pattern Selezionati & La Loro Applicazione]]
 		- [[#1. Factory Method]]
@@ -335,8 +333,6 @@ Questo progetto si inserisce nella strategia di innovazione digitale e miglioram
 - Gestire liste d'attesa automatiche.
 
 **Software deve:**
-- Inviare automaticamente conferma via WhatsApp/email al numero/indirizzo associato alla prenotazione
-- Inviare promemoria 24 ore prima della prenotazione
 - Bloccare sovrapposizioni di prenotazioni sullo stesso tavolo
 - Generare report statistiche prenotazioni (tasso occupazione, no-show)
 
@@ -390,10 +386,10 @@ Questo progetto si inserisce nella strategia di innovazione digitale e miglioram
 - Evidenziazione modifiche speciali (allergie, preferenze)
 
 **RF006 - Comunicazione Cucina/Bar - Sala**
-**Descrizione:** Sistema notifiche per coordinamento produzione-servizio.
+**Descrizione:** SIstema per la segnalazione dello stato della preparazione
 
 **Software deve:**
-- Notificare ai camerieri quando articoli sono "pronti al ritiro"
+- Segnalare ai camerieri quando articoli sono "pronti al ritiro"
 - Implementare sistema allerta ritardi (oltre tempo atteso)
 - Permettere marcatura ordini come "completati/consegnati"
 - Gestire annullamenti produzione (cambiamenti post-invio)
@@ -412,7 +408,7 @@ Questo progetto si inserisce nella strategia di innovazione digitale e miglioram
 **Software deve:**
 - Calcolare automaticamente IVA per categoria prodotto
 - Integrarsi con registratore di cassa telematico
-- Generare ricevuta digitale inviabile via email/WhatsApp
+- Generare scontrino o fattura
 - Tracciare mance (se applicabili)
 
 ### 1.5 Gestione Magazzino
@@ -426,7 +422,6 @@ Questo progetto si inserisce nella strategia di innovazione digitale e miglioram
 - Segnalare danni/perdite/avarie
 
 **Software deve:**
-- Generare notifiche automatiche quando scorte scendono sotto soglia minima
 - Mostrare articoli non disponibili in tempo reale su terminali sala
 - Generare report consumi giornalieri/settimanali
 - Calcolare costo ingredienti per piatto
@@ -445,7 +440,7 @@ Questo progetto si inserisce nella strategia di innovazione digitale e miglioram
 **Software deve:**
 - Generare report ore lavorate per dipendente (periodo personalizzabile)
 - Calcolare totale assenze/malattie/permessi
-- Avvisare in caso di conflitti turni/sottodimensionamento
+- Segnalare in caso di conflitti turni/sottodimensionamento
 
 ### 1.7 Gestione Finanziaria e Reportistica
 **RF010 - Analisi Finanziaria**
@@ -473,7 +468,6 @@ Questo progetto si inserisce nella strategia di innovazione digitale e miglioram
 **Specifiche:**
 - Sincronizzazione comande sala/cucina: **< 1 secondi**
 - Aggiornamento disponibilità articoli su tutti i terminali: **< 1 secondi**
-- Notifica "pronto al ritiro" a camerieri: **< 1 secondi** dalla marcatura in cucina
 - Calcolo conto complesso (divisione per 8+ persone): **< 1 secondi**
 
 ### RNF02 - AFFIDABILITÀ OPERATIVA CONTINUA
@@ -491,13 +485,8 @@ Questo progetto si inserisce nella strategia di innovazione digitale e miglioram
 **Descrizione:** Sistema di autorizzazioni granulari e tracciamento completo per compliance.
 
 **Specifiche:**
-- **Autenticazione:** Login univoco per ogni utente con 2FA per ruoli amministrativi
-- **Autorizzazioni:** 5 livelli distinti (cameriere, maitre, cuoco, receptionist, titolare)
-- **Audit Trail:** Registrazione completa di:
-    - Modifiche prezzi (RF007/IVA) - chi, quando, da quale valore a quale valore
-    - Storno pagamenti (RF007) - con motivo obbligatorio
-    - Modifiche giacenze (RF008) - differenza quantità, operatore
-- **Retention log:** 10 anni per operazioni finanziarie (compliance fiscale)
+- **Autenticazione:** Login univoco per ogni utente
+- **Autorizzazioni:** Almeno 5 livelli distinti (cameriere, maitre, cuoco, receptionist, titolare)
 - **GDPR:** Anonimizzazione automatica dati clienti dopo 24 mesi di inattività
 
 ### RNF04 - USABILITÀ E FORMAZIONE
@@ -514,23 +503,7 @@ Questo progetto si inserisce nella strategia di innovazione digitale e miglioram
 - **Contrasto schermi cucina:** Rapporto 7:1 per ambienti luminosi/affumicati
 - **Fallback linguistico:** Terminologia standard italiana settore ristorazione
 
-### RNF05 - INTEGRAZIONE E INTEROPERABILITÀ
-
-**Descrizione:** Sistema deve integrarsi con ecosistemi esterni senza richiedere intervento manuale.
-
-**Specifiche:**
-- **API Standard:** RESTful API documentata per:
-    - Importazione/exportazione menù (RF002)
-    - Sincronizzazione dati contabili (RF010)
-    - Integrazione piattaforme delivery
-- **Formati supportati:**
-    - Import: CSV, Excel (xlsx), JSON
-    - Export: PDF (scontrini), Excel (report), XML (fatture elettroniche)
-- **Stampanti:** Supporto nativo per 10+ modelli comuni cucina/bar (Epson, Star)
-- **RCF Telematico:** Integrazione plug-and-play con principali marchi (Datev, Zucchetti)
-- **Notifiche:** Supporto multiplo (WhatsApp Business API, SMTP, SMS gateway)
-
-### RNF06 - SCALABILITÀ E CARICO
+### RNF05 - SCALABILITÀ E CARICO
 
 **Descrizione:** Sistema deve gestire picchi di carico tipici della ristorazione.
 
@@ -547,19 +520,13 @@ Questo progetto si inserisce nella strategia di innovazione digitale e miglioram
 - **Storage:** Capacità minima 10.000 comande/storico senza degradazione performance
 - **Backup:** Incrementale notturno senza impatto performance diurna
 
-### BONUS: RNF07 - MANUTENIBILITÀ OPERATIVA
+### BONUS: RNF06 - MANUTENIBILITÀ OPERATIVA
 
 **Descrizione:** Il personale non tecnico deve poter gestire configurazioni quotidiane.
 
 **Specifiche:**
 - **Modifica menù:** Operatore autorizzato può modificare prezzi/articoli senza riavvio sistema
 - **Aggiornamenti:** Patch e aggiornamenti applicabili in orario di chiusura (01:00-06:00) automaticamente
-- **Dashboard monitoraggio:** Stato sistema visibile in tempo reale (server, stampanti, connessioni)
-- **Self-diagnostic:** Sistema rileva automaticamente:
-    - Stampante cucina offline > 5 minuti
-    - Soglia magazzino raggiunta (RF008)
-    - Errori integrazione RCF
-- **Rollback configurazione:** Ripristino ultima configurazione stabile con 1 clic
 
 ## 3. REQUISITI DI DOMINIO
 
@@ -585,7 +552,7 @@ Questo progetto si inserisce nella strategia di innovazione digitale e miglioram
 ## 4. SCENARI D'USO
 
 ### RF001 - Prenotazione Tavoli
-*Scenario:* Cliente Rossi chiama per prenotare. Receptionist Marco inserisce data/ora/6 persone/note compleanno. Sistema mostra tavolo 12 disponibile. Marco conferma → sistema invia WhatsApp automatico a Rossi: "Prenotazione confermata, tavolo 12, sabato 20:30".
+*Scenario:* Cliente Rossi chiama per prenotare. Receptionist Marco inserisce data/ora/6 persone/note compleanno. Sistema mostra tavolo 12 disponibile. Marco conferma.
 
 ### RF002 - Presa Comanda  
 *Scenario:* Cameriere Luca al tavolo 7. Sul tablet: seleziona tavolo → aggiunge "Carbonara" → modifica "senza pancetta" → aggiunge "Vino rosso" x2. Sistema calcola totale parziale €44. Comanda salvata.
@@ -594,7 +561,7 @@ Questo progetto si inserisce nella strategia di innovazione digitale e miglioram
 *Scenario:* Cliente chiede di aggiungere insalata e togliere patate. Maître Andrea modifica comanda esistente → sistema registra modifica nello storico. Giorno dopo, titolare controlla storico per reclamo: vede che patate furono rimosse ma riapparvero in conto per bug.
 
 ### RF004 - Invio Cucina
-*Scenario:* Sara invia comanda tavolo 3 con bistecca urgente (cliente ha treno). Sistema: timestamp 20:45, priorità ALTA, bordi rossi. In cucina, appare in cima a "SECONDI" con timer countdown.
+*Scenario:* Sara invia comanda tavolo 3 con bistecca urgente (cliente ha treno). Sistema: priorità ALTA, bordi rossi. In cucina, appare in cima a "SECONDI" con timer countdown.
 
 ### RF005 - Gestione Conto
 *Scenario:* Tavolo 8 persone, conto €320. Receptionist divide per 4 coppie: sistema separa automaticamente gli ordini di ogni coppia. Stampa scontrino separato per ciascuna coppia + fattura per chi la richiede.
@@ -603,7 +570,7 @@ Questo progetto si inserisce nella strategia di innovazione digitale e miglioram
 *Scenario:* In cucina, monitor mostra: a sinistra antipasti ordinati, centro primi, destra secondi. Ordine cronologico. Carbonara "senza pancetta" evidenziata in giallo. Allergia "glutine" in rosso lampeggiante.
 
 ### RF007 - Comunicazione Cucina-Sala
-*Scenario:* Chef completa risotto → clicca "PRONTO". Sistema invia notifica a tablet camerieri: "Tavolo 5 - Risotto pronto". Dopo 20 minuti se non ritirato → sistema avvisa maître: "RITARDO - Risotto tavolo 5 in attesa".
+*Scenario:* Chef completa risotto → clicca "PRONTO". Sistema segnala a tablet camerieri: "Tavolo 5 - Risotto pronto". Dopo 20 minuti se non ritirato → sistema avvisa maître: "RITARDO - Risotto tavolo 5 in attesa".
 
 ### RF008 - Controllo Giacenze
 *Scenario:* Arriva fornitura pomodori. Cuoco aggiorna magazzino: +50kg. Sistema ricalcola totale. A fine giornata, controlla soglie: burro sotto minimo (3kg vs 5kg) → invia alert a titolare. Nel frattempo, "Pizza margherita" mostra "NON DISP." sui tablet.
@@ -626,7 +593,7 @@ _Scenario:_ General Manager apre dashboard lunedì mattina: vede grafico fattur
 ## Activity Diagrams
 ### Prenotazione Tavoli
 ![[Prenotazioni.png | center | 300]]
-
+Da modificare - eliminare messaggio conferma cliente
 ### Presa Comanda
 ![[Presa_Comanda.png | center | 300]]
 
@@ -638,6 +605,7 @@ _Scenario:_ General Manager apre dashboard lunedì mattina: vede grafico fattur
 
 ### Controllo Giacenze
 ![[Controllo_Giacenze.png | center | 300]]
+Da modifcare - specificare segnalazione e non notifica al manager
 ## Sequence Diagrams
 
 # Architettura di Sistema
@@ -653,10 +621,10 @@ TableFlow usa un'architettura **client-server** moderna:
 ### Backend (Server)
 - **API Centrali:** Gestiscono tutte le operazioni
 - **Database:** PostgreSQL per dati strutturati (ordini, prenotazioni, magazzino)
-- **Servizio Notifiche:** Invia WhatsApp/email/SMS
+- **Servizio Notifiche (Eventualmente in futuro)**
 
 ### Client (Dispositivi)
-- **Tablet Sala:** App React Native per camerieri
+- **Tablet Sala:** App per camerieri
 - **Monitor Cucina:** Interfaccia web semplice per chef
 - **PC Reception:** Applicazione desktop per gestione
 - **Mobile Manager:** App per titolare (iOS/Android)
@@ -668,19 +636,12 @@ Tablet → WiFi/LTE → Server → Database
 Cucina ← WebSocket ← Notifiche
 ```
 
-## 4. Tecnologie Proposte
-- **Backend:** Node.js o Python (API veloci)
-- **Database:** PostgreSQL (affidabile, gratis)
-- **Tablet App:** React Native (un codice per iOS/Android)
-- **Monitor Cucina:** Web App semplice (HTML/JS)
-- **Comunicazione:** REST API + WebSocket per notifiche
-
-## 5. Modalità Operativa
+## 4. Modalità Operativa
 - **Online principale:** Tutti i dispositivi connessi a internet
 - **Offline limitato:** Tablet salvano ordini localmente se internet cade
 - **Sincronizzazione automatica** quando connessione ritorna
 
-## 6. Sicurezza Base
+## 5. Sicurezza Base
 - Login con username/password per ogni ruolo
 - Accessi separati: camerieri vedono solo loro funzioni, titolare vede tutto
 - Backup automatico giornaliero
@@ -688,7 +649,7 @@ Cucina ← WebSocket ← Notifiche
 
 # Design Pattern
 
-Questa sezione descrive i design pattern selezionati per la progettazione e implementazione del sistema TableFlow. La scelta è motivata dalla necessità di garantire modularità, manutenibilità, estendibilità e conformità ai requisiti non funzionali specificati, in particolare RNF07 (Manutenibilità Operativa). I pattern individuati sono applicabili a diversi livelli dell'architettura e risolvono problemi specifici del dominio ristorativo.
+Questa sezione descrive i design pattern selezionati per la progettazione e implementazione del sistema TableFlow. La scelta è motivata dalla necessità di garantire modularità, manutenibilità, estendibilità e conformità ai requisiti non funzionali specificati, in particolare RNF06 (Manutenibilità Operativa). I pattern individuati sono applicabili a diversi livelli dell'architettura e risolvono problemi specifici del dominio ristorativo.
 
 ## Pattern Selezionati & La Loro Applicazione
 
@@ -703,7 +664,7 @@ Questa sezione descrive i design pattern selezionati per la progettazione e impl
 **Vantaggi per il Sistema:**
 - Isolamento della logica di creazione
 - Aderenza al principio Open/Closed
-- Supporto alla configurabilità richiesta in RNF07
+- Supporto alla configurabilità richiesta in RNF06
 
 ### 2. Observer
 **Problema risolto:** Sincronizzazione in tempo reale e notifica automatica di eventi critici a multipli componenti del sistema, come richiesto da RNF01 (Performance Tempi Reali).
@@ -775,7 +736,7 @@ Questa sezione descrive i design pattern selezionati per la progettazione e impl
 **Applicazione in TableFlow:**
 - **Flusso di Prenotazione:** La classe astratta `PrenotazioneProcess` definisce la sequenza fissa: verifica disponibilità → creazione prenotazione → invio conferma → aggiornamento calendario. Le variazioni (es. tipo di notifica) sono implementate dalle sottoclassi.
 - **Processo di Ordinazione:** Scheletro comune per la creazione di comande (RF002) con passaggi specifici per tipologie diverse (asporto vs tavolo).
-- **Generazione Report:** Template per la produzione di report finanziari (RF010) con formattazione variabile (PDF, Excel, XML).
+- **Generazione Report:** Template per la produzione di report finanziari (RF010) con formattazione variabile
 
 **Vantaggi per il Sistema:**
 - Eliminazione di duplicazione di codice
@@ -784,15 +745,15 @@ Questa sezione descrive i design pattern selezionati per la progettazione e impl
 
 ## Tracciabilità con Requisiti
 
-| Pattern | Requisiti Supportati | Beneficio Principale |
-|---------|---------------------|---------------------|
-| Factory Method | RNF03 (Autorizzazioni), RF009 (Gestione Personale) | Gestione ruoli flessibile |
-| Observer | RNF01 (Performance Tempi Reali), RF007 (Comunicazione) | Notifiche in tempo reale |
-| Decorator | RF002 (Modifiche Piatto), RF004 (Visualizzazione) | Personalizzazione ordini |
-| Composite | RF005 (Divisione Conti), RF002 (Struttura Menu) | Gestione gerarchie |
-| Strategy | RF005 (Pagamenti), RV001 (Calcolo IVA) | Algoritmi intercambiabili |
-| Adapter | RNF05 (Integrazione), RNF07 (Manutenibilità) | Interoperabilità |
-| Template Method | RF001 (Prenotazione), RF010 (Report) | Processi standardizzati |
+| Pattern         | Requisiti Supportati                                   | Beneficio Principale      |
+| --------------- | ------------------------------------------------------ | ------------------------- |
+| Factory Method  | RNF03 (Autorizzazioni), RF009 (Gestione Personale)     | Gestione ruoli flessibile |
+| Observer        | RNF01 (Performance Tempi Reali), RF007 (Comunicazione) | Notifiche in tempo reale  |
+| Decorator       | RF002 (Modifiche Piatto), RF004 (Visualizzazione)      | Personalizzazione ordini  |
+| Composite       | RF005 (Divisione Conti), RF002 (Struttura Menu)        | Gestione gerarchie        |
+| Strategy        | RF005 (Pagamenti), RV001 (Calcolo IVA)                 | Algoritmi intercambiabili |
+| Adapter         | RNF05 (Integrazione), RNF07 (Manutenibilità)           | Interoperabilità          |
+| Template Method | RF001 (Prenotazione), RF010 (Report)                   | Processi standardizzati   |
 
 ## Implicazioni Architetturali
 
@@ -800,7 +761,7 @@ L'adozione di questi pattern influenza positivamente l'architettura di sistema d
 
 1. **Modularità Aumentata:** Ogni pattern contribuisce a separare le responsabilità, allineandosi con l'architettura a componenti proposta.
 2. **Estensibilità Futura:** La struttura basata su pattern facilita l'evoluzione del sistema verso l'integrazione con camerieri robot e doni di consegna, come descritto nella sezione "Evoluzione del sistema".
-3. **Manutenibilità Operativa:** RNF07 è supportato dalla capacità di modificare comportamenti senza riavvii del sistema, abilitata da pattern come Strategy e Decorator.
+3. **Manutenibilità Operativa:** RNF06 è supportato dalla capacità di modificare comportamenti senza riavvii del sistema, abilitata da pattern come Strategy e Decorator.
 4. **Testabilità:** L'isolamento delle responsabilità e l'uso di interfacce definite migliorano la copertura dei test, supportando i criteri di accettazione definiti.
 
 # Evoluzione del sistema
