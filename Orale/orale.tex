@@ -1,0 +1,372 @@
+% Created 2026-01-04 Sun 18:10
+% Intended LaTeX compiler: pdflatex
+\documentclass[11pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{graphicx}
+\usepackage{longtable}
+\usepackage{wrapfig}
+\usepackage{rotating}
+\usepackage[normalem]{ulem}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{capt-of}
+\usepackage{hyperref}
+\author{Leonardo Ascenzi}
+\date{\today}
+\title{Orale ing del software}
+\hypersetup{
+ pdfauthor={Leonardo Ascenzi},
+ pdftitle={Orale ing del software},
+ pdfkeywords={},
+ pdfsubject={},
+ pdfcreator={Emacs 30.2 (Org mode 9.7.11)}, 
+ pdflang={English}}
+\begin{document}
+
+\maketitle
+\tableofcontents
+
+\section{Significato include/exclude negli use case}
+\label{sec:orgeac9109}
+Il diagramma degli use case permettere di rappresentare graficamente le interazioni tra attori e sistema, specificando quali casi d'uso gli attori possono attivare.
+\subsection{Include:}
+\label{sec:org7ef4783}
+Indica che un caso d'uso include \textbf{\textbf{obbligatoriamente}} un altro caso d'uso per completare la sua funzionalitá.
+Utilizzato quando il comportamento di un caso d'uso é riutilizzabile per altri casi d'uso.
+Caso d'uso principale richiede l'esecuzione dei casi d'uso inclusi.
+\subsection{Extend:}
+\label{sec:org47461b2}
+Indica che un caso d'uso puó estendere \textbf{\textbf{opzionalmente}} un altro caso d'uso, aggiungendo funzionalitá alternative o opzionali.
+Utilizzato per rappresentare casi che si verificano solo in determinate condizioni.
+L'attivazione del caso d'uso esteso dipende da una determinata condizione.
+\section{Requisiti Software}
+\label{sec:orgf4a0e3b}
+I requisiti del software sono la \textbf{\textbf{descrizione dei servizi}} che un sistema software deve fornire, insieme ai vincoli da rispettare sia in fase di sviluppo che durante la fase di operativitá.
+\subsection{Requisiti utente:}
+\label{sec:org1e42ba3}
+Descrizione in \textbf{\textbf{linguaggio naturale}} dei \textbf{\textbf{servizi}} che il sistema deve fornire e dei \textbf{\textbf{vincoli operativi}}.
+\subsection{Requisiti di sistema:}
+\label{sec:orgf3091ed}
+Specificati mediante la \textbf{\textbf{stesura di un documento strutturato}} che descrive in modo dettagliato i \textbf{\textbf{servizi che il sistema software deve fornire}}.
+Si dividono in \textbf{\textbf{3}} categorie:
+\subsubsection{Funzionali:}
+\label{sec:org31eaa5a}
+Definiscono le funzionalitá del sistema, ovvero i servizi offerti, le reazioni a specifici input e il comportamento in diverse situazioni operative.
+\subsubsection{Non funzionali:}
+\label{sec:orgd7b9faf}
+Descrivono le qualitá del sistema e del processo di sviluppo, come efficienza, affidabilitá, sicurezza ed altre caratteristiche esterne.
+\subsubsection{Dominio:}
+\label{sec:org901fbb1}
+Derivano dal contesto applicativo del sistema.
+\subsection{Differenze:}
+\label{sec:org8328227}
+I requisiti funzionali in breve \textbf{\textbf{definiscono}} tutte le \textbf{\textbf{operazioni}} che il \textbf{\textbf{sistema deve eseguire}}.
+Gli altri \textbf{\textbf{definiscono}} tutte le \textbf{\textbf{funzionalitá}} che il \textbf{\textbf{sistema deve rispettare}}.
+\section{Modello ciclo di vita}
+\label{sec:orgaf621fd}
+Definisce le fasi attraverso cui il prodotto software evolve, dalla raccolta dei requisiti alla dismissione e l'ordine in cui tali fasi vengono eseguite.
+La scelta del modello dipende da fattori come la natura e la maturitá dell'organizzazione, le tecnologie adottate e i vincoli del cliente.
+\subsection{Principali modelli}
+\label{sec:orgdd5bf33}
+\subsubsection{Build \& Fix}
+\label{sec:org6d5094e}
+Modello privo di struttura formale; il prodotto viene sviluppato e poi modificato fino a soddisfare le esigenze del cliente.
+\subsubsection{Waterfall}
+\label{sec:org99466c2}
+Modello sequenziale a fasi successive copn verifica alla fine di ogni fase; adatto a progetti con requisiti ben definiti.
+\subsubsection{Spirale}
+\label{sec:org2a8b042}
+Modello iterativo che combina l'approccio del Waterfall con una forte enfasi sull'analisi dei rischi; ideale per progetti complessi e soggetti a cambiamenti nei requisiti.
+\section{Risk Analysis}
+\label{sec:org199a754}
+È il processo di identificazione, valutazione e gestione dei potenziali problemi che possono compromettere il successo di un progetto software.
+\subsection{Fasi principali:}
+\label{sec:orga16abd6}
+\begin{enumerate}
+\item Identificazione dei rischi:
+Individuare tutte le minacce che possono influire negativamente sul progetto.
+
+\item Valutazione dei rischi:
+Stimare l'impatto e la probabilitá di ogni rischio.
+
+\item Prioritizzazione:
+Stabilire quali rischi gestire per primi.
+
+\item Pianificazione delle mitigazioni:
+Definire le azioni per ridurre la probabilitá o l'impatto dei rischi.
+
+\item Monitoraggio continuo:
+Assicurarsi che i rischi siano monitorati durante tutto il ciclo di vita del software.
+\end{enumerate}
+\section{Architettura software - Architettura oggetti distribuiti}
+\label{sec:org3394656}
+L'architettura di sistema definisce la struttura dei componenti del sistema software, insieme alle relazioni tra questi ultimi.
+L'architettura ad oggetti distribuiti é un'architettura di sistema che non fa distinzioni tra client/server, infatti ogni oggetto distribuito puó fungere sia da client che da server.
+La comunicazione remota fra gli oggetti é resa trasparente usando middleware basati sul concetto di software bus.
+Le applicazioni basate su questa architettura consistono in un insieme di oggetti che sono eseguiti su piattaforme distribuite ed eterogenee, e comunicano tramite invocazioni remote dei metodi.
+\section{ORB - Object Request Broker}
+\label{sec:org298351c}
+É un componente middleware che abilita la comunicazione trasparente tra oggetti distribuiti su rete, indipendentemente da posizione fisica, linguaggio di programmazione o sistema operativo
+É il cuore delle architetture ad oggetti distribuiti, come CORBA.
+\subsection{Funzionamento}
+\label{sec:orgd920114}
+\textbf{\textbf{Intermediazione Richieste:}} il client invoca un metodo su un oggetto remoto; ORB localizza il server, inoltra la richiesta e restituisce il risultato.
+\textbf{\textbf{Gestione Dati:}} si occupa di serializzazione e deserializzaziopne dei parametri, oltre ai protocolli di rete
+\textbf{\textbf{Trasparenze Fornite:}} location trasparency e implementation trasparency.
+\subsection{Vantaggi}
+\label{sec:org1b9de83}
+Permette agli sviluppatori di concentrarsi sulla logica applicativa, astraendo la complessitá della distribuzione.
+\section{Relazione tra prodotto e costo di produzione}
+\label{sec:orga8460c8}
+La relazione tra prodotto software e costo di produzione é prevalentemente positiva: maggiore é la dimensione, la complessitá o la qualitá del prodotto, maggiore é il costo iniziale di sviluppo, ma con impatti variabili sui costi a lungo termine.
+\subsection{Fattori principali}
+\label{sec:org7a1bcde}
+\textbf{\textbf{Dimensione del prodotto:}} La complessitá e le funzionalitá aumentano direttamente lo sforzo e i costi, spesso in modo non lineare.
+\textbf{\textbf{Qualitá:}} Investire in qualitá eleva i costi iniziali, ma riduce quelli futuri di manutenzione e correzioni.
+\textbf{\textbf{Processi di sviluppo:}} Metodologie efficienti e automazione abbassano i costi mantenendo la qualitá
+\subsection{Equilibrio costi}
+\label{sec:org6a955ff}
+\textbf{\textbf{Scalabilitá e modularitá:}} Favoriscono costi minori in fase di aggiornamenti e manutenzioni, bilanciando l'investimento iniziale.
+\textbf{\textbf{Sintesi:}} Esiste un trade-off tra costi di produzione upfront e spese post-rilascio, ottimizzabile con stime accurate basate su dimensioni funzionali.
+\section{Service Oriented Architecture}
+\label{sec:org0dc80d8}
+La SOA é un'architettura software distribuita che consiste in molteplici servizi.
+I Servizi sono distribuiti in maniera tale da poter essere eseguiti su nodi differenti con differenti service provider.
+L'obiettivo é quello di sviluppare applicazioni software composte da servizi distribuiti, in modo tale che i singoli servizi possano essere eseguiti su piú piattaforme differenti e implementati con differenti linguaggi di programmazione
+All'interno delle SOA troviamo ORB che permette la comunicazione tra i client e i servizi distribuiti.
+
+Il fulcro dell'implementazione SOA sono i web services, e sfruttano vari protocolli per far comunicare i servizi fra di loro.
+
+Tra questi troviamo:
+\textbf{\textbf{SOAP:}} protocollo basato su XML e HTML che permette lo scambio di informazioni in un sistema distribuito. Utilizza protocolli di trasporto come HTTP, SMTP.
+\textbf{\textbf{REST:}} architettura che utilizza i metodi HTML per operazioni CRUD.
+
+Oltre che ai web services, le SOA utilizzano altri servizi, tra cui:
+\textbf{\textbf{UDDI:}} aiuta a localizzare e identificare i servizi presenti in una rete.
+\textbf{\textbf{WSDL:}} Linguaggio basato su XML utilizzato per descrivere le interfacce dei servizi in un'architettura di SOA.
+\section{Secondo quali attivitá va declinata la fase di testing?}
+\label{sec:orgf3d3565}
+La fase di testing é articolata in una serie di attivitá che assicurano la soddisfazione dei requisiti definiti.
+Queste attivitá sono:
+
+\begin{enumerate}
+\item \textbf{\textbf{Pianificazione del testing:}}
+\begin{itemize}
+\item Definizione degli obiettivi del testing.
+\item Identificazione delle risorse necessarie.
+\item Pianificazione temporale e stima dei costi.
+\end{itemize}
+\item \textbf{\textbf{Progettazione dei Test Case:}}
+\begin{itemize}
+\item Creazione di scenari di test basati sui requisiti funzionali e non funzionali.
+\item Identificazione delle versioni software da testare.
+\end{itemize}
+\item \textbf{\textbf{Preparazione dell'ambiente di test:}}
+\begin{itemize}
+\item Configurazione degli ambienti (Hardware, Software, Reti).
+\item Installazione delle versioni del software da testare.
+\end{itemize}
+\item \textbf{\textbf{Esecuzione dei test:}}
+\begin{itemize}
+\item Esecuzione dei casi di test progettati.
+\item Registrazione dei risultati (Successo o Fallimento) e documentazione delle anomalie.
+\end{itemize}
+\item \textbf{\textbf{Analisi dei risultati:}}
+\begin{itemize}
+\item Confronto tra risultati ottenuti e quelli attesi.
+\item Identificazione e classificazione dei difetti.
+\end{itemize}
+\item \textbf{\textbf{Risoluzione dei problemi:}}
+\begin{itemize}
+\item Collaborazione con il team di sviluppo per risolvere i difetti identificati.
+\item Verifica delle correzioni.
+\end{itemize}
+\item \textbf{\textbf{Test di regressione:}}
+\begin{itemize}
+\item Assicurarsi che le modifiche al codice non abbiano introdotto nuovi errori.
+\end{itemize}
+\item \textbf{\textbf{Valutazione finale e report:}}
+\begin{itemize}
+\item Verifica se il prodotto soddisfa i criteri di accettazione.
+\item Redazione di un report con le conclusioni del testing.
+\end{itemize}
+\end{enumerate}
+\section{Come si chiama il testing di validazione per i software a contratto?}
+\label{sec:orgd443b8b}
+Il testing di validazione per i software a contratto é chiamato \textbf{\textbf{Acceptance Testing.}}
+\begin{itemize}
+\item \textbf{\textbf{Definizione:}}
+É l'utlima fase del ciclo di testing, in cui il cliente o l'utente finale verifica che il software soddisfi i requisiti contrattuali e sia pronto per il rilascio.
+\item \textbf{\textbf{Scopo:}}
+Validare che il software sia conforme alle specifiche contrattuali e garantire la piena utilizabilitá nel contesto operativo del cliente.
+\end{itemize}
+\section{Ciclo di vita del Software}
+\label{sec:org055dc01}
+\subsection{Definizione Formale}
+\label{sec:orge9fbf84}
+Il ciclo di vita di un software é il quadro strutturale che organizza in fasi, attivitá e compiti tutti i processi di sviluppo, esericizo e manutenzione di un prodotto software, dalla definizione dei requisiti fino alla dismissione del sistema.
+É suddiviso in 3 stadi, il primo stadio a sua volta é composto da 6 fasi.
+\subsection{Stadi}
+\label{sec:org39a4437}
+\subsubsection{Stadio 1: Sviluppo}
+\label{sec:orgd3347c1}
+\begin{itemize}
+\item Requisiti
+\item Specifiche
+\item Pianificazione
+\item Progetto
+\item Codifica
+\item Integrazione
+\end{itemize}
+\subsubsection{Stadio 2: Manutenzione}
+\label{sec:org6569d7c}
+Copre circa il 60\% dei costi del ciclo di vita
+\subsubsection{Stadio 3: Dismissione}
+\label{sec:orge246272}
+\subsection{Fasi dello Stadio di Sviluppo}
+\label{sec:org0c3137e}
+\subsubsection{1. Requisiti}
+\label{sec:org24e1cfe}
+\textbf{\textbf{Obiettivo:}} Identificare e raccogliere le esigenze degli stakeholder.
+\textbf{\textbf{Descrizione:}} In questa fase si effettua la raccolta, l'analisi e la documentazione dettagliata delle esigenze degli utenti e degli stakeholder, per definire cosa il sistema deve fare e i suoi vincoli operativi.
+\textbf{\textbf{Attivitá Principali:}}
+\begin{itemize}
+\item Interviste con utenti e clienti.
+\item Analisi delle esigenze funzionali.
+\item Identificazione dei requisiti non funzionali.
+\item Creazione di una lista iniziale di requisiti.
+\end{itemize}
+\subsubsection{2. Specifiche}
+\label{sec:org34ba537}
+\textbf{\textbf{Obiettivo:}} Documentare e dettagliare i requisiti raccolti nella fase precedente.
+\textbf{\textbf{Descrizione:}} Approfondisce i requisiti in specifiche tecniche dettagliate, producendo documenti come \textbf{\textbf{SRS (Software Require Specification)}} o \textbf{\textbf{SFS (Software Functional Specification)}} che serviranno nelle fasi successive.
+\textbf{\textbf{Attivitá Principali:}}
+\begin{itemize}
+\item Analisi di fattibilitá tecnica ed economica.
+\item Stesura dei documenti di specifiche.
+\item Validazione dei requisiti con il cliente per verificare che siano corretti.
+\end{itemize}
+\subsubsection{3. Pianificazione}
+\label{sec:org174b326}
+\textbf{\textbf{Obiettivo:}} Organizzare il lavoro per il completamento del progetto.
+\textbf{\textbf{Descrizione:}} Si definisce il piano del progetto: stime di costi/risorse/tempi, allocazione team, scelta strumenti/metodologie, identificazione rischi e definizione milestone. Produce il \textbf{\textbf{Project Plan}} con \textbf{Gant}, budget e criteri di monitoraggio. É cruciale per allineare stakeholder e gesstire scope.
+\subsubsection{4. Progetto}
+\label{sec:orgdf5fb29}
+\textbf{\textbf{Obiettivo:}} Progettare l'architettura e i dettagli tecnici del software.
+\textbf{\textbf{Descrizione:}} Si definisce la struttura del sistema e le componenti, fornendo un modello chiaro da seguire nella fase di sviluppo.
+\textbf{\textbf{Attivitá Principali:}}
+\begin{itemize}
+\item Progettazione dell'architettura.
+\item Creazione dei diagrammi UML, diagrammi di flusso e design delle interfacce.
+\item Progettazione di database e definizione delle entitá.
+\item Redazione del piano di test iniziale per assicurarsi cjhe il progetto sia verificabile.
+\end{itemize}
+\subsubsection{5. Codifica}
+\label{sec:org5b392dc}
+\textbf{\textbf{Obiettivo:}} Tradurre il design in un software funzionante.
+\textbf{\textbf{Descrizione:}} In questa fase gli sviluppatori scrivono il codice sorgente seguendo le specifiche di progetto, standard di coding e best practice. Include unit testing durante lo sviluppo e commit in repository git. L'importanza di questa fase é per l'appunto la trasformazione da design a eseguibile, con enfasi su qualitá e leggibilitá.
+\subsubsection{6. Integrazione}
+\label{sec:org56d22af}
+\textbf{\textbf{Obiettivo:}} Collegare i diversi moduli e testare il sistema completo.
+\textbf{\textbf{Descrizione:}} SI assemblano i moduli/test unitari in un sistema coerente, verificando integrazioni tramite test di integrazione. Identifica e risolve difetti di interfaccia. Culmina in unn  prototipo parziale o completo pronto per essere testato.
+\section{Qual é la manutenzione piú frequentemente utilizzata?}
+\label{sec:org6ef0101}
+La manutenzione piú frequentemente utilizzata é quella \textbf{\textbf{correttiva}}.
+La manutenzione correttiva é l'insieme delle attivitá volte a correggere difetti, errori o malfunzionamenti riscontrati nel software dopo il suo rilascio in produzione, ripristinando la funzionalitá conforme alle specifiche originali.
+\subsection{Altri tipi di manutenzioni}
+\label{sec:org20947b6}
+\begin{enumerate}
+\item Adattiva
+\label{sec:org9e920e1}
+Modifiche al software per adattarlo ai cambiamenti dell'ambiente operativo.
+\item Perfettiva
+\label{sec:org61917fb}
+Migliora le prestazioni o aggiunge nuove funzionalitá per soddisfare le richieste degli utenti.
+\item Preventiva
+\label{sec:orgfeef80c}
+Effettuare modifiche per ridurre richi di guasto o per prevenire dei problemi futuri.
+\end{enumerate}
+\section{Regola 10-90}
+\label{sec:org69e40df}
+La regola 10-90 é una variante della regola 90-90, un aforismo umoristico dell'ingegneria del software.
+Questa regola afferma che: "Solo il 10\% del codice critico consuma il 90\% delle risorse di esecuzione o sviluppo".
+Il 10\% del codice in questione si definisce \textbf{\textbf{core}} del programma.
+\section{Stima durata progetto}
+\label{sec:org1e5514d}
+Per stimare la durata totale di un progetto software partendo dal documento di specifica, é necessario utilizzare tecniche di pianificazione e stima che si basano su dioversi fattori come la dimensione stimata del prodotto, le risorse disponibili e i processi di sviluppo.
+La prima fase della stima é quella stimare le dimensioni totali del software. usando tecniche note che vedremo avanti.
+Successivamente si stima la durata:
+\begin{enumerate}
+\item Modello algoritmico \textbf{\textbf{COCOMO:}}
+\begin{itemize}
+\item Stimando effort e poi tempo
+\end{itemize}
+\item Usando metodi empirici:
+\begin{itemize}
+\item Suddividere il progetto in attivitá specifiche e stimare la durata di goni attivitá e successivamente sommare tutte queste stime per averne una complessiva.
+\end{itemize}
+\end{enumerate}
+\section{Organizzazione modello di qualitá del Software}
+\label{sec:org400cb35}
+Il modello di qualitá del software si strutturs principalmente attorno allo standard \textbf{\textbf{IEEE 1061}}, che fonrnisce un framework sistematico per definire, misurare e valutare la qualitá attraverso metriche quantitative legate a obiettivi specifici del progetto.
+\subsection{Principi e struttura secondo IEEE 1061}
+\label{sec:orgc2c56a5}
+Lo standard organizza la qualitá del software identificando prima gli obiettivi di qualitá rilevanti per il contesto.
+Successivamente, associa a questi obiettivi attributi di qualitá misurabili e metriche per valutarli.
+Un elemento centrale sono gli indici di qualitá, che aggregano piú metriche in indicatori sintetici per monitorare le prestazioni complessive.
+Questi indici si divono in tre gruppi principali, allineati al modello McCall.
+\subsubsection{1. Attivitá di Revisione}
+\label{sec:org2a368a8}
+\begin{itemize}
+\item \textbf{\textbf{Manutenibilitá:}} effort richiesto per individuare e correggere un errore in un programma operativo.
+\item \textbf{\textbf{Flessibilitá:}} effort per modificare un prodotto software giá in uso.
+\item \textbf{\textbf{Testabilitá:}} effort per testare il software e verificarne la correttezza funzionale.
+\end{itemize}
+\subsubsection{2. Attivitá di Transizione}
+\label{sec:orgaaf06ea}
+\begin{itemize}
+\item \textbf{\textbf{Portabilitá:}} effort per traferire il software ad un nuovo ambiente hardware/software.
+\item \textbf{\textbf{Riusabilitá:}} grado in cui parti del software possono essere riutilizzate in altre applicazioni.
+\item \textbf{\textbf{Interoperabilitá:}} effort per integrare il software con altri sistemi.
+\item \textbf{\textbf{Evolutivitá:}} effort per aggiornarlo con nuovi requisiti.
+\end{itemize}
+\subsubsection{3. Attivitá di Operazioni}
+\label{sec:org2fde99d}
+\begin{itemize}
+\item \textbf{\textbf{Correttezza:}} misura in cui il software soddisfa specifiche e obiettivi utente.
+\item \textbf{\textbf{Affidabilitá:}} probabilmente che svolga le funzioni previste con la precisione richiesta.
+\item \textbf{\textbf{Efficienza:}} risorse di calcolo e codice necessarie per eseguire una funzione.
+\item \textbf{\textbf{Integritá:}} protezione da accessi non autorizzati a software o dati.
+\item \textbf{\textbf{Usabilitá:}} effort per imparere, usare, preparare input e interpretare output.
+\end{itemize}
+\subsubsection{Attributi di qualitá}
+\label{sec:org37ad4cb}
+Oltre aghli indici, \textbf{\textbf{IEEE 1061}} elenca attributi fondamentali, come:
+\begin{itemize}
+\item \textbf{\textbf{Complessitá:}} comprensibilitá e verificabilitá degli elementi e delle loro interazioni.
+\item \textbf{\textbf{Precisione:}} accuratezza dei calcoli e e risultati.
+\item \textbf{\textbf{Completezza:}} implementazione esaustiva delle funzionalità richieste.
+\item \textbf{\textbf{Coerenza:}} uniformità di design, implementazione e notazioni.
+\item \textbf{\textbf{Tolleranza:}} capacità di operare in condizioni avverse.
+\item \textbf{\textbf{Tracciabilitá:}} legami chiari tra elementi del processo di sviluppo.
+\item \textbf{\textbf{Espandibilitá:}} possibilità di ampliare memorie o funzioni.
+\item \textbf{\textbf{Generalitá:}} ampiezza delle applicazioni potenziali.
+\item \textbf{\textbf{Modularitá:}} indipendenza dei moduli.
+\item \textbf{\textbf{Autodocumentazione:}} presenza di documentazione inline.
+\end{itemize}
+
+Questi attribuit sono mappati su metriche concrete
+\subsubsection{Processo iterativo di valutazione}
+\label{sec:orga7e4b28}
+IEEE 1061 definisce un ciclo chiaro:
+\begin{enumerate}
+\item \textbf{\textbf{Definizione degli obiettivi:}} contestualizzati al progetto.
+\item \textbf{\textbf{Identificazione degli attributi:}} selezione di quelli prioritari.
+\item \textbf{\textbf{Scelta metriche:}} quantitative e rilevanti per ciascun attributo.
+\item \textbf{\textbf{Misurazione:}} calcolo e confronto con benchmark o target.
+\item \textbf{\textbf{Analisi e Feedback:}} miglioramento continuo basato sui risultati.
+\end{enumerate}
+
+Questa struttura garantisce che la qualitá sia oggettiva, misurabile e allineata agli stakeholder, riducendo soggettivitá e rischi.
+\end{document}
