@@ -2,7 +2,8 @@
 #+Author: Leonardo Ascenzi
 
 * Significato include/exclude negli use case
-  Il diagramma degli use case permettere di rappresentare graficamente le interazioni tra attori e sistema, specificando quali casi d'uso gli attori possono attivare.
+Il diagramma degli use case permettere di rappresentare graficamente le interazioni tra attori e sistema, specificando quali casi d'uso gli attori possono attivare.
+
 ** Include:
 Indica che un caso d'uso include **obbligatoriamente** un altro caso d'uso per completare la sua funzionalitá.
 Utilizzato quando il comportamento di un caso d'uso é riutilizzabile per altri casi d'uso.
@@ -287,3 +288,111 @@ IEEE 1061 definisce un ciclo chiaro:
 5. **Analisi e Feedback:** miglioramento continuo basato sui risultati.
 
 Questa struttura garantisce che la qualitá sia oggettiva, misurabile e allineata agli stakeholder, riducendo soggettivitá e rischi.
+
+* Factory Method, a che cosa serve?
+Lo scopo dell'utilizzo del Design Pattern **Factory Method** é quello di definire un'interfaccia per la creazione di un oggetto, che consenta di decidere a running time quale specifico oggetto istanziare.
+
+** Quali sono le situazioni in cui si applica il Design Pattern Factory Method?
+- Una classe vuole che le sue sottoclassi scelgano gli oggetti da creare
+- Quando una classe non é in grado di sapere in anticipo le classi di oggetti che deve creare
+- ecc...
+
+** Quali sono le conseguenze dell'applicazione di questo Design Pattern?
+L'utilizzo di questo Design Pattern elimina la necessitá di riferirsi a classi dipendenti dall' applicazione all'interno del codice
+
+* Design Pattern
+** Cosa sono i Design Patterns? a cosa servono?
+Uno dei compiti più difficili per un progettista di software è individuare un insieme di oggetti ben definiti, riusabili il più possibile e con relazioni e gerarchie chiare ed efficaci.
+I Design Patterns sono proprio la soluzione a questo problema.
+Questi trovano il fulcro della soluzione ad un problema ricorrente e fanno in modo che possa essere riutilizzata infinite volte anche non applicandola necessariamente nello stesso modo.
+In particolare essi creano un linguaggio condiviso tra gli sviluppatori in modo tale da offrire soluzioni a problemi che ritornano spesso nello sviluppo software e creano un codice strutturato in modo corretto.
+Inoltre capitalizzano l'esperienza della progettazione OO e ne favoriscono il riuso.
+Le soluzioni che propongono non sono mai già note ma allo stesso tempo non sono neanche soluzioni universali e quindi non sono sempre applicabili a qualsiasi problema.
+
+I Pattern si distinguono in tre categorie principali:
+- **Creazionali:** Riguardano la creazione degli oggetti.
+- **Strutturali:** Si concentrano sull'organizzazione di classi e oggetti.
+- **Comportamentali:** Descrivono come gli oggetti interagiscono e come si distribuiscono le responsabilitá.
+
+** Come è fatta la struttura di un Design Patterns?
+Un Design Patterns ha la seguente struttura:
+Per prima cosa troviamo il nome e la classificazione che illustrano l'essenza, lo scopo e il raggio d'azione del Pattern.
+In seguito troviamo la motivazione ovvero una descrizione del problema e dello scenario al quale bisogna applicare il relativo Pattern.
+In seguito troviamo l'applicazione del Pattern e subito dopo la struttura cioè una descrizione grafica della configurazione degli elementi che risolvono il problema.
+Troviamo anche le classi, gli oggetti che ne fanno parte e i risultati dopo l'applicazione di tale Pattern (conseguenze).
+Sono presenti poi alcune tecniche e consigli per applicare il Pattern (implementazione).
+Infine troviamo dei codici d'esempio che illustrano come implementare il Pattern in un certo linguaggio, degli esempi di applicazioni reali che lo utilizzano e altri Pattern che sono collegati a questo.
+
+- **Nome e Classificazione:** Il nome illustra l'essenza di un Pattern; la classificazione lo identifica in termini di scopo e raggio d'azione.
+- **Motivazione:** Scenario che descrive in modo astratto il problema al quale applicare il Pattern.
+- **Applicabilità:** Applicazioni del Pattern.
+- **Struttura:** Descrive graficamente la configurazione di elementi che risolvono il roproblema.
+- **Partecipanti:** Classi ed oggetti che fanno parte del Pattern.
+- **Conseguenze:** Risultati dopo l'applicazione del Pattern.
+- **Implementazione:** Tecniche e suggerimenti per applicare il Pattern.
+- **Codice di esempio:** Frammenti di codice che illustrano come implementare in un certo linguaggio di programmazione il Pattern.
+- **Usi noti:** Esempi di applicazioni in sistemi reali.
+- **Pattern collegati:** Altri Pattern.
+
+** Lista dei Design Patterns spiegati dal prof con spiegazione
+*** Abstract Factory
+**il suo scopo è fornire un'interfaccia per creare famiglie di oggetti correlati**, senza specificare le concrete classi da usare.
+I **vantaggi** di usare questo Pattern sono **l'isolamento delle classi complete e la facile sostituzione dell'intera famiglia dei prodotti**.
+Lo **svantaggio** di questo Pattern è che **aggiungere nuove famiglie richiede modifiche all'interfaccia della factory**.
+
+*** Factory Method
+**il suo scopo è quello di definire un metodo che rimanda alle sottoclassi la decisione su quale oggetto istanziare.**
+**Tipico nei framework:**
+- La classe astratta fornisce il flusso operativo.
+- Le sottoclassi decidono cosa creare
+**Benefici: disaccoppia il codice dal tipo concreto degli oggetti.**
+
+*** Adapter
+**Il suo scopo è convertire l'interfaccia di una classe esistente incompatibile con un client, in una compatibile.**
+Ne esistono due tipi:
+- **Object Adapter:** Usa la composizione.
+- **Class Adapter:** Usa l'ereditarietá multipla.
+
+*** Composite
+**il suo scopo è trattare oggetti semplici e strutture composte in maniera uniforme.**
+Ha 3 componenti principali:
+- Component (interfaccia comune),
+- Leaf (oggetti semplici),
+- Composite (oggetti composti).
+I **vantaggi** di questo Pattern sono che **semplifica il codice client e facilita l'aggiunta di nuove forme.**
+Lo **svantaggio** è che **il sistema può risultare troppo generico.**
+
+*** Decorator
+**Il suo scopo è quello di aggiungere dinamicamente delle funzionalità ad un oggetto senza modificarne la classe.** Un esempio di applicazione è la realizzazione di interfacce utente, in cui funzionalità come lo scorrimento del testo o un bordo devono essere aggiunti a livello di singolo oggetto.
+Il **decorator** è un oggetto contenitore che racchiude un oggetto elementare e aggiunge una particolare responsabilità. Il **decorator** trasferisce le richieste all'oggetto decorato ma può svolgere funzioni aggiuntive prima o dopo il trasferimento della richiesta.
+Si applica quando è necessario aggiungere agli oggetti funzionalità a _runtime_ e quando il subclassing non è adatto (provocherebbe l'esplosione di sottoclassi per ogni funzionalità).
+
+*** Observer
+**Il suo scopo è quello di definire una dipendenza uno a molti tra oggetti.** Quando più oggetti dipendono dallo stato di un altro oggetto, bisogna assicurarsi che questi oggetti si aggiornino automaticamente.
+È necessario quando un oggetto (detto **Subject** o **Observable**) deve informare automaticamente altri oggetti (**Observer**) ogni volta che cambia stato.
+Il Pattern Observer prevede che gli osservatori si registrino presso l'oggetto osservato. In questo modo l'oggetto osservato notifica ogni cambiamento agli osservatori. Quando l'osservatore rileva la notifica può interrogare l'oggetto osservato o svolgere operazioni indipendenti dallo stato dell'osservato. Si applica quando una azione può essere scomposta in due ambiti, ciascuno incapsulato in oggetti separati e quando bisogna gestire le modifiche di oggetti in seguito alla variazione di un altro oggetto.
+L'accoppiamento tra **subject** e **observer** è astratto, il subject conosce solo la lista degli osservatori e la _notifica_ avviene in modalità broadcast, quindi il subject non si occupa di quanti sono gli observer registrati.
+
+*** Template Method
+**Ha lo scopo di definire la struttura di un algoritmo, delegando alle sottoclassi l'implementazione di passaggi specifici.**
+La classe base decide come è organizzato l'algoritmo, le sottoclassi decidono come implementare i passaggi variabili
+
+Si usa:
+- quando implementiamo algoritmi che condividono la stessa struttura ma differiscono in alcuni dettagli
+- quando si vuole evitare duplicazioni di passaggi perché ci sono comportamenti comuni (vengono inseriti nel template)
+
+La classe base (_AbstractClass_) contiene:
+- templateMethod: definisce la sequenza di passi dell'algoritmo
+- metodi astratti che le sottoclassi devono implementare
+- metodi hook che hanno un comportamento standard, ma le sottoclassi possono anche ridefinire Il template Method crea una struttura di controllo invertito dove è la classe padre che richiama le operazioni ridefinite nelle sottoclassi.
+
+Simile al factory method perché invoca metodi astratti tramite interfaccia e l'implementazione dei metodi rimandata a classi concrete.
+Si utilizzano però in problemi diversi:
+- il template method è il metodo che invoca i metodi astratti per generalizzare un algoritmo
+- il factory method è un metodo astratto che deve creare e restituire l'istanza di classe concreta per sganciare il cliente dalla scelta del tipo specifico
+
+*** Strategy
+**Ha lo scopo di definire ed incapsulare una famiglia di algoritmi in modo da renderli intercambiabili indipendentemente dal client che li usa.**
+Pensiamo alla classe degli algoritmi di ordinamento, in cui ne esistono diversi (BucketSort, QuickSort ecc). Costruiamo un'applicazione che li supporti tutti e che permette una scelta rapida dell'algoritmo.
+Molte classi differiscono solo per il comportamento. Il Pattern **strategy** offre un modo per avere un interfaccia comune. Questo Pattern è applicabile quando sono necessarie più varianti di uno stesso algoritmo, in base al tipo di dato in ingresso o a delle condizioni operative.
+La strategy elimina i blocchi condizionali necessari se tutti i comportamenti fossero in un unica classe, ma i client devono conoscere le diverse strategie.
