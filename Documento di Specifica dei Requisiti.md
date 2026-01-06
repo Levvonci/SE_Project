@@ -40,18 +40,15 @@ Il documento presuppone nel lettore una conoscenza di base dei processi di risto
 **Versione 0.2 → 0.5 (05/12/2025)**
 - Espansione del glossario con 15 nuovi termini
 - Specifica dei requisiti non funzionali (prestazioni, usabilità, affidabilità)
-- Introduzione dei criteri di accettazione
-- Definizione dei vincoli progettuali
 
 **Versione 0.5 → 0.8 (15/12/2025)**
 - Integrazione requisiti gestione magazzino
 - Aggiunta figure professionali (Executive Chef, Sommelier, Runner)
-- Specifica delle interfacce con sistemi esterni
-- Definizione delle metriche di performance
+- Specifica dell’architettura hardware
+- Definizione dei requisti non funzionali
 
 **Versione 0.8 → 0.9 (20/12/2025)**
 - Revisione completa della consistenza terminologica
-- Verifica tracciabilità requisiti-casi d'uso
 - Ottimizzazione della struttura documentale
 - Correzione errori minori e refusi
 
@@ -59,11 +56,6 @@ Il documento presuppone nel lettore una conoscenza di base dei processi di risto
 - Approvazione finale del team
 - Allineamento con le specifiche del corso
 - Preparazione per la consegna ufficiale
-
-Il documento rappresenta lo stato completo dei requisiti per la versione 1.0 del sistema TableFlow e costituisce la base di riferimento per lo sviluppo e la validazione del progetto.
-
-*Il Team TableFlow*  
-*Dicembre 2025*
 
 # Indice
 
@@ -179,8 +171,10 @@ L'obiettivo primario è creare un ecosistema che aumenti l'efficienza, migliori 
 ## 3. Interazione con Altri Sistemi
 Il sistema `TableFlow` dovrà interfacciarsi e integrarsi con i seguenti sistemi esterni:
 * **Sistemi di Pagamento Elettronico**: per l'elaborazione di transazioni con carte di credito/debito e servizi di pagamento digitale (es. Visa, MasterCard, Satispay, SumUp).
-* **Piattaforme di Food Delivery Aggregator**: per ricevere e gestire ordinativi da piattaforme terze come Just Eat, Deliveroo e Glovo.
 * **Sistema di Contabilità**: per l'esportazione automatica dei dati delle vendite e IVA.
+
+### Future Integrazioni:
+* **Piattaforme di Food Delivery Aggregator**: per ricevere e gestire ordinativi da piattaforme terze come Just Eat, Deliveroo e Glovo.
 * **Sistemi di Prenotazione Online**: per sincronizzare la disponibilità dei tavoli con servizi come TheFork.
 
 ## 4. Ambito di Applicazione nel Contesto Aziendale
@@ -189,8 +183,6 @@ Questo progetto si inserisce nella strategia di innovazione digitale e miglioram
 *   **Camerieri**: Per l'assunzione degli ordini e la gestione dei tavoli.
 *   **Personale di Cucina**: Per la visualizzazione e preparazione degli ordini.
 *   **Cassiere/Maitre**: Per la gestione delle entrate e uscite.
-
-**Esclusioni dall'ambito**: Lo sviluppo di hardware customizzato, la gestione delle risorse umane (payroll, contratti) e il marketing attivo sui social media non fanno parte del presente progetto.
 
 # Glossario
 
@@ -328,13 +320,11 @@ Questo progetto si inserisce nella strategia di innovazione digitale e miglioram
 
 **Receptionist deve poter:**
 - Creare prenotazioni specificando: data, ora, numero persone, note speciali (allergie, celebrazioni).
-- Visualizzare disponibilità tavoli in tempo reale con calendario/planimetria.
+- Visualizzare disponibilità tavoli in tempo reale.
 - Modificare/cancellare prenotazioni esistenti.
-- Gestire liste d'attesa automatiche.
 
 **Software deve:**
 - Bloccare sovrapposizioni di prenotazioni sullo stesso tavolo
-- Generare report statistiche prenotazioni (tasso occupazione, no-show)
 
 ### 1.2 Gestione Ordinazioni
 **RF002 - Creazione Comanda**
@@ -362,7 +352,7 @@ Questo progetto si inserisce nella strategia di innovazione digitale e miglioram
 - Rimuovere articoli già inseriti
 - Modificare quantità articoli esistenti
 
-**Titolare/General Manager deve poter:**
+**Titolare/Manager deve poter:**
 - Visualizzare storico completo modifiche per ogni comanda
 - Tracciare chi ha effettuato ogni modifica (audit trail)
 - Annullare modifiche in caso di errore
@@ -383,86 +373,60 @@ Questo progetto si inserisce nella strategia di innovazione digitale e miglioram
 **Software deve visualizzare:**
 - Comande in arrivo con dettagli completi (note, priorità)
 - Organizzazione per tipo piatto e ordine cronologico
-- Evidenziazione modifiche speciali (allergie, preferenze)
+- Evidenziazione note (allergie, preferenze)
 
 **RF006 - Comunicazione Cucina/Bar - Sala**
-**Descrizione:** SIstema per la segnalazione dello stato della preparazione
+**Descrizione:** Sistema per la segnalazione dello stato della preparazione
+
+**Chef deve:**
+- Segnalare ai camerieri quando articoli sono "pronti al ritiro" oppure allertare ritardi.
 
 **Software deve:**
-- Segnalare ai camerieri quando articoli sono "pronti al ritiro"
-- Implementare sistema allerta ritardi (oltre tempo atteso)
 - Permettere marcatura ordini come "completati/consegnati"
 - Gestire annullamenti produzione (cambiamenti post-invio)
 
 ### 1.4 Gestione Pagamenti
 **RF007 - Gestione Conto**
-**Attori:** Receptionist, Cliente
+**Attori:** Receptionist
 **Descrizione:** Sistema completo gestione pagamenti.
 
 **Receptionist deve poter:**
 - Dividere conto per numero persone/gruppi
-- Applicare automaticamente coperto (se previsto)
 - Emettere fattura/scontrino fiscale elettronico
 - Stornare/annullare pagamenti errati
 
 **Software deve:**
-- Calcolare automaticamente IVA per categoria prodotto
-- Integrarsi con registratore di cassa telematico
+- Calcolare automaticamente IVA
+- Inviare fatture elettroniche
 - Generare scontrino o fattura
-- Tracciare mance (se applicabili)
+- Applicare mance (se in uso)
 
 ### 1.5 Gestione Magazzino
 **RF008 - Controllo Giacenze**
-**Attori:** Cuoco, Barman, Titolare, General Manager
+**Attori:** Chef, Sommelier, Titolare/Manager
 **Descrizione:** Sistema tracciamento inventario e scorte.
 
 **Personale autorizzato deve poter:**
-- Aggiornare quantità disponibili per ogni articolo (rifornimenti)
-- Registrare uscite/consumi giornalieri
+- Aggiornare quantità disponibili per ogni articolo (durante i rifornimenti)
 - Segnalare danni/perdite/avarie
 
 **Software deve:**
 - Mostrare articoli non disponibili in tempo reale su terminali sala
-- Generare report consumi giornalieri/settimanali
 - Calcolare costo ingredienti per piatto
-- Suggerire ordini fornitori basati su consumi storici
 
-### 1.6 Gestione Personale
-**RF009 - Gestione Turni**
-**Attori:** Titolare, General Manager
-**Descrizione:** Sistema pianificazione e controllo risorse umane.
-
-**Direttore deve poter:**
-- Creare e modificare turni di lavoro
-- Assegnare personale a zone specifiche (sale)
-- Gestire richieste ferie/permessi
-
-**Software deve:**
-- Generare report ore lavorate per dipendente (periodo personalizzabile)
-- Calcolare totale assenze/malattie/permessi
-- Segnalare in caso di conflitti turni/sottodimensionamento
-
-### 1.7 Gestione Finanziaria e Reportistica
-**RF010 - Analisi Finanziaria**
-**Attori:** Titolare, General Manager
+### 1.6 Gestione Finanziaria e Reportistica
+**RF009 - Analisi Finanziaria**
+**Attori:** Titolare/Manager
 **Descrizione:** Sistema reportistica avanzata per analisi business.
 
-**Titolare/General Manager deve poter visualizzare:**
-- Fatturato totale per periodo personalizzabile (giorno/settimana/mese/anno)
-- Contributo percentuale di ogni articolo/categoria al fatturato
-- Andamento prenotazioni e tasso occupazione
-- Tempo medio permanenza cliente per tavolo
-
-**Software deve generare:**
-- Report performance camerieri (ordini gestiti, errori, feedback)
-- Analisi vendite incrociate (piatti più abbinati)
-- Previsioni di affluenza basate su dati storici
-- Report fiscali per commercialista
+**Titolare/Manager deve poter visualizzare durante la chiusura fiscale giornaliera:**
+- Fatturato totale.
+- Numero totale fatture.
+- Contributo percentuale di ogni articolo/categoria al fatturato.
 
 ## 2. REQUISITI NON FUNZIONALI
 
 ### RNF01 - PERFORMANCE TEMPI REALI
-
 **Descrizione:** Il sistema deve garantire sincronizzazione in tempo reale tra tutti i dispositivi per operazioni critiche.
 
 **Specifiche:**
@@ -471,7 +435,6 @@ Questo progetto si inserisce nella strategia di innovazione digitale e miglioram
 - Calcolo conto complesso (divisione per 8+ persone): **< 1 secondi**
 
 ### RNF02 - AFFIDABILITÀ OPERATIVA CONTINUA
-
 **Descrizione:** Il sistema deve garantire continuità operativa anche in condizioni parzialmente degradate.
 
 **Specifiche:**
@@ -481,16 +444,14 @@ Questo progetto si inserisce nella strategia di innovazione digitale e miglioram
 - **Ripristino dati:** < 15 minuti di perdita dati in caso di crash
 
 ### RNF03 - SICUREZZA E TRACCIABILITÀ
-
 **Descrizione:** Sistema di autorizzazioni granulari e tracciamento completo per compliance.
 
 **Specifiche:**
 - **Autenticazione:** Login univoco per ogni utente
-- **Autorizzazioni:** Almeno 5 livelli distinti (cameriere, maitre, cuoco, receptionist, titolare)
-- **GDPR:** Anonimizzazione automatica dati clienti dopo 24 mesi di inattività
+- **Autorizzazioni:** Almeno 5 livelli distinti (cameriere, maitre, chef, receptionist, titolare)
+- **GDPR:** Eliminazione automatica dati clienti dopo 24 mesi di inattività
 
 ### RNF04 - USABILITÀ E FORMAZIONE
-
 **Descrizione:** Interfaccia ottimizzata per ambienti ad alto stress con curva apprendimento rapida.
 
 **Specifiche:**
@@ -504,29 +465,26 @@ Questo progetto si inserisce nella strategia di innovazione digitale e miglioram
 - **Fallback linguistico:** Terminologia standard italiana settore ristorazione
 
 ### RNF05 - SCALABILITÀ E CARICO
-
 **Descrizione:** Sistema deve gestire picchi di carico tipici della ristorazione.
 
 **Specifiche:**
 - **Utenti concorrenti:** Supporto fino a:
     - 50 dispositivi sala contemporaneamente attivi
     - 15 terminali cucina/bar
-    - 300 prenotazioni attive in stesso servizio
-        
-- **Comande simultanee:** Gestione fino a 50 comande aperte contemporaneamente
+    - 1000 prenotazioni attive in stesso servizio
+- **Comande simultanee:** Gestione fino a 500 comande aperte contemporaneamente
 - **Performance under load:** Degrado massimo 20% dei tempi di risposta con:
-    - 30+ tavoli occupati
-    - 10+ comande in preparazione contemporanea
-- **Storage:** Capacità minima 10.000 comande/storico senza degradazione performance
+    - 300+ tavoli occupati
+    - 100+ comande in preparazione contemporanea
+- **Storage:** Capacità minima 100.000 comande/storico senza degradazione performance
 - **Backup:** Incrementale notturno senza impatto performance diurna
 
 ### BONUS: RNF06 - MANUTENIBILITÀ OPERATIVA
-
 **Descrizione:** Il personale non tecnico deve poter gestire configurazioni quotidiane.
 
 **Specifiche:**
 - **Modifica menù:** Operatore autorizzato può modificare prezzi/articoli senza riavvio sistema
-- **Aggiornamenti:** Patch e aggiornamenti applicabili in orario di chiusura (01:00-06:00) automaticamente
+- **Aggiornamenti:** Patch e aggiornamenti applicabili in orario di chiusura (03:00-06:00) automaticamente
 
 ## 3. REQUISITI DI DOMINIO
 
@@ -548,11 +506,12 @@ Questo progetto si inserisce nella strategia di innovazione digitale e miglioram
 - Server: Windows 10/Server 2019+, 8GB RAM, 250GB SSD
 - Connessione internet: banda minima 10 Mbps in download
 
-
 ## 4. SCENARI D'USO
 
 ### RF001 - Prenotazione Tavoli
-*Scenario:* Cliente Rossi chiama per prenotare. Receptionist Marco inserisce data/ora/6 persone/note compleanno. Sistema mostra tavolo 12 disponibile. Marco conferma.
+*Scenario:* Cliente Rossi chiama vuole prenotare un tavolo di 6 persone per un compleanno
+Receptionist Marco seleziona sala 1, visualizza che il tavolo 12 é disponibile, Marco crea la prenotazione data/ora/6 persone/note compleanno.
+Marco conferma.
 
 ### RF002 - Presa Comanda  
 *Scenario:* Cameriere Luca al tavolo 7. Sul tablet: seleziona tavolo → aggiunge "Carbonara" → modifica "senza pancetta" → aggiunge "Vino rosso" x2. Sistema calcola totale parziale €44. Comanda salvata.
@@ -575,11 +534,8 @@ Questo progetto si inserisce nella strategia di innovazione digitale e miglioram
 ### RF008 - Controllo Giacenze
 *Scenario:* Arriva fornitura pomodori. Cuoco aggiorna magazzino: +50kg. Sistema ricalcola totale. A fine giornata, controlla soglie: burro sotto minimo (3kg vs 5kg) → invia alert a titolare. Nel frattempo, "Pizza margherita" mostra "NON DISP." sui tablet.
 
-### RF009 - Gestione Turni
-*Scenario:* Direttore pianifica turni settimana su calendario drag-drop. Sistema avvisa: "Mario supera 40 ore". Fine mese, titolare genera report: Mario 160 ore, 2 malattie, 1 permesso. Esporta Excel per paghe.
-
-### RF010 - Analisi Finanziaria
-_Scenario:_ General Manager apre dashboard lunedì mattina: vede grafico fatturato settimanale €12.500 (+15% vs scorsa), torta categorie (primi 42%, vini 28%). Clicca "Dettaglio camerieri": Luca generato €3.200 (top), Mario €1.800. Sistema genera report PDF con previsioni affluenza weekend (+20% prenotazioni) e alert "Costo ingredienti carbonara salito 12% causa pomodori" – esporta Excel per commercialista.
+### RF009 - Analisi Finanziaria
+_Scenario:_ Titolare/Manager apre dashboard lunedì mattina: vede grafico fatturato settimanale €12.500 (+15% vs scorsa), torta categorie (primi 42%, vini 28%). Clicca "Dettaglio camerieri": Luca generato €3.200 (top), Mario €1.800. Sistema genera report PDF con previsioni affluenza weekend (+20% prenotazioni) e alert "Costo ingredienti carbonara salito 12% causa pomodori" – esporta Excel per commercialista.
 
 
 # Analisi Dei Requisiti
