@@ -535,8 +535,7 @@ Marco conferma.
 *Scenario:* Arriva fornitura pomodori. Cuoco aggiorna magazzino: +50kg. Sistema ricalcola totale. A fine giornata, controlla soglie: burro sotto minimo (3kg vs 5kg) → invia alert a titolare. Nel frattempo, "Pizza margherita" mostra "NON DISP." sui tablet.
 
 ### RF009 - Analisi Finanziaria
-_Scenario:_ Titolare/Manager apre dashboard lunedì mattina: vede grafico fatturato settimanale €12.500 (+15% vs scorsa), torta categorie (primi 42%, vini 28%). Clicca "Dettaglio camerieri": Luca generato €3.200 (top), Mario €1.800. Sistema genera report PDF con previsioni affluenza weekend (+20% prenotazioni) e alert "Costo ingredienti carbonara salito 12% causa pomodori" – esporta Excel per commercialista.
-
+_Scenario:_ Titolare/Manager chiude fiscalmente la cassa a fine giornata, il sistema deve calcolare il fatturato totale, l'IVA totale, il numero dei scontrini emessi ed il numero di fatture emesse. Successivamente deve inviare i corrispettivi all'Agenzia delle Entrate ed una volta ricevuta conferma di ricezione, stampare lo Scontrino di Chiusura Fiscale.
 
 # Analisi Dei Requisiti
 ## Class Diagram
@@ -544,26 +543,63 @@ _Scenario:_ Titolare/Manager apre dashboard lunedì mattina: vede grafico fattu
 # Modello Comportamentale
 
 ## Diagramma dei casi d’uso
-![[use_case_diagram_definitivo.jpg| center | 300]]
+![[img_document/UseCase_Diagram/use_case_diagram.png | center | 300]]
 
 ## Activity Diagrams
 ### Prenotazione Tavoli
-![[Prenotazioni.png | center | 300]]
-Da modificare - eliminare messaggio conferma cliente
+![[Prenotazioni.jpg | center | 300]]
+
 ### Presa Comanda
-![[Presa_Comanda.png | center | 300]]
+![[Presa_Comanda.jpg| center | 300]]
+
+### Modifica Comanda
+![[Modifica_Comanda.jpg | center | 300]]
+
+### Invio Cucina
+
+
+### Nuovo Cliente
+
+
+### Comunicazione Cucina Sala
+![[Comunicazione_Cucina_Sala.jpg| center | 300]]
+
+### Gestione Conto
+![[Gestione_Conto.jpg | center | 300]]
+
+### Controllo Giacenze
+![[Controllo_Giacenze.jpg| center | 300]]
+
+### Gestione Finanziaria
+![[Gestione_Finanziaria.jpg| center | 300]]
+
+## Sequence Diagrams
+### Prenotazione Tavoli
+![[Prenotazione_Tavoli.png | center | 300]]
+
+### Presa Comanda
+![[Crea_Comanda.png | center | 300]]
 
 ### Modifica Comanda
 ![[Modifica_Comanda.png | center | 300]]
 
-### Comunicazione Cucina Sala
-![[Comunicazione_Cucina_Sala.png | center | 300]]
+### Invio Cucina
+![[Invio_Cucina.png | center | 300]]
 
-### Controllo Giacenze
+### Gestione Conto
+![[Paga_Comanda.png | center | 300]]
+
+### Nuovo Cliente
+![[Nuovo_Cliente.png | center | 300]]
+
+### Comunicazione Cucina-Sala
+![[Comunicazione_Sala_Bar.png | center | 300]]
+
+### Controllo Giacenza
 ![[Controllo_Giacenze.png | center | 300]]
-Da modifcare - specificare segnalazione e non notifica al manager
-## Sequence Diagrams
 
+### Gestione Finanziaria
+![[Gestione_Finanziaria.png | center | 300]]
 # Architettura di Sistema
 
 ## 1. Struttura Generale
