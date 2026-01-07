@@ -1,9 +1,10 @@
-# Table Flow
+<center><h1>Table Flow</h1></center>
+
 ![[TableFlow_Logo.png | center | 600]]
-- Ascenzi Leonardo (0310858)
-- Folco Damiano (0310549)
-- Spadoni Nicoló (0311175)
-- Zheng Simone (0293045)
+
+<center><p>Ascenzi Leonardo (0310858)<br> Folco Damiano (0310549)<br> Spadoni Nicoló (0311175)<br> Zheng Simone (0293045) </p>
+</center>
+
 
 # Prefazione
 
@@ -367,15 +368,7 @@ Questo progetto si inserisce nella strategia di innovazione digitale e miglioram
 - Supportare flag priorità/urgenza su voci specifiche
 - Gestire ordini fuori menù con note speciali per la cucina
 
-**RF005 - Visualizzazione Comande in Cucina/Bar**
-**Descrizione:** Sistema di visualizzazione ottimizzato per aree produzione.
-
-**Software deve visualizzare:**
-- Comande in arrivo con dettagli completi (note, priorità)
-- Organizzazione per tipo piatto e ordine cronologico
-- Evidenziazione note (allergie, preferenze)
-
-**RF006 - Comunicazione Cucina/Bar - Sala**
+**RF005 - Comunicazione Cucina/Bar - Sala**
 **Descrizione:** Sistema per la segnalazione dello stato della preparazione
 
 **Chef deve:**
@@ -386,6 +379,23 @@ Questo progetto si inserisce nella strategia di innovazione digitale e miglioram
 - Gestire annullamenti produzione (cambiamenti post-invio)
 
 ### 1.4 Gestione Pagamenti
+**RF006 – Gestione Intestazione**
+**Attori:** Receptionist
+**Descrizione:** Sistema per la gestione dell’intestazione dei clienti che richiedono la fattura per il pagamento.
+
+**Receptionist deve poter:**
+- Inserire una nuova intestazione cliente per la fatturazione  
+- Cercare il cliente tramite Partita IVA
+- Inserire manualmente i dati se non recuperabili automaticamente  
+- Verificare e modificare i dati dell’intestazione prima del salvataggio  
+
+**Software deve:**
+- Inviare la Partita IVA all’Agenzia delle Entrate per ottenere i dati dell’intestazione
+- Compilare automaticamente i campi dell’intestazione
+- Segnalare eventuali errori o dati mancanti  
+- Salvare l’intestazione cliente nel registro clienti  
+- Rendere l’intestazione disponibile per l’emissione della fattura elettronica
+
 **RF007 - Gestione Conto**
 **Attori:** Receptionist
 **Descrizione:** Sistema completo gestione pagamenti.
@@ -522,14 +532,14 @@ Marco conferma.
 ### RF004 - Invio Cucina
 *Scenario:* Sara invia comanda tavolo 3 con bistecca urgente (cliente ha treno). Sistema: priorità ALTA, bordi rossi. In cucina, appare in cima a "SECONDI" con timer countdown.
 
-### RF005 - Gestione Conto
-*Scenario:* Tavolo 8 persone, conto €320. Receptionist divide per 4 coppie: sistema separa automaticamente gli ordini di ogni coppia. Stampa scontrino separato per ciascuna coppia + fattura per chi la richiede.
-
-### RF006 - Visualizzazione Cucina
-*Scenario:* In cucina, monitor mostra: a sinistra antipasti ordinati, centro primi, destra secondi. Ordine cronologico. Carbonara "senza pancetta" evidenziata in giallo. Allergia "glutine" in rosso lampeggiante.
-
-### RF007 - Comunicazione Cucina-Sala
+### RF005 - Comunicazione Cucina-Sala
 *Scenario:* Chef completa risotto → clicca "PRONTO". Sistema segnala a tablet camerieri: "Tavolo 5 - Risotto pronto". Dopo 20 minuti se non ritirato → sistema avvisa maître: "RITARDO - Risotto tavolo 5 in attesa".
+
+### RF006 - Gestione Intestazione
+*Scenario:* Un cliente conclude il pagamento e richiede la fattura. Il receptionist inserisce la Partita IVA. Il sistema invia la richiesta all’Agenzia delle Entrate per ricevere i dati dell’azienda. Se il sistema non riceve risposta dall’Agenzia delle Entrate, il receptionist inserisce manualmente i dati dell’intestazione e li verifica. L’intestazione viene salvata e memorizzata nel registro clienti ed è subito disponibile per l’emissione della fattura elettronica.
+
+### RF007 - Gestione Conto
+*Scenario:* Tavolo 8 persone, conto €320. Receptionist divide per 4 coppie: sistema separa automaticamente gli ordini di ogni coppia. Stampa scontrino separato per ciascuna coppia + fattura per chi la richiede.
 
 ### RF008 - Controllo Giacenze
 *Scenario:* Arriva fornitura pomodori. Cuoco aggiorna magazzino: +50kg. Sistema ricalcola totale. A fine giornata, controlla soglie: burro sotto minimo (3kg vs 5kg) → invia alert a titolare. Nel frattempo, "Pizza margherita" mostra "NON DISP." sui tablet.
@@ -543,63 +553,63 @@ _Scenario:_ Titolare/Manager chiude fiscalmente la cassa a fine giornata, il si
 # Modello Comportamentale
 
 ## Diagramma dei casi d’uso
-![[img_document/UseCase_Diagram/use_case_diagram.png | center | 300]]
+![[img_document/UseCase_Diagram/use_case_diagram.png | center | 700]]
 
 ## Activity Diagrams
 ### Prenotazione Tavoli
 ![[Prenotazioni.jpg | center | 300]]
 
 ### Presa Comanda
-![[Presa_Comanda.jpg| center | 300]]
+![[Presa_Comanda.jpg| center | 600]]
 
 ### Modifica Comanda
-![[Modifica_Comanda.jpg | center | 300]]
+![[Modifica_Comanda.jpg | center | 600]]
 
 ### Invio Cucina
+![[Invio_Cucina.jpg | center | 300]]
 
-
-### Nuovo Cliente
-
+### Gestione Intestazione
+![[Nuovo_Cliente.jpg | center | 600]]
 
 ### Comunicazione Cucina Sala
 ![[Comunicazione_Cucina_Sala.jpg| center | 300]]
 
 ### Gestione Conto
-![[Gestione_Conto.jpg | center | 300]]
+![[Gestione_Conto.jpg | center | 600]]
 
 ### Controllo Giacenze
-![[Controllo_Giacenze.jpg| center | 300]]
+![[Controllo_Giacenze.jpg| center | 600]]
 
-### Gestione Finanziaria
-![[Gestione_Finanziaria.jpg| center | 300]]
+### Analisi Finanziaria
+![[Gestione_Finanziaria.jpg| center | 600]]
 
 ## Sequence Diagrams
 ### Prenotazione Tavoli
-![[Prenotazione_Tavoli.png | center | 300]]
+![[Prenotazione_Tavoli.png | center | 600]]
 
 ### Presa Comanda
-![[Crea_Comanda.png | center | 300]]
+![[Crea_Comanda.png | center | 600]]
 
 ### Modifica Comanda
-![[Modifica_Comanda.png | center | 300]]
+![[Modifica_Comanda.png | center | 600]]
 
 ### Invio Cucina
-![[Invio_Cucina.png | center | 300]]
+![[Invio_Cucina.png | center | 600]]
 
 ### Gestione Conto
-![[Paga_Comanda.png | center | 300]]
+![[Paga_Comanda.png | center | 600]]
 
-### Nuovo Cliente
-![[Nuovo_Cliente.png | center | 300]]
+### Gestione Intestazione
+![[Nuovo_Cliente.png | center | 700]]
 
 ### Comunicazione Cucina-Sala
-![[Comunicazione_Sala_Bar.png | center | 300]]
+![[Comunicazione_Sala_Bar.png | center | 600]]
 
 ### Controllo Giacenza
-![[Controllo_Giacenze.png | center | 300]]
+![[Controllo_Giacenze.png | center | 600]]
 
-### Gestione Finanziaria
-![[Gestione_Finanziaria.png | center | 300]]
+### Analisi Finanziaria
+![[Gestione_Finanziaria.png | center | 600]]
 # Architettura di Sistema
 
 ## 1. Struttura Generale
@@ -659,16 +669,16 @@ Questa sezione descrive i design pattern selezionati per la progettazione e impl
 - Supporto alla configurabilità richiesta in RNF06
 
 ### 2. Observer
-**Problema risolto:** Sincronizzazione in tempo reale e notifica automatica di eventi critici a multipli componenti del sistema, come richiesto da RNF01 (Performance Tempi Reali).
+**Problema risolto:** Sincronizzazione in tempo reale e segnalazione automatica di eventi critici a multipli componenti del sistema, come richiesto da RNF01 (Performance Tempi Reali).
 
 **Applicazione in TableFlow:**
-- **Notifica Stato Ordini:** La cucina (Subject) notifica automaticamente tutti i camerieri (Observers) quando un piatto passa allo stato "PRONTO", come descritto in RF007.
-- **Aggiornamento Giacenze:** Il modulo magazzino (Subject) notifica i terminali di sala e il sistema di ordinazione quando la disponibilità di un articolo cambia (RF006, RNF01).
-- **Sistema di Alert:** Generazione di notifiche per soglie magazzino (RF008), ritardi di ritiro ordini (RF007) e conflitti di turnazione (RF009).
+- **Segnalazione Stato Ordini:** La cucina (Subject) segnala automaticamente tutti i camerieri (Observers) quando un piatto passa allo stato "PRONTO", come descritto in RF007.
+- **Aggiornamento Giacenze:** Il modulo magazzino (Subject) segnala i terminali di sala e il sistema di ordinazione (Observers) quando la disponibilità di un articolo cambia (RF006, RNF01).
+- **Sistema di Alert:** Generazione di alert per soglie magazzino (RF008), ritardi di ritiro ordini (RF007).
 
 **Vantaggi per il Sistema:**
 - Accoppiamento debole tra produttori e consumatori di eventi
-- Scalabilità nella gestione di notifiche
+- Scalabilità nella gestione di alert
 - Implementazione efficiente dei requisiti di tempo reale
 
 ### 3. Decorator
