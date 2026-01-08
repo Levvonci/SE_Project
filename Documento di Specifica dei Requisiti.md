@@ -89,8 +89,7 @@ Il documento presuppone nel lettore una conoscenza di base dei processi di risto
 		- [[#1.3 Gestione Produzione]]
 		- [[#1.4 Gestione Pagamenti]]
 		- [[#1.5 Gestione Magazzino]]
-		- [[#1.6 Gestione Personale]]
-		- [[#1.7 Gestione Finanziaria e Reportistica]]
+		- [[#1.6 Gestione Finanziaria e Reportistica]]
 	- [[#2. REQUISITI NON FUNZIONALI]]
 		- [[#RNF01 - PERFORMANCE TEMPI REALI]]
 		- [[#RNF02 - AFFIDABILITÀ OPERATIVA CONTINUA]]
@@ -106,12 +105,11 @@ Il documento presuppone nel lettore una conoscenza di base dei processi di risto
 		- [[#RF002 - Presa Comanda]]
 		- [[#RF003 - Modifica Comanda]]
 		- [[#RF004 - Invio Cucina]]
-		- [[#RF005 - Gestione Conto]]
-		- [[#RF006 - Visualizzazione Cucina]]
-		- [[#RF007 - Comunicazione Cucina-Sala]]
+		- [[#RF005 - Comunicazione Cucina-Sala]]
+		- [[#RF006 - Gestione Intestazione]]
+		- [[#RF007 - Gestione Conto]]
 		- [[#RF008 - Controllo Giacenze]]
-		- [[#RF009 - Gestione Turni]]
-		- [[#RF010 - Analisi Finanziaria]]
+		- [[#RF009 - Analisi Finanziaria]]
 - [[#Analisi Dei Requisiti]]
 	- [[#Class Diagram]]
 - [[#Modello Comportamentale]]
@@ -120,9 +118,22 @@ Il documento presuppone nel lettore una conoscenza di base dei processi di risto
 		- [[#Prenotazione Tavoli]]
 		- [[#Presa Comanda]]
 		- [[#Modifica Comanda]]
+		- [[#Invio Cucina]]
+		- [[#Gestione Intestazione]]
 		- [[#Comunicazione Cucina Sala]]
+		- [[#Gestione Conto]]
 		- [[#Controllo Giacenze]]
+		- [[#Analisi Finanziaria]]
 	- [[#Sequence Diagrams]]
+		- [[#Prenotazione Tavoli]]
+		- [[#Presa Comanda]]
+		- [[#Modifica Comanda]]
+		- [[#Invio Cucina]]
+		- [[#Gestione Intestazione]]
+		- [[#Comunicazione Cucina-Sala]]
+		- [[#Gestione Conto]]
+		- [[#Controllo Giacenza]]
+		- [[#Analisi Finanziaria]]
 - [[#Architettura di Sistema]]
 	- [[#1. Struttura Generale]]
 	- [[#2. Componenti Principali]]
@@ -132,16 +143,12 @@ Il documento presuppone nel lettore una conoscenza di base dei processi di risto
 	- [[#4. Modalità Operativa]]
 	- [[#5. Sicurezza Base]]
 - [[#Design Pattern]]
-	- [[#Pattern Selezionati & La Loro Applicazione]]
+	- [[#Pattern Selezionati ed Applicazione]]
 		- [[#1. Factory Method]]
 		- [[#2. Observer]]
 		- [[#3. Decorator]]
 		- [[#4. Composite]]
-		- [[#5. Strategy]]
-		- [[#6. Adapter]]
-		- [[#7. Template Method]]
-	- [[#Tracciabilità con Requisiti]]
-	- [[#Implicazioni Architetturali]]
+		- [[#5. Template Method]]
 - [[#Evoluzione del sistema]]
 	- [[#Estensibilità verso Camerieri Robot e Droni di Consegna]]
 - [[#Appendice]]
@@ -386,12 +393,11 @@ Questo progetto si inserisce nella strategia di innovazione digitale e miglioram
 **Receptionist deve poter:**
 - Inserire una nuova intestazione cliente per la fatturazione  
 - Cercare il cliente tramite Partita IVA
-- Inserire manualmente i dati se non recuperabili automaticamente  
+- Inserire manualmente i dati se non recuperabili automaticamente dai server dell'Agenzia delle Entrate
 - Verificare e modificare i dati dell’intestazione prima del salvataggio  
 
 **Software deve:**
-- Inviare la Partita IVA all’Agenzia delle Entrate per ottenere i dati dell’intestazione
-- Compilare automaticamente i campi dell’intestazione
+- Permettere l'invio della Partita IVA all’Agenzia delle Entrate per ottenere i dati dell’intestazione e compilare automaticamente i campi dell’intestazione in caso di riscontro positivo
 - Segnalare eventuali errori o dati mancanti  
 - Salvare l’intestazione cliente nel registro clienti  
 - Rendere l’intestazione disponibile per l’emissione della fattura elettronica
@@ -536,7 +542,7 @@ Marco conferma.
 *Scenario:* Chef completa risotto → clicca "PRONTO". Sistema segnala a tablet camerieri: "Tavolo 5 - Risotto pronto". Dopo 20 minuti se non ritirato → sistema avvisa maître: "RITARDO - Risotto tavolo 5 in attesa".
 
 ### RF006 - Gestione Intestazione
-*Scenario:* Un cliente conclude il pagamento e richiede la fattura. Il receptionist inserisce la Partita IVA. Il sistema invia la richiesta all’Agenzia delle Entrate per ricevere i dati dell’azienda. Se il sistema non riceve risposta dall’Agenzia delle Entrate, il receptionist inserisce manualmente i dati dell’intestazione e li verifica. L’intestazione viene salvata e memorizzata nel registro clienti ed è subito disponibile per l’emissione della fattura elettronica.
+*Scenario:* Un nuovo cliente conclude il pagamento e richiede la fattura. Il receptionist inserisce la Partita IVA. Il sistema invia la richiesta all’Agenzia delle Entrate per ricevere i dati dell’azienda. Se il sistema non riceve risposta dall’Agenzia delle Entrate, il receptionist inserisce manualmente i dati dell’intestazione e li verifica. L’intestazione viene salvata e memorizzata nel registro clienti ed è subito disponibile per l’emissione della fattura elettronica.
 
 ### RF007 - Gestione Conto
 *Scenario:* Tavolo 8 persone, conto €320. Receptionist divide per 4 coppie: sistema separa automaticamente gli ordini di ogni coppia. Stampa scontrino separato per ciascuna coppia + fattura per chi la richiede.
@@ -549,12 +555,11 @@ _Scenario:_ Titolare/Manager chiude fiscalmente la cassa a fine giornata, il si
 
 # Analisi Dei Requisiti
 ## Class Diagram
-![[class_Diagram.png | center | 600]]
+![[class_diagram_unrefined.png|center]]
 # Modello Comportamentale
 
 ## Diagramma dei casi d’uso
-![[img_document/UseCase_Diagram/use_case_diagram.png | center | 700]]
-
+![[use_case_diag.jpg|center|600]]
 ## Activity Diagrams
 ### Prenotazione Tavoli
 ![[Prenotazioni.jpg | center | 300]]
@@ -653,7 +658,7 @@ Cucina ← WebSocket ← Notifiche
 
 Questa sezione descrive i design pattern selezionati per la progettazione e implementazione del sistema TableFlow. La scelta è motivata dalla necessità di garantire modularità, manutenibilità, estendibilità e conformità ai requisiti non funzionali specificati, in particolare RNF06 (Manutenibilità Operativa). I pattern individuati sono applicabili a diversi livelli dell'architettura e risolvono problemi specifici del dominio ristorativo.
 
-## Pattern Selezionati & La Loro Applicazione
+## Pattern Selezionati ed Applicazione
 
 ### 1. Factory Method
 **Problema risolto:** Creazione flessibile e centralizzata delle diverse tipologie di utenti del sistema, ciascuna con permessi, interfacce e comportamenti specifici.
@@ -674,7 +679,7 @@ Questa sezione descrive i design pattern selezionati per la progettazione e impl
 **Applicazione in TableFlow:**
 - **Segnalazione Stato Ordini:** La cucina (Subject) segnala automaticamente tutti i camerieri (Observers) quando un piatto passa allo stato "PRONTO", come descritto in RF007.
 - **Aggiornamento Giacenze:** Il modulo magazzino (Subject) segnala i terminali di sala e il sistema di ordinazione (Observers) quando la disponibilità di un articolo cambia (RF006, RNF01).
-- **Sistema di Alert:** Generazione di alert per soglie magazzino (RF008), ritardi di ritiro ordini (RF007).
+- **Sistema di Alert:** Generazione di alert per soglie magazzino (RF008), ritardi di ritiro ordini (RF005).
 
 **Vantaggi per il Sistema:**
 - Accoppiamento debole tra produttori e consumatori di eventi
@@ -706,66 +711,17 @@ Questa sezione descrive i design pattern selezionati per la progettazione e impl
 - Semplificazione del codice client
 - Supporto naturale a operazioni ricorsive
 
-### 5. Strategy
-**Problema risolto:** Incapsulamento di famiglie di algoritmi intercambiabili, rendendoli indipendenti dal client che li utilizza.
-
-**Applicazione in TableFlow:**
-- **Metodi di Pagamento:** Implementazione di strategie per ogni modalità di pagamento (`CartaCreditoStrategy`, `ContantiStrategy`, `SatispayStrategy`, ecc.) come richiesto in RF005 e RNF05.
-- **Calcolo IVA:** Strategie diverse per l'applicazione delle aliquote IVA in base alla categoria prodotto (alimentari, bevande alcoliche, ecc.), in conformità con RV001.
-- **Algoritmi di Forecast:** Differenti strategie per la generazione di previsioni di affluenza basate su dati storici (RF010).
-
-**Vantaggi per il Sistema:**
-- Facile aggiunta di nuovi algoritmi
-- Isolamento della logica di business
-- Testabilità migliorata
-
-### 6. Adapter
-**Problema risolto:** Integrazione di interfacce incompatibili tra il sistema TableFlow e i vari servizi esterni, come specificato in RNF05 (Integrazione e Interoperabilità).
-
-**Applicazione in TableFlow:**
-- **Piattaforme Delivery:** Adapter per convertire il formato interno degli ordini TableFlow nei formati richiesti da Just Eat, Deliveroo, Glovo.
-- **Stampanti Cucina:** Adapter per normalizzare le comunicazioni verso i diversi modelli di stampanti (Epson, Star, ecc.).
-- **Sistemi di Pagamento:** Adapter per interfacciarsi con le API eterogenee dei vari provider di pagamento elettronico.
-
-**Vantaggi per il Sistema:**
-- Minimizzazione dell'acoppiamento con sistemi esterni
-- Riuso di componenti esistenti con interfacce incompatibili
-- Facilità di sostituzione di provider esterni
-
-### 7. Template Method
+### 5. Template Method
 **Problema risolto:** Definizione dello scheletro di algoritmi complessi con passaggi variabili delegati alle sottoclassi.
 
 **Applicazione in TableFlow:**
-- **Flusso di Prenotazione:** La classe astratta `PrenotazioneProcess` definisce la sequenza fissa: verifica disponibilità → creazione prenotazione → invio conferma → aggiornamento calendario. Le variazioni (es. tipo di notifica) sono implementate dalle sottoclassi.
+- **Flusso di Prenotazione:** La classe astratta `PrenotazioneProcess` definisce la sequenza fissa: verifica disponibilità → creazione prenotazione → invio conferma. 
 - **Processo di Ordinazione:** Scheletro comune per la creazione di comande (RF002) con passaggi specifici per tipologie diverse (asporto vs tavolo).
-- **Generazione Report:** Template per la produzione di report finanziari (RF010) con formattazione variabile
 
 **Vantaggi per il Sistema:**
 - Eliminazione di duplicazione di codice
 - Controllo centralizzato della struttura dell'algoritmo
 - Flessibilità nei punti di variazione
-
-## Tracciabilità con Requisiti
-
-| Pattern         | Requisiti Supportati                                   | Beneficio Principale      |
-| --------------- | ------------------------------------------------------ | ------------------------- |
-| Factory Method  | RNF03 (Autorizzazioni), RF009 (Gestione Personale)     | Gestione ruoli flessibile |
-| Observer        | RNF01 (Performance Tempi Reali), RF007 (Comunicazione) | Notifiche in tempo reale  |
-| Decorator       | RF002 (Modifiche Piatto), RF004 (Visualizzazione)      | Personalizzazione ordini  |
-| Composite       | RF005 (Divisione Conti), RF002 (Struttura Menu)        | Gestione gerarchie        |
-| Strategy        | RF005 (Pagamenti), RV001 (Calcolo IVA)                 | Algoritmi intercambiabili |
-| Adapter         | RNF05 (Integrazione), RNF07 (Manutenibilità)           | Interoperabilità          |
-| Template Method | RF001 (Prenotazione), RF010 (Report)                   | Processi standardizzati   |
-
-## Implicazioni Architetturali
-
-L'adozione di questi pattern influenza positivamente l'architettura di sistema descritta nella sezione 5:
-
-1. **Modularità Aumentata:** Ogni pattern contribuisce a separare le responsabilità, allineandosi con l'architettura a componenti proposta.
-2. **Estensibilità Futura:** La struttura basata su pattern facilita l'evoluzione del sistema verso l'integrazione con camerieri robot e doni di consegna, come descritto nella sezione "Evoluzione del sistema".
-3. **Manutenibilità Operativa:** RNF06 è supportato dalla capacità di modificare comportamenti senza riavvii del sistema, abilitata da pattern come Strategy e Decorator.
-4. **Testabilità:** L'isolamento delle responsabilità e l'uso di interfacce definite migliorano la copertura dei test, supportando i criteri di accettazione definiti.
-
 # Evoluzione del sistema
 
 ## Estensibilità verso Camerieri Robot e Droni di Consegna
@@ -798,18 +754,3 @@ Il sistema è progettato con un'architettura API-first e modulare per permettere
 | KPI          | Key Performance Indicator             | RF010 DashBoard             |
 | POS          | Point of Sale                         | Introduzione Front-Of-House |
 | 2FA          | Two Factor Authentication             | RNF03 Amministratori        |
-
-## Dati Test Fittizi
-```json
-{  
-"ingredienti": [  
-{"id": "pomodorini", "giacenza": 45, "soglia_min": 10, "prezzo_unit": 2.5},  
-{"id": "burro", "giacenza": 3, "soglia_min": 5, "prezzo_unit": 8.0},  
-{"id": "farina", "giacenza": 20, "soglia_min": 15, "prezzo_unit": 1.2}  
-],  
-
-"piatti": [  
-{"nome": "Pizza Margherita", "ingredienti": ["pomodorini", "farina"], "prezzo": 12}  
-]  
-}
-```
