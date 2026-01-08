@@ -568,7 +568,7 @@ _Scenario:_ Titolare/Manager chiude fiscalmente la cassa a fine giornata, il si
 ![[Presa_Comanda.jpg| center | 600]]
 
 ### Modifica Comanda
-![[Modifica_Comanda.jpg | center | 600]]
+![[img_document/Activity_Diagrams/Modifica_Comanda.jpg| center | 600]]
 
 ### Invio Cucina
 ![[Invio_Cucina.jpg | center | 300]]
@@ -590,16 +590,16 @@ _Scenario:_ Titolare/Manager chiude fiscalmente la cassa a fine giornata, il si
 
 ## Sequence Diagrams
 ### Prenotazione Tavoli
-![[Prenotazione_Tavoli.png | center | 600]]
+![[Crea_Prenotazione.jpg| center | 660]]
 
 ### Presa Comanda
-![[Crea_Comanda.png | center | 600]]
+![[Crea_Comanda.jpg | center | 600]]
 
 ### Modifica Comanda
-![[Modifica_Comanda.png | center | 600]]
+![[img_document/Sequence_Diagrams/Modifica_Comanda.jpg| center | 600]]
 
 ### Invio Cucina
-![[Invio_Cucina.png | center | 600]]
+![[Invia_Comanda.jpg|center|600]]
 
 ### Gestione Conto
 ![[Paga_Comanda.png | center | 600]]
@@ -611,7 +611,7 @@ _Scenario:_ Titolare/Manager chiude fiscalmente la cassa a fine giornata, il si
 ![[Comunicazione_Sala_Bar.png | center | 600]]
 
 ### Controllo Giacenza
-![[Controllo_Giacenze.png | center | 600]]
+![[Gestione_Magazzino.jpg| center | 660]]
 
 ### Analisi Finanziaria
 ![[Gestione_Finanziaria.png | center | 600]]
