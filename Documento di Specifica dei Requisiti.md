@@ -529,13 +529,13 @@ Questo progetto si inserisce nella strategia di innovazione digitale e miglioram
 Receptionist Marco seleziona sala 1, visualizza che il tavolo 12 é disponibile, Marco crea la prenotazione data/ora/6 persone/note compleanno.
 Marco conferma.
 
-### RF002 - Presa Comanda  
-*Scenario:* Cameriere Luca al tavolo 7. Sul tablet: seleziona tavolo → aggiunge "Carbonara" → modifica "senza pancetta" → aggiunge "Vino rosso" x2. Sistema calcola totale parziale €44. Comanda salvata.
+### RF002 - Creazione Comanda  
+*Scenario:* Cameriere Luca al tavolo 7. Sul tablet: seleziona tavolo → inserisce coperti → sistema imposta tavolo come aperto → Luca aggiunge "Carbonara" → modifica "senza pancetta" → aggiunge "Vino rosso" x2. Sistema calcola totale parziale €44. Comanda salvata e inviata.
 
 ### RF003 - Modifica Comanda
-*Scenario:* Cliente chiede di aggiungere insalata e togliere patate. Maître Andrea modifica comanda esistente → sistema registra modifica nello storico. Giorno dopo, titolare controlla storico per reclamo: vede che patate furono rimosse ma riapparvero in conto per bug.
+*Scenario:* Cliente chiede di aggiungere insalata e togliere patate. Maître Andrea modifica comanda esistente → sistema invia comanda modificata. 
 
-### RF004 - Invio Cucina
+### RF004 - Invio Comanda Urgente
 *Scenario:* Sara invia comanda tavolo 3 con bistecca urgente (cliente ha treno). Sistema: priorità ALTA, bordi rossi. In cucina, appare in cima a "SECONDI" con timer countdown.
 
 ### RF005 - Comunicazione Cucina-Sala
@@ -564,13 +564,13 @@ _Scenario:_ Titolare/Manager chiude fiscalmente la cassa a fine giornata, il si
 ### Prenotazione Tavoli
 ![[Prenotazioni.jpg | center | 300]]
 
-### Presa Comanda
-![[Presa_Comanda.jpg| center | 600]]
+### Creazione Comanda
+![[Nuova_Comanda.jpg|center|600]]
 
 ### Modifica Comanda
 ![[img_document/Activity_Diagrams/Modifica_Comanda.jpg| center | 600]]
 
-### Invio Cucina
+### Invio Comanda Urgente
 ![[Invio_Cucina.jpg | center | 300]]
 
 ### Gestione Intestazione
@@ -598,8 +598,8 @@ _Scenario:_ Titolare/Manager chiude fiscalmente la cassa a fine giornata, il si
 ### Modifica Comanda
 ![[img_document/Sequence_Diagrams/Modifica_Comanda.jpg| center | 600]]
 
-### Invio Cucina
-![[Invia_Comanda.jpg|center|600]]
+### Invio Comanda Urgente
+![[Invio_Comanda_Urgente.jpg|center|600]]
 
 ### Gestione Conto
 ![[Paga_Comanda.png | center | 600]]
