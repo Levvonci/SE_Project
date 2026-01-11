@@ -574,7 +574,7 @@ _Scenario:_ Titolare/Manager chiude fiscalmente la cassa a fine giornata, il si
 ![[Invio_Cucina.jpg | center | 300]]
 
 ### Gestione Intestazione
-![[Nuovo_Cliente.jpg | center | 600]]
+![[img_document/Activity_Diagrams/Nuovo_Cliente.jpg| center | 600]]
 
 ### Comunicazione Cucina Sala
 ![[Comunicazione_Cucina_Sala.jpg| center | 300]]
@@ -586,7 +586,7 @@ _Scenario:_ Titolare/Manager chiude fiscalmente la cassa a fine giornata, il si
 ![[Controllo_Giacenze.jpg| center | 600]]
 
 ### Analisi Finanziaria
-![[Gestione_Finanziaria.jpg| center | 600]]
+![[img_document/Activity_Diagrams/Gestione_Finanziaria.jpg| center | 600]]
 
 ## Sequence Diagrams
 ### Prenotazione Tavoli
@@ -602,19 +602,19 @@ _Scenario:_ Titolare/Manager chiude fiscalmente la cassa a fine giornata, il si
 ![[Invio_Comanda_Urgente.jpg|center|600]]
 
 ### Gestione Conto
-![[Paga_Comanda.png | center | 600]]
+![[img_document/Sequence_Diagrams/Paga_Comanda.jpg| center | 600]]
 
-### Gestione Intestazione
-![[Nuovo_Cliente.png | center | 700]]
+				### Gestione Intestazione
+![[img_document/Sequence_Diagrams/Nuovo_Cliente.jpg| center | 700]]
 
 ### Comunicazione Cucina-Sala
-![[Comunicazione_Sala_Bar.png | center | 600]]
+![[img_document/Sequence_Diagrams/Comunicazione_cucina_sala.jpg|center|600]]
 
 ### Controllo Giacenza
 ![[Gestione_Magazzino.jpg| center | 660]]
 
 ### Analisi Finanziaria
-![[Gestione_Finanziaria.png | center | 600]]
+![[img_document/Sequence_Diagrams/Gestione_Finanziaria.jpg| center | 600]]
 # Architettura di Sistema
 
 ## 1. Struttura Generale
