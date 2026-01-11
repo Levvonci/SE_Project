@@ -555,7 +555,7 @@ _Scenario:_ Titolare/Manager chiude fiscalmente la cassa a fine giornata, il si
 
 # Analisi Dei Requisiti
 ## Class Diagram
-![[class_diagram_unrefined.png|center]]
+![[class_diagram_unrefined.jpg|center]]
 # Modello Comportamentale
 
 ## Diagramma dei casi d’uso
@@ -577,7 +577,7 @@ _Scenario:_ Titolare/Manager chiude fiscalmente la cassa a fine giornata, il si
 ![[img_document/Activity_Diagrams/Nuovo_Cliente.jpg| center | 600]]
 
 ### Comunicazione Cucina Sala
-![[Comunicazione_Cucina_Sala.jpg| center | 300]]
+![[img_document/Activity_Diagrams/Comunicazione_Cucina_Sala.jpg| center | 300]]
 
 ### Gestione Conto
 ![[Gestione_Conto.jpg | center | 600]]
@@ -604,7 +604,7 @@ _Scenario:_ Titolare/Manager chiude fiscalmente la cassa a fine giornata, il si
 ### Gestione Conto
 ![[img_document/Sequence_Diagrams/Paga_Comanda.jpg| center | 600]]
 
-				### Gestione Intestazione
+### Gestione Intestazione
 ![[img_document/Sequence_Diagrams/Nuovo_Cliente.jpg| center | 700]]
 
 ### Comunicazione Cucina-Sala
