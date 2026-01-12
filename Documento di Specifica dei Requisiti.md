@@ -674,7 +674,7 @@ Questa sezione descrive i design pattern selezionati per la progettazione e impl
 **Applicazione in TableFlow:**
 - **Creazione Utenti:** Implementazione di un metodo factory per istanziare oggetti `Utente` in base al ruolo (Cameriere, Cuoco, Maître, Receptionist, Titolare/General Manager). Ciascun ruolo possiede un set distinto di autorizzazioni definite in RNF03.
 - **Configurazione Dinamica:** Il pattern permette di aggiungere nuovi ruoli futuri (es. Sommelier, Runner, Executive Chef) senza modificare il codice client esistente.
-- **Esempio di Utilizzo:** Il sistema di autenticazione, dopo aver validato le credenziali, invoca `UserFactory.createUser(role, userData)` per ottenere l'istanza corretta con il profilo autorizzativo configurato.
+- **Esempio di Utilizzo:** Il sistema di autenticazione, dopo aver validato le credenziali, invoca `UserFactory.createUser()` per ottenere l'istanza corretta con il profilo autorizzativo configurato.
 
 **Vantaggi per il Sistema:**
 - Isolamento della logica di creazione
@@ -708,6 +708,8 @@ Questa sezione descrive i design pattern selezionati per la progettazione e impl
 - Estensibilità delle funzionalità a runtime
 - Struttura a composizione anziché ereditarietà
 - Supporto a combinazioni complesse di modifiche
+
+![[Decorator_DP.jpg|center|600]]
 
 ### 4. Composite
 **Problema risolto:** Gestione uniforme di strutture gerarchiche parte-tutto, in particolare per la divisione dei conti e l'organizzazione del menu.
