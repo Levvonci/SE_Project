@@ -696,6 +696,8 @@ Questa sezione descrive i design pattern selezionati per la progettazione e impl
 - Scalabilità nella gestione di alert
 - Implementazione efficiente dei requisiti di tempo reale
 
+![[Observer_DP.jpg|center|]]
+
 ### 3. Decorator
 **Problema risolto:** Gestione dinamica e flessibile delle modifiche e personalizzazioni dei piatti ordinati, senza creare un'esplosione di sottoclassi.
 
@@ -711,29 +713,6 @@ Questa sezione descrive i design pattern selezionati per la progettazione e impl
 
 ![[Decorator_DP.jpg|center|600]]
 
-### 4. Composite
-**Problema risolto:** Gestione uniforme di strutture gerarchiche parte-tutto, in particolare per la divisione dei conti e l'organizzazione del menu.
-
-**Applicazione in TableFlow:**
-- **Divisione Conti:** Gestione della suddivisione del conto totale in sotto-conti per gruppi o singoli clienti (RF005). Sia `ContoSingolo` che `ContoComposto` implementano la stessa interfaccia `Conto`, permettendo operazioni uniformi come `calcolaTotale()`.
-- **Struttura Menu:** Rappresentazione gerarchica del menu con categorie (es. "Antipasti", "Primi") che contengono voci di menu (Composite Pattern ricorsivo).
-
-**Vantaggi per il Sistema:**
-- Trattamento uniforme di oggetti singoli e compositi
-- Semplificazione del codice client
-- Supporto naturale a operazioni ricorsive
-
-### 5. Template Method
-**Problema risolto:** Definizione dello scheletro di algoritmi complessi con passaggi variabili delegati alle sottoclassi.
-
-**Applicazione in TableFlow:**
-- **Flusso di Prenotazione:** La classe astratta `PrenotazioneProcess` definisce la sequenza fissa: verifica disponibilità → creazione prenotazione → invio conferma. 
-- **Processo di Ordinazione:** Scheletro comune per la creazione di comande (RF002) con passaggi specifici per tipologie diverse (asporto vs tavolo).
-
-**Vantaggi per il Sistema:**
-- Eliminazione di duplicazione di codice
-- Controllo centralizzato della struttura dell'algoritmo
-- Flessibilità nei punti di variazione
 # Evoluzione del sistema
 
 ## Estensibilità verso Camerieri Robot e Droni di Consegna
