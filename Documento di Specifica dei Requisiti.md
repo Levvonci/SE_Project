@@ -555,7 +555,7 @@ _Scenario:_ Titolare/Manager chiude fiscalmente la cassa a fine giornata, il si
 
 # Analisi Dei Requisiti
 ## Class Diagram
-![[class_diagram_unrefined.jpg|center]]
+![[CD_NotRefined.png|center]]
 # Modello Comportamentale
 
 ## Diagramma dei casi d’uso
@@ -589,6 +589,7 @@ _Scenario:_ Titolare/Manager chiude fiscalmente la cassa a fine giornata, il si
 ![[img_document/Activity_Diagrams/Gestione_Finanziaria.jpg| center | 600]]
 
 ## Sequence Diagrams
+I seguenti sequence diagrams presuppongono che i vari utenti si siano correttamente loggati ed autenticati all'interno del sistema con cui interagiscono.
 ### Prenotazione Tavoli
 ![[Crea_Prenotazione.jpg| center | 660]]
 
@@ -596,12 +597,16 @@ _Scenario:_ Titolare/Manager chiude fiscalmente la cassa a fine giornata, il si
 ![[Crea_Comanda.jpg | center | 600]]
 
 ### Modifica Comanda
+*Nota*: il seguente sequence diagram presuppone che il tavolo a cui si desidera modificare la comanda abbia già una comanda attiva e presa precedentemente. 
+
 ![[img_document/Sequence_Diagrams/Modifica_Comanda.jpg| center | 600]]
 
 ### Invio Comanda Urgente
 ![[Invio_Comanda_Urgente.jpg|center|600]]
 
 ### Gestione Conto
+*Nota*: nel seguente sequence diagram, nella porzione in cui il cliente richiede la fattura, si assume che il cliente abbia già registrato la propria intestazione all'interno del sistema.
+
 ![[img_document/Sequence_Diagrams/Paga_Comanda.jpg| center | 600]]
 
 ### Gestione Intestazione
@@ -615,6 +620,9 @@ _Scenario:_ Titolare/Manager chiude fiscalmente la cassa a fine giornata, il si
 
 ### Analisi Finanziaria
 ![[img_document/Sequence_Diagrams/Gestione_Finanziaria.jpg| center | 600]]
+
+# Class Diagram Refined
+![[CD_Refined.png|center]]
 # Architettura di Sistema
 
 ## 1. Struttura Generale
@@ -672,6 +680,8 @@ Questa sezione descrive i design pattern selezionati per la progettazione e impl
 - Isolamento della logica di creazione
 - Aderenza al principio Open/Closed
 - Supporto alla configurabilità richiesta in RNF06
+
+![[Factory_DP.jpg|center|500]]
 
 ### 2. Observer
 **Problema risolto:** Sincronizzazione in tempo reale e segnalazione automatica di eventi critici a multipli componenti del sistema, come richiesto da RNF01 (Performance Tempi Reali).
