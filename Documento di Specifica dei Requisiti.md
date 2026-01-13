@@ -1,24 +1,21 @@
-<center><h1>Table Flow</h1></center>
-
-![[TableFlow_Logo.png | center | 600]]
+![[TableFlow_Logo.png | center]]
 
 <center><p>Ascenzi Leonardo (0310858)<br> Folco Damiano (0310549)<br> Spadoni Nicoló (0311175)<br> Zheng Simone (0293045) </p>
 </center>
 
+<div style="page-break-after: always;"></div>
 
 # Prefazione
 
 ## Pubblico di Lettori Previsto
 
-Il presente documento è redatto per soddisfare le esigenze informative di diversi stakeholder coinvolti nel ciclo di vita del sistema `TableFlow`:
+Il presente documento è redatto per soddisfare le esigenze informative di diversi stakeholder coinvolti nel ciclo di vita del sistema **TableFlow**:
 
 - **Committente e Stakeholder Business**: Proprietari di ristoranti, food & beverage manager e investitori, per la valutazione delle funzionalità offerte e dell'aderenza ai requisiti operativi.
 - **Team di Sviluppo e Progettisti**: Ingegneri del software, architetti sistemisti e sviluppatori, come linea guida per le attività di progettazione, implementazione e testing.
 - **Team di Qualità e Testing**: Per la definizione dei piani di test e dei criteri di accettazione.
 - **Docenti e Commissione d'Esame**: Per la valutazione del progetto nell'ambito del corso di Ingegneria del Software.
 - **Utenti Finali**: Personale di sala, cucina e amministrazione, per la comprensione delle funzionalità a loro dedicate.
-
-Il documento presuppone nel lettore una conoscenza di base dei processi di ristorazione e dei principi fondamentali dell'ingegneria del software.
 
 ## Cronologia delle Versioni
 
@@ -31,6 +28,8 @@ Il documento presuppone nel lettore una conoscenza di base dei processi di risto
 | 0.9      | 20/12/2025 | D. Folco, N. Spadoni | Revisione finale e verifica consistenza               |
 | 1.0      | 22/12/2025 | D. Folco, S. Zheng   | Versione finale approvata per la consegna             |
 
+<div style="page-break-after: always;"></div>
+
 ## Riepilogo delle Modifiche Principali
 
 **Versione 0.1 → 0.2 (25/11/2025)**
@@ -40,13 +39,13 @@ Il documento presuppone nel lettore una conoscenza di base dei processi di risto
 
 **Versione 0.2 → 0.5 (05/12/2025)**
 - Espansione del glossario con 15 nuovi termini
-- Specifica dei requisiti non funzionali (prestazioni, usabilità, affidabilità)
+- Definizione dei requisiti non funzionali
 
 **Versione 0.5 → 0.8 (15/12/2025)**
 - Integrazione requisiti gestione magazzino
-- Aggiunta figure professionali (Executive Chef, Sommelier, Runner)
+- Aggiunta figure professionali (Chef, Sommelier, Runner)
 - Specifica dell’architettura hardware
-- Definizione dei requisti non funzionali
+- Specifica dei requisiti non funzionali (prestazioni, usabilità, affidabilità)
 
 **Versione 0.8 → 0.9 (20/12/2025)**
 - Revisione completa della consistenza terminologica
@@ -58,8 +57,11 @@ Il documento presuppone nel lettore una conoscenza di base dei processi di risto
 - Allineamento con le specifiche del corso
 - Preparazione per la consegna ufficiale
 
-# Indice
+<div style="page-break-after: always;"></div>
 
+
+
+# Indice
 - [[#Introduzione]]
 	- [[#1. Scopo del Documento]]
 	- [[#2. Descrizione Sintetica del Sistema]]
@@ -96,17 +98,17 @@ Il documento presuppone nel lettore una conoscenza di base dei processi di risto
 		- [[#RNF03 - SICUREZZA E TRACCIABILITÀ]]
 		- [[#RNF04 - USABILITÀ E FORMAZIONE]]
 		- [[#RNF05 - SCALABILITÀ E CARICO]]
-		- [[#BONUS RNF06 - MANUTENIBILITÀ OPERATIVA]]
+		- [[#BONUS: RNF06 - MANUTENIBILITÀ OPERATIVA]]
 	- [[#3. REQUISITI DI DOMINIO]]
 		- [[#3.1 Legali e Fiscali]]
 		- [[#3.2 Hardware]]
 	- [[#4. SCENARI D'USO]]
 		- [[#RF001 - Prenotazione Tavoli]]
-		- [[#RF002 - Presa Comanda]]
+		- [[#RF002 - Creazione Comanda]]
 		- [[#RF003 - Modifica Comanda]]
-		- [[#RF004 - Invio Cucina]]
+		- [[#RF004 - Invio Comanda Urgente]]
 		- [[#RF005 - Comunicazione Cucina-Sala]]
-		- [[#RF006 - Gestione Intestazione]]
+		- [[#RF006 - Creazione Intestazione]]
 		- [[#RF007 - Gestione Conto]]
 		- [[#RF008 - Controllo Giacenze]]
 		- [[#RF009 - Analisi Finanziaria]]
@@ -115,25 +117,26 @@ Il documento presuppone nel lettore una conoscenza di base dei processi di risto
 - [[#Modello Comportamentale]]
 	- [[#Diagramma dei casi d’uso]]
 	- [[#Activity Diagrams]]
-		- [[#Prenotazione Tavoli]]
-		- [[#Presa Comanda]]
-		- [[#Modifica Comanda]]
-		- [[#Invio Cucina]]
-		- [[#Gestione Intestazione]]
-		- [[#Comunicazione Cucina Sala]]
-		- [[#Gestione Conto]]
-		- [[#Controllo Giacenze]]
-		- [[#Analisi Finanziaria]]
+		- [[#Activity Diagrams#Prenotazione Tavoli|Prenotazione Tavoli]]
+		- [[#Activity Diagrams#Creazione Comanda|Creazione Comanda]]
+		- [[#Activity Diagrams#Modifica Comanda|Modifica Comanda]]
+		- [[#Activity Diagrams#Invio Comanda Urgente|Invio Comanda Urgente]]
+		- [[#Activity Diagrams#Creazione Intestazione|Creazione Intestazione]]
+		- [[#Activity Diagrams#Comunicazione Cucina-Sala|Comunicazione Cucina-Sala]]
+		- [[#Activity Diagrams#Gestione Conto|Gestione Conto]]
+		- [[#Activity Diagrams#Controllo Giacenze|Controllo Giacenze]]
+		- [[#Activity Diagrams#Analisi Finanziaria|Analisi Finanziaria]]
 	- [[#Sequence Diagrams]]
-		- [[#Prenotazione Tavoli]]
-		- [[#Presa Comanda]]
-		- [[#Modifica Comanda]]
-		- [[#Invio Cucina]]
-		- [[#Gestione Intestazione]]
-		- [[#Comunicazione Cucina-Sala]]
-		- [[#Gestione Conto]]
-		- [[#Controllo Giacenza]]
-		- [[#Analisi Finanziaria]]
+		- [[#Sequence Diagrams#Prenotazione Tavoli|Prenotazione Tavoli]]
+		- [[#Sequence Diagrams#Creazione Comanda|Creazione Comanda]]
+		- [[#Sequence Diagrams#Modifica Comanda|Modifica Comanda]]
+		- [[#Sequence Diagrams#Invio Comanda Urgente|Invio Comanda Urgente]]
+		- [[#Sequence Diagrams#Gestione Conto|Gestione Conto]]
+		- [[#Sequence Diagrams#Creazione Intestazione|Creazione Intestazione]]
+		- [[#Sequence Diagrams#Comunicazione Cucina-Sala|Comunicazione Cucina-Sala]]
+		- [[#Sequence Diagrams#Controllo Giacenza|Controllo Giacenza]]
+		- [[#Sequence Diagrams#Analisi Finanziaria|Analisi Finanziaria]]
+- [[#Class Diagram Refined]]
 - [[#Architettura di Sistema]]
 	- [[#1. Struttura Generale]]
 	- [[#2. Componenti Principali]]
@@ -147,14 +150,11 @@ Il documento presuppone nel lettore una conoscenza di base dei processi di risto
 		- [[#1. Factory Method]]
 		- [[#2. Observer]]
 		- [[#3. Decorator]]
-		- [[#4. Composite]]
-		- [[#5. Template Method]]
 - [[#Evoluzione del sistema]]
 	- [[#Estensibilità verso Camerieri Robot e Droni di Consegna]]
 - [[#Appendice]]
-	- [[#A. Riferimenti Normativi]]
-	- [[#B. Matrice di Tracciabilità Requisiti]]
-	- [[#C. Acronimi e Terminologia Tecnica]]
+	- [[#Riferimenti Normativi]]
+<div style="page-break-after: always;"></div>
 
 # Introduzione
 
@@ -168,29 +168,32 @@ Questo documento costituisce la *Specifica dei Requisiti Software* per il sistem
 
 ## 2. Descrizione Sintetica del Sistema
 
-`TableFlow` è un sistema software integrato progettato per ottimizzare e digitalizzare l'intero flusso operativo di un ristorante/pasticceria/bar moderno. La piattaforma centralizza le seguenti aree critiche:
+**TableFlow** è un sistema software integrato progettato per ottimizzare e digitalizzare l'intero flusso operativo di un ristorante/pasticceria/bar moderno. La piattaforma centralizza le seguenti aree critiche:
 
-* **Front-of-House**: Gestione delle ordinazioni tramite terminale d'ordine (POS) e tramite tablet per il servizio al tavolo.
+* **Front-of-House**: Gestione delle ordinazioni tramite terminale d'ordine e tramite tablet per il servizio al tavolo.
 * **Back-of-House**: Comunicazione digitale e in tempo reale con l'area cucina, l'area bar e l'area pasticceria con gestione degli ordini e degli stati di preparazione.
 * **Amministrazione**: Controllo completo del magazzino, gestione del personale, analisi delle vendite e reportistica finanziaria.
 
 L'obiettivo primario è creare un ecosistema che aumenti l'efficienza, migliori l'esperienza cliente e fornisca dati per supportare le decisioni gestionali.
 
 ## 3. Interazione con Altri Sistemi
-Il sistema `TableFlow` dovrà interfacciarsi e integrarsi con i seguenti sistemi esterni:
+Il sistema **TableFlow** dovrà interfacciarsi e integrarsi con i seguenti sistemi esterni:
 * **Sistemi di Pagamento Elettronico**: per l'elaborazione di transazioni con carte di credito/debito e servizi di pagamento digitale (es. Visa, MasterCard, Satispay, SumUp).
 * **Sistema di Contabilità**: per l'esportazione automatica dei dati delle vendite e IVA.
+<div style="page-break-after: always;"></div>
 
 ### Future Integrazioni:
 * **Piattaforme di Food Delivery Aggregator**: per ricevere e gestire ordinativi da piattaforme terze come Just Eat, Deliveroo e Glovo.
 * **Sistemi di Prenotazione Online**: per sincronizzare la disponibilità dei tavoli con servizi come TheFork.
 
 ## 4. Ambito di Applicazione nel Contesto Aziendale
-Questo progetto si inserisce nella strategia di innovazione digitale e miglioramento della redditività di un azienda di somministrazione di cibi e bevande (ristoranti/pasticcerie/bar). Il sistema supporterà direttamente le seguenti figure professionali:
+Questo progetto si inserisce nella strategia di innovazione digitale e miglioramento della redditività di un azienda di somministrazione di cibi e bevande (ristoranti, pasticcerie, bar). Il sistema supporterà direttamente le seguenti figure professionali:
 *   **Proprietario/General Manager**: Per il monitoraggio delle performance e la gestione centralizzata.
 *   **Camerieri**: Per l'assunzione degli ordini e la gestione dei tavoli.
 *   **Personale di Cucina**: Per la visualizzazione e preparazione degli ordini.
 *   **Cassiere/Maitre**: Per la gestione delle entrate e uscite.
+
+<div style="page-break-after: always;"></div>
 
 # Glossario
 
@@ -209,9 +212,8 @@ Questo progetto si inserisce nella strategia di innovazione digitale e miglioram
 - Opposta al front-end cliente
 
 ## C
-**Conto**
-- Documento riepilogativo dell'ordine di un tavolo
-- Sinonimo: Scontrino, Ricevuta
+**Comanda**
+- Composizione di più articoli specifici per l'ordine di un tavolo
 
 **Coperto**
 - Costo fisso applicato per persona per servizio e pane
@@ -235,6 +237,10 @@ Questo progetto si inserisce nella strategia di innovazione digitale e miglioram
 - Documento fiscale per acquisti da fornitori o vendite a clienti business    
 - Distinta dalla ricevuta per clienti finali
 
+**Fattura Elettronica**
+- Documento fiscale emesso dal sistema secondo normativa
+- Associato al numero di matricola del registratore di cassa
+
 **Food & Beverage Manager**
 - Responsabile dell'intera operatività di ristorante e bar    
 - Nel sistema: utente con accesso completo a report e analisi
@@ -257,6 +263,10 @@ Questo progetto si inserisce nella strategia di innovazione digitale e miglioram
 - Componente base di un piatto
 - Nel sistema: associato a allergeni e giacenze
 
+**Intestazione**
+- Insieme dei dati fiscali di un cliente possessore di partita IVA
+- Nel sistema: utilizzata per la creazione della fattura
+
 ## M
 **Menu**
 - Insieme organizzato di piatti e bevande offerti
@@ -269,9 +279,13 @@ Questo progetto si inserisce nella strategia di innovazione digitale e miglioram
 ## O
 **Ordine**
 - Richiesta di uno o più piatti/bevande per un tavolo
-- Stati: Inserito, In Preparazione, Pronto, Servito
+- Stati: Inserito, In Preparazione, Pronto, Ritirato
 
 ## P
+**Preconto**
+- Documento riepilogativo dell'ordine di un tavolo
+- Sinonimo: Conto
+
 **Prenotazione**
 - Richiesta di riservare un tavolo per una data/ora
 - Nel sistema: associata a cliente e note particolari
@@ -286,10 +300,6 @@ Questo progetto si inserisce nella strategia di innovazione digitale e miglioram
 - Nel sistema: può avere accesso limitato allo stato ordini
 
 ## S
-**Fattura Elettronica**
-- Documento fiscale emesso dal sistema secondo normativa
-- Associato al numero di matricola del registratore di cassa
-
 **Sommelier**
 - Esperto di vini responsabile della cantina e abbinamenti
 - Nel sistema: utente con permessi per gestione carta vini e vendite
@@ -310,12 +320,14 @@ Questo progetto si inserisce nella strategia di innovazione digitale e miglioram
 ## U
 **Utente**
 - Persona abilitata all'uso del sistema
-- Ruoli: Amministratore, Cassiere, Cameriere, Cuoco
+- Ruoli: General Manager, Receptionist, Cameriere, Chef
 
 ## V
-**Voce di Menu**
-- Singolo elemento vendibile (piatto, bevanda, extra)
-- Caratteristiche: prezzo, descrizione, categoria, allergeni, giacenza
+**Voce Comanda**
+- Singolo articolo vendibile (piatto, bevanda, extra) con eventuali modifiche
+- Caratteristiche: prezzo, descrizione, quantità, stato
+
+<div style="page-break-after: always;"></div>
 
 # Definizione dei Requisiti Utente
 
@@ -349,20 +361,16 @@ Questo progetto si inserisce nella strategia di innovazione digitale e miglioram
 **Software deve:**
 - Calcolare automaticamente totale parziale con IVA inclusa
 - Visualizzare disponibilità articoli in tempo reale (collegamento magazzino)
-- Gestire gli ordini d'asporto in maniera separata dagli ordini ai tavoli.
+<div style="page-break-after: always;"></div>
 
 **RF003 - Modifica Comanda**
-**Attori:** Cameriere, Maitre, Titolare
+**Attori:** Cameriere, Maitre
 **Descrizione:** Modifica comande esistenti e tracciamento storico.
 
 **Cameriere/Maitre devono poter:**
 - Aggiungere nuovi articoli a comanda esistente
 - Rimuovere articoli già inseriti
 - Modificare quantità articoli esistenti
-
-**Titolare/Manager deve poter:**
-- Visualizzare storico completo modifiche per ogni comanda
-- Tracciare chi ha effettuato ogni modifica (audit trail)
 - Annullare modifiche in caso di errore
 
 ### 1.3 Gestione Produzione
@@ -379,14 +387,15 @@ Questo progetto si inserisce nella strategia di innovazione digitale e miglioram
 **Descrizione:** Sistema per la segnalazione dello stato della preparazione
 
 **Chef deve:**
-- Segnalare ai camerieri quando articoli sono "pronti al ritiro" oppure allertare ritardi.
+- Segnalare ai camerieri quando articoli sono "pronti al ritiro".
 
 **Software deve:**
+- Allertare automaticamente ritardi nel ritiro dei piatti dopo un certo periodo di tempo
 - Permettere marcatura ordini come "completati/consegnati"
 - Gestire annullamenti produzione (cambiamenti post-invio)
 
 ### 1.4 Gestione Pagamenti
-**RF006 – Gestione Intestazione**
+**RF006 – Creazione Intestazione**
 **Attori:** Receptionist
 **Descrizione:** Sistema per la gestione dell’intestazione dei clienti che richiedono la fattura per il pagamento.
 
@@ -429,6 +438,7 @@ Questo progetto si inserisce nella strategia di innovazione digitale e miglioram
 **Software deve:**
 - Mostrare articoli non disponibili in tempo reale su terminali sala
 - Calcolare costo ingredienti per piatto
+<div style="page-break-after: always;"></div>
 
 ### 1.6 Gestione Finanziaria e Reportistica
 **RF009 - Analisi Finanziaria**
@@ -448,7 +458,7 @@ Questo progetto si inserisce nella strategia di innovazione digitale e miglioram
 **Specifiche:**
 - Sincronizzazione comande sala/cucina: **< 1 secondi**
 - Aggiornamento disponibilità articoli su tutti i terminali: **< 1 secondi**
-- Calcolo conto complesso (divisione per 8+ persone): **< 1 secondi**
+- Calcolo conto totale (divisione per 8+ persone): **< 1 secondi**
 
 ### RNF02 - AFFIDABILITÀ OPERATIVA CONTINUA
 **Descrizione:** Il sistema deve garantire continuità operativa anche in condizioni parzialmente degradate.
@@ -472,7 +482,7 @@ Questo progetto si inserisce nella strategia di innovazione digitale e miglioram
 
 **Specifiche:**
 - **Tempo formazione base:** < 30 minuti per ruolo operativo (cameriere, receptionist)
-- **Operazioni frequenti:** Massimo 3 tap/clic per:
+- **Operazioni frequenti:** Massimo 6 tap/clic per:
     - Creare nuova comanda (RF002)
     - Applicare modifiche piatto (RF002)
     - Stampare conto (RF007)
@@ -494,6 +504,7 @@ Questo progetto si inserisce nella strategia di innovazione digitale e miglioram
     - 100+ comande in preparazione contemporanea
 - **Storage:** Capacità minima 100.000 comande/storico senza degradazione performance
 - **Backup:** Incrementale notturno senza impatto performance diurna
+<div style="page-break-after: always;"></div>
 
 ### BONUS: RNF06 - MANUTENIBILITÀ OPERATIVA
 **Descrizione:** Il personale non tecnico deve poter gestire configurazioni quotidiane.
@@ -514,7 +525,7 @@ Questo progetto si inserisce nella strategia di innovazione digitale e miglioram
 **RV002 - Gestione Allergeni**
 - Sistema segnalazione allergeni per ogni piatto (Reg. UE 1169/2011)
 - Stampa automatica avvertenze su comande cucina
-- Blocco ordinazioni in caso di allergie gravi segnalate
+- Notifica ordinazioni in caso di allergie/intolleranze segnalate
 
 ### 3.2 Hardware
 **RV003 - Specifiche Minime Dispositivi**
@@ -525,15 +536,13 @@ Questo progetto si inserisce nella strategia di innovazione digitale e miglioram
 ## 4. SCENARI D'USO
 
 ### RF001 - Prenotazione Tavoli
-*Scenario:* Cliente Rossi chiama vuole prenotare un tavolo di 6 persone per un compleanno
-Receptionist Marco seleziona sala 1, visualizza che il tavolo 12 é disponibile, Marco crea la prenotazione data/ora/6 persone/note compleanno.
-Marco conferma.
+*Scenario:* Cliente Rossi chiama vuole prenotare un tavolo di 6 persone per un compleanno. Receptionist Marco seleziona sala 1, visualizza che il tavolo 12 é disponibile, Marco crea la prenotazione data/ora/6 persone/note compleanno. Marco conferma.
 
 ### RF002 - Creazione Comanda  
-*Scenario:* Cameriere Luca al tavolo 7. Sul tablet: seleziona tavolo → inserisce coperti → sistema imposta tavolo come aperto → Luca aggiunge "Carbonara" → modifica "senza pancetta" → aggiunge "Vino rosso" x2. Sistema calcola totale parziale €44. Comanda salvata e inviata.
+*Scenario:* Cameriere Luca al tavolo 7. Sul tablet: seleziona tavolo → inserisce coperti → sistema imposta tavolo come aperto → Luca aggiunge "Carbonara" → modifica "senza pancetta" → aggiunge "Vino rosso" x2. Sistema calcola totale parziale €44. Comanda salvata e inviata alla cucina.
 
 ### RF003 - Modifica Comanda
-*Scenario:* Cliente chiede di aggiungere insalata e togliere patate. Maître Andrea modifica comanda esistente → sistema invia comanda modificata. 
+*Scenario:* Cliente chiede di aggiungere insalata con modifica "senza aceto" e togliere patate. Maître Andrea modifica comanda esistente → sistema invia comanda modificata. 
 
 ### RF004 - Invio Comanda Urgente
 *Scenario:* Sara invia comanda tavolo 3 con bistecca urgente (cliente ha treno). Sistema: priorità ALTA, bordi rossi. In cucina, appare in cima a "SECONDI" con timer countdown.
@@ -541,131 +550,155 @@ Marco conferma.
 ### RF005 - Comunicazione Cucina-Sala
 *Scenario:* Chef completa risotto → clicca "PRONTO". Sistema segnala a tablet camerieri: "Tavolo 5 - Risotto pronto". Dopo 20 minuti se non ritirato → sistema avvisa maître: "RITARDO - Risotto tavolo 5 in attesa".
 
-### RF006 - Gestione Intestazione
+### RF006 - Creazione Intestazione
 *Scenario:* Un nuovo cliente conclude il pagamento e richiede la fattura. Il receptionist inserisce la Partita IVA. Il sistema invia la richiesta all’Agenzia delle Entrate per ricevere i dati dell’azienda. Se il sistema non riceve risposta dall’Agenzia delle Entrate, il receptionist inserisce manualmente i dati dell’intestazione e li verifica. L’intestazione viene salvata e memorizzata nel registro clienti ed è subito disponibile per l’emissione della fattura elettronica.
 
 ### RF007 - Gestione Conto
-*Scenario:* Tavolo 8 persone, conto €320. Receptionist divide per 4 coppie: sistema separa automaticamente gli ordini di ogni coppia. Stampa scontrino separato per ciascuna coppia + fattura per chi la richiede.
+*Scenario:* Tavolo 8 persone, conto €320. Receptionist seleziona divisione per numero: il sistema divide il totale per 4 coppie. Stampa scontrino separato per ciascuna coppia + fattura per chi la richiede.
 
 ### RF008 - Controllo Giacenze
-*Scenario:* Arriva fornitura pomodori. Cuoco aggiorna magazzino: +50kg. Sistema ricalcola totale. A fine giornata, controlla soglie: burro sotto minimo (3kg vs 5kg) → invia alert a titolare. Nel frattempo, "Pizza margherita" mostra "NON DISP." sui tablet.
+*Scenario:* Arriva fornitura pomodori. Chef aggiorna magazzino: +50kg. Sistema ricalcola totale. A fine giornata, chef controlla soglie: burro sotto minimo (3kg vs 5kg) → invia alert a titolare. Nel frattempo, sistema rende "Pizza margherita" con disponibilità "NON DISP." sui tablet.
 
 ### RF009 - Analisi Finanziaria
 _Scenario:_ Titolare/Manager chiude fiscalmente la cassa a fine giornata, il sistema deve calcolare il fatturato totale, l'IVA totale, il numero dei scontrini emessi ed il numero di fatture emesse. Successivamente deve inviare i corrispettivi all'Agenzia delle Entrate ed una volta ricevuta conferma di ricezione, stampare lo Scontrino di Chiusura Fiscale.
 
+<div style="page-break-after: always;"></div>
+
 # Analisi Dei Requisiti
 ## Class Diagram
-![[CD_NotRefined.png|center]]
+![[Unrefined.jpg|center]]
+
+<div style="page-break-after: always;"></div>
+
+
 # Modello Comportamentale
 
 ## Diagramma dei casi d’uso
-![[use_case_diag.jpg|center|600]]
+![[use_case_diag.jpg|center|500]]
+<div style="page-break-after: always;"></div>
+
 ## Activity Diagrams
 ### Prenotazione Tavoli
 ![[Prenotazioni.jpg | center | 300]]
+<div style="page-break-after: always;"></div>
 
 ### Creazione Comanda
 ![[Nuova_Comanda.jpg|center|600]]
+<div style="page-break-after: always;"></div>
 
 ### Modifica Comanda
 ![[img_document/Activity_Diagrams/Modifica_Comanda.jpg| center | 600]]
+<div style="page-break-after: always;"></div>
 
 ### Invio Comanda Urgente
 ![[Invio_Cucina.jpg | center | 300]]
+<div style="page-break-after: always;"></div>
 
-### Gestione Intestazione
+### Creazione Intestazione
 ![[img_document/Activity_Diagrams/Nuovo_Cliente.jpg| center | 600]]
+<div style="page-break-after: always;"></div>
 
-### Comunicazione Cucina Sala
+### Comunicazione Cucina-Sala
 ![[img_document/Activity_Diagrams/Comunicazione_Cucina_Sala.jpg| center | 300]]
+<div style="page-break-after: always;"></div>
 
 ### Gestione Conto
 ![[Gestione_Conto.jpg | center | 600]]
+<div style="page-break-after: always;"></div>
 
 ### Controllo Giacenze
 ![[Controllo_Giacenze.jpg| center | 600]]
+<div style="page-break-after: always;"></div>
 
 ### Analisi Finanziaria
 ![[img_document/Activity_Diagrams/Gestione_Finanziaria.jpg| center | 600]]
+<div style="page-break-after: always;"></div>
 
 ## Sequence Diagrams
 I seguenti sequence diagrams presuppongono che i vari utenti si siano correttamente loggati ed autenticati all'interno del sistema con cui interagiscono.
 ### Prenotazione Tavoli
-![[Crea_Prenotazione.jpg| center | 660]]
+![[Crea_Prenotazione.jpg| center | 550]]
+<div style="page-break-after: always;"></div>
 
-### Presa Comanda
+### Creazione Comanda
 ![[Crea_Comanda.jpg | center | 600]]
+<div style="page-break-after: always;"></div>
 
 ### Modifica Comanda
-*Nota*: il seguente sequence diagram presuppone che il tavolo a cui si desidera modificare la comanda abbia già una comanda attiva e presa precedentemente. 
+*Nota*: il seguente sequence diagram presuppone che il tavolo a cui si desidera modificare la comanda abbia già una comanda attiva e inviata precedentemente. 
 
 ![[img_document/Sequence_Diagrams/Modifica_Comanda.jpg| center | 600]]
+<div style="page-break-after: always;"></div>
 
 ### Invio Comanda Urgente
 ![[Invio_Comanda_Urgente.jpg|center|600]]
+<div style="page-break-after: always;"></div>
 
 ### Gestione Conto
 *Nota*: nel seguente sequence diagram, nella porzione in cui il cliente richiede la fattura, si assume che il cliente abbia già registrato la propria intestazione all'interno del sistema.
 
 ![[img_document/Sequence_Diagrams/Paga_Comanda.jpg| center | 600]]
+<div style="page-break-after: always;"></div>
 
-### Gestione Intestazione
+### Creazione Intestazione
 ![[img_document/Sequence_Diagrams/Nuovo_Cliente.jpg| center | 700]]
+<div style="page-break-after: always;"></div>
 
 ### Comunicazione Cucina-Sala
 ![[img_document/Sequence_Diagrams/Comunicazione_cucina_sala.jpg|center|600]]
+<div style="page-break-after: always;"></div>
 
 ### Controllo Giacenza
 ![[Gestione_Magazzino.jpg| center | 660]]
+<div style="page-break-after: always;"></div>
 
 ### Analisi Finanziaria
 ![[img_document/Sequence_Diagrams/Gestione_Finanziaria.jpg| center | 600]]
 
-# Class Diagram Refined
-![[CD_Refined.png|center]]
-# Architettura di Sistema
+<div style="page-break-after: always;"></div>
 
+# Class Diagram Refined
+![[Entity.jpg|center]]
+![[Controller.jpg|center]]
+![[Boundary.jpg|center]]
+![[Refined.jpg|center]]
+
+<div style="page-break-after: always;"></div>
+
+# Architettura di Sistema
 ## 1. Struttura Generale
 TableFlow usa un'architettura **client-server** moderna:
 - **Backend centrale** in cloud o server locale
 - **Client leggeri** su vari dispositivi (tablet, PC, monitor cucina)
 - **Database unico** sincronizzato per tutti
-
 ## 2. Componenti Principali
-
 ### Backend (Server)
 - **API Centrali:** Gestiscono tutte le operazioni
 - **Database:** PostgreSQL per dati strutturati (ordini, prenotazioni, magazzino)
 - **Servizio Notifiche (Eventualmente in futuro)**
-
 ### Client (Dispositivi)
 - **Tablet Sala:** App per camerieri
 - **Monitor Cucina:** Interfaccia web semplice per chef
 - **PC Reception:** Applicazione desktop per gestione
 - **Mobile Manager:** App per titolare (iOS/Android)
-
 ## 3. Comunicazione
 ```
 Tablet → WiFi/LTE → Server → Database
   ↓                    ↓
 Cucina ← WebSocket ← Notifiche
 ```
-
 ## 4. Modalità Operativa
 - **Online principale:** Tutti i dispositivi connessi a internet
 - **Offline limitato:** Tablet salvano ordini localmente se internet cade
 - **Sincronizzazione automatica** quando connessione ritorna
-
 ## 5. Sicurezza Base
 - Login con username/password per ogni ruolo
 - Accessi separati: camerieri vedono solo loro funzioni, titolare vede tutto
 - Backup automatico giornaliero
-
+<div style="page-break-after: always;"></div>
 
 # Design Pattern
-
-Questa sezione descrive i design pattern selezionati per la progettazione e implementazione del sistema TableFlow. La scelta è motivata dalla necessità di garantire modularità, manutenibilità, estendibilità e conformità ai requisiti non funzionali specificati, in particolare RNF06 (Manutenibilità Operativa). I pattern individuati sono applicabili a diversi livelli dell'architettura e risolvono problemi specifici del dominio ristorativo.
-
+I seguenti pattern sono stati selezionati per garantire la modularità, manutenibilità, estendibilità e conformità ai requisiti non funzionali specificati. Sono applicabili a diversi livelli dell'architettura e risolvono problemi specifici del dominio ristorativo.
 ## Pattern Selezionati ed Applicazione
 
 ### 1. Factory Method
@@ -682,14 +715,15 @@ Questa sezione descrive i design pattern selezionati per la progettazione e impl
 - Supporto alla configurabilità richiesta in RNF06
 
 ![[Factory_DP.jpg|center|500]]
+<div style="page-break-after: always;"></div>
 
 ### 2. Observer
-**Problema risolto:** Sincronizzazione in tempo reale e segnalazione automatica di eventi critici a multipli componenti del sistema, come richiesto da RNF01 (Performance Tempi Reali).
+**Problema risolto:** Sincronizzazione in tempo reale e segnalazione automatica di eventi critici a multipli componenti del sistema.
 
 **Applicazione in TableFlow:**
-- **Segnalazione Stato Ordini:** La cucina (Subject) segnala automaticamente tutti i camerieri (Observers) quando un piatto passa allo stato "PRONTO", come descritto in RF007.
-- **Aggiornamento Giacenze:** Il modulo magazzino (Subject) segnala i terminali di sala e il sistema di ordinazione (Observers) quando la disponibilità di un articolo cambia (RF006, RNF01).
-- **Sistema di Alert:** Generazione di alert per soglie magazzino (RF008), ritardi di ritiro ordini (RF005).
+- **Segnalazione Stato Ordini:** La cucina, attraverso il suo terminale e l'oggetto VoceOrdine (Subject) segnala automaticamente a tutti i terminali di sala (TerminaleSalaObserver e TerminaleManagerObserver) quando un piatto passa allo stato "PRONTO".
+- **Aggiornamento Giacenze:** Il modulo Articolo (Subject) segnala ad i TerminaliSalaObserver ed al TerminaleManagerObserver quando un  articolo è esaurito.
+- **Sistema di Alert:** Generazione di alert in base alle giacenze degli articoli in magazzino e per ritardi nel ritiro ordini.
 
 **Vantaggi per il Sistema:**
 - Accoppiamento debole tra produttori e consumatori di eventi
@@ -697,14 +731,15 @@ Questa sezione descrive i design pattern selezionati per la progettazione e impl
 - Implementazione efficiente dei requisiti di tempo reale
 
 ![[Observer_DP.jpg|center|]]
+<div style="page-break-after: always;"></div>
 
 ### 3. Decorator
 **Problema risolto:** Gestione dinamica e flessibile delle modifiche e personalizzazioni dei piatti ordinati, senza creare un'esplosione di sottoclassi.
 
 **Applicazione in TableFlow:**
-- **Modifiche ai Piatti:** Ogni modifica richiesta dal cliente (es. "senza pancetta", "ben cotto", "aggiunta formaggio") viene rappresentata come un Decorator che avvolge l'oggetto `PiattoBase`, aggiungendo o sovrascrivendo attributi (RF002).
+- **Modifiche ai Piatti:** Ogni modifica richiesta dal cliente (es. "senza pancetta", "ben cotto", "aggiunta formaggio") viene rappresentata come un Decorator che avvolge l'oggetto `PiattoComponent`, aggiungendo o sovrascrivendo attributi.
 - **Calcolo Costi Aggiornato:** I decoratori possono modificare il prezzo finale del piatto in base alla modifica applicata.
-- **Comunicazione in Cucina:** Le modifiche decorate vengono visualizzate in modo evidenziato sui monitor cucina (RF004).
+- **Comunicazione in Cucina:** Le modifiche decorate vengono visualizzate in modo evidenziato sui monitor cucina.
 
 **Vantaggi per il Sistema:**
 - Estensibilità delle funzionalità a runtime
@@ -713,35 +748,18 @@ Questa sezione descrive i design pattern selezionati per la progettazione e impl
 
 ![[Decorator_DP.jpg|center|600]]
 
+<div style="page-break-after: always;"></div>
+
 # Evoluzione del sistema
 
 ## Estensibilità verso Camerieri Robot e Droni di Consegna
 Il sistema è progettato con un'architettura API-first e modulare per permettere l'integrazione futura di camerieri robotici e droni per la consegna a domicilio. Le interfacce di gestione ordini e comande sono già strutturate per supportare dispositivi autonomi, con protocolli di comunicazione standardizzati che potranno essere estesi per includere comandi di navigazione, gestione tray robotizzati e coordinamento multi-agente. L'infrastruttura di gestione ordini a domicilio include già hook per l'integrazione con sistemi di delivery autonomo, prevedendo API specifiche per la pianificazione rotte drone, monitoraggio stato consegne in tempo reale e gestione autonoma degli slot di ricarica. L'astrazione dei layer di business logic dalla presentation layer consentirà di sostituire progressivamente le interfacce umane con controller per robot e flotte drone, mantenendo invariata la logica operativa mentre si evolve l'implementazione fisica del servizio.
 
+<div style="page-break-after: always;"></div>
+
 # Appendice
 
-## A. Riferimenti Normativi 
+## Riferimenti Normativi 
 **Regolamento UE 1169/2011** - Obblighi informativi in materia di alimenti: gestione allergeni obbligatoria su comande cucina (RF002, RV002).
 **D.Lgs. 127/2015** - Registratore di cassa telematico (RCF): integrazione plug-and-play per scontrini/fatture (RF007, RNF05).
 **GDPR Reg. UE 2016/679** - Anonimizzazione dati clienti dopo 24 mesi inattività; audit trail 10 anni operazioni finanziarie (RNF03).
-
-## B. Matrice di Tracciabilità Requisiti
-
-| **RF/RNF ID** | **Use Case/Scenario** | **Test Case Proposto**            | **Status**   |
-| ------------- | --------------------- | --------------------------------- | ------------ |
-| RF001         | Prenotazione Tavoli   | TC001: Conferma WhatsApp          | Implementato |
-| RF002         | Creazione Comanda     | TC002: Modifiche piatto           | Implementato |
-| RF007         | Gestione Conto        | TC007: Divisione conto            | Implementato |
-| RF009         | Gestione Turni        | TC009: Conflitti turni            | Da Testare   |
-| RNF01         | Performance <1s       | TC_NF01: Load test 50 comande     | Da Testare   |
-| RNF03         | Audit Trail           | TC_NF03: Traccia modifiche prezzi | Implementato |
-
-## C. Acronimi e Terminologia Tecnica
-
-| **Acronimo** | **Definizione**                       | **Riferimento**             |
-| ------------ | ------------------------------------- | --------------------------- |
-| RCF          | Registratore Cassa Fiscale Telematico | RF007, RV001                |
-| MTTR         | Mean Time To Repair                   | RNF02 (<30 minuti)          |
-| KPI          | Key Performance Indicator             | RF010 DashBoard             |
-| POS          | Point of Sale                         | Introduzione Front-Of-House |
-| 2FA          | Two Factor Authentication             | RNF03 Amministratori        |
