@@ -1,4 +1,4 @@
-% Created 2026-01-06 Tue 11:37
+% Created 2026-01-13 Tue 20:01
 % Intended LaTeX compiler: pdflatex
 \documentclass[11pt]{article}
 \usepackage[utf8]{inputenc}
@@ -28,61 +28,61 @@
 \tableofcontents
 
 \section{Significato include/extend negli use case}
-\label{sec:orgcfa7308}
+\label{sec:org646486e}
 Il diagramma degli use case permettere di rappresentare graficamente le interazioni tra attori e sistema, specificando quali casi d'uso gli attori possono attivare.
 \subsection{Include:}
-\label{sec:orgc97732a}
+\label{sec:orgab3d1f9}
 Indica che un caso d'uso include \textbf{\textbf{obbligatoriamente}} un altro caso d'uso per completare la sua funzionalitá.
 Utilizzato quando il comportamento di un caso d'uso é riutilizzabile per altri casi d'uso.
 Caso d'uso principale richiede l'esecuzione dei casi d'uso inclusi.
 \subsection{Extend:}
-\label{sec:orga1e4326}
+\label{sec:org2300a44}
 Indica che un caso d'uso puó estendere \textbf{\textbf{opzionalmente}} un altro caso d'uso, aggiungendo funzionalitá alternative o opzionali.
 Utilizzato per rappresentare casi che si verificano solo in determinate condizioni.
 L'attivazione del caso d'uso esteso dipende da una determinata condizione.
 \section{Requisiti Software}
-\label{sec:org1997eff}
+\label{sec:org6ef4207}
 I requisiti del software sono la \textbf{\textbf{descrizione dei servizi}} che un sistema software deve fornire, insieme ai vincoli da rispettare sia in fase di sviluppo che durante la fase di operativitá.
 \subsection{Requisiti utente:}
-\label{sec:orgc9e1838}
+\label{sec:org0434103}
 Descrizione in \textbf{\textbf{linguaggio naturale}} dei \textbf{\textbf{servizi}} che il sistema deve fornire e dei \textbf{\textbf{vincoli operativi}}.
 \subsection{Requisiti di sistema:}
-\label{sec:orge2cf6c2}
+\label{sec:org6fdfde9}
 Specificati mediante la \textbf{\textbf{stesura di un documento strutturato}} che descrive in modo dettagliato i \textbf{\textbf{servizi che il sistema software deve fornire}}.
 Si dividono in \textbf{\textbf{3}} categorie:
 \subsubsection{Funzionali:}
-\label{sec:org63b6954}
+\label{sec:orgeae6701}
 Definiscono le funzionalitá del sistema, ovvero i servizi offerti, le reazioni a specifici input e il comportamento in diverse situazioni operative.
 \subsubsection{Non funzionali:}
-\label{sec:org1277939}
+\label{sec:orgc994de0}
 Descrivono le qualitá del sistema e del processo di sviluppo, come efficienza, affidabilitá, sicurezza ed altre caratteristiche esterne.
 \subsubsection{Dominio:}
-\label{sec:org6e1cce0}
+\label{sec:org97ff1eb}
 Derivano dal contesto applicativo del sistema.
 \subsection{Differenze:}
-\label{sec:org338a29a}
+\label{sec:orgcfbde89}
 I requisiti funzionali in breve \textbf{\textbf{definiscono}} tutte le \textbf{\textbf{operazioni}} che il \textbf{\textbf{sistema deve eseguire}}.
 Gli altri \textbf{\textbf{definiscono}} tutte le \textbf{\textbf{funzionalitá}} che il \textbf{\textbf{sistema deve rispettare}}.
 \section{Modello ciclo di vita}
-\label{sec:org1ac9d88}
+\label{sec:org3143bcd}
 Definisce le fasi attraverso cui il prodotto software evolve, dalla raccolta dei requisiti alla dismissione e l'ordine in cui tali fasi vengono eseguite.
 La scelta del modello dipende da fattori come la natura e la maturitá dell'organizzazione, le tecnologie adottate e i vincoli del cliente.
 \subsection{Principali modelli}
-\label{sec:org2675e4a}
+\label{sec:org06d8508}
 \subsubsection{Build \& Fix}
-\label{sec:orgd5b660c}
+\label{sec:org13ad1a7}
 Modello privo di struttura formale; il prodotto viene sviluppato e poi modificato fino a soddisfare le esigenze del cliente.
 \subsubsection{Waterfall}
-\label{sec:orgb989ae3}
+\label{sec:org975a0d6}
 Modello sequenziale a fasi successive copn verifica alla fine di ogni fase; adatto a progetti con requisiti ben definiti.
 \subsubsection{Spirale}
-\label{sec:org6a89185}
+\label{sec:org14f6a55}
 Modello iterativo che combina l'approccio del Waterfall con una forte enfasi sull'analisi dei rischi; ideale per progetti complessi e soggetti a cambiamenti nei requisiti.
 \section{Risk Analysis}
-\label{sec:orgace4393}
+\label{sec:org6b09184}
 È il processo di identificazione, valutazione e gestione dei potenziali problemi che possono compromettere il successo di un progetto software.
 \subsection{Fasi principali:}
-\label{sec:org3ce1e5b}
+\label{sec:org8a2ebfb}
 \begin{enumerate}
 \item Identificazione dei rischi:
 Individuare tutte le minacce che possono influire negativamente sul progetto.
@@ -100,37 +100,37 @@ Definire le azioni per ridurre la probabilitá o l'impatto dei rischi.
 Assicurarsi che i rischi siano monitorati durante tutto il ciclo di vita del software.
 \end{enumerate}
 \section{Architettura software - Architettura oggetti distribuiti}
-\label{sec:orga2d18d9}
+\label{sec:org5c400ba}
 L'architettura di sistema definisce la struttura dei componenti del sistema software, insieme alle relazioni tra questi ultimi.
 L'architettura ad oggetti distribuiti é un'architettura di sistema che non fa distinzioni tra client/server, infatti ogni oggetto distribuito puó fungere sia da client che da server.
 La comunicazione remota fra gli oggetti é resa trasparente usando middleware basati sul concetto di software bus.
 Le applicazioni basate su questa architettura consistono in un insieme di oggetti che sono eseguiti su piattaforme distribuite ed eterogenee, e comunicano tramite invocazioni remote dei metodi.
 \section{ORB - Object Request Broker}
-\label{sec:org592f317}
+\label{sec:org7a72de2}
 É un componente middleware che abilita la comunicazione trasparente tra oggetti distribuiti su rete, indipendentemente da posizione fisica, linguaggio di programmazione o sistema operativo
 É il cuore delle architetture ad oggetti distribuiti, come CORBA.
 \subsection{Funzionamento}
-\label{sec:orgea94b71}
+\label{sec:org400f32f}
 \textbf{\textbf{Intermediazione Richieste:}} il client invoca un metodo su un oggetto remoto; ORB localizza il server, inoltra la richiesta e restituisce il risultato.
 \textbf{\textbf{Gestione Dati:}} si occupa di serializzazione e deserializzaziopne dei parametri, oltre ai protocolli di rete
 \textbf{\textbf{Trasparenze Fornite:}} location trasparency e implementation trasparency.
 \subsection{Vantaggi}
-\label{sec:org75bf4c3}
+\label{sec:org4164852}
 Permette agli sviluppatori di concentrarsi sulla logica applicativa, astraendo la complessitá della distribuzione.
 \section{Relazione tra prodotto e costo di produzione}
-\label{sec:orgf28ebe5}
+\label{sec:orgbca1708}
 La relazione tra prodotto software e costo di produzione é prevalentemente positiva: maggiore é la dimensione, la complessitá o la qualitá del prodotto, maggiore é il costo iniziale di sviluppo, ma con impatti variabili sui costi a lungo termine.
 \subsection{Fattori principali}
-\label{sec:org8bf4dee}
+\label{sec:org132d49a}
 \textbf{\textbf{Dimensione del prodotto:}} La complessitá e le funzionalitá aumentano direttamente lo sforzo e i costi, spesso in modo non lineare.
 \textbf{\textbf{Qualitá:}} Investire in qualitá eleva i costi iniziali, ma riduce quelli futuri di manutenzione e correzioni.
 \textbf{\textbf{Processi di sviluppo:}} Metodologie efficienti e automazione abbassano i costi mantenendo la qualitá
 \subsection{Equilibrio costi}
-\label{sec:orgf42c664}
+\label{sec:org4465c85}
 \textbf{\textbf{Scalabilitá e modularitá:}} Favoriscono costi minori in fase di aggiornamenti e manutenzioni, bilanciando l'investimento iniziale.
 \textbf{\textbf{Sintesi:}} Esiste un trade-off tra costi di produzione upfront e spese post-rilascio, ottimizzabile con stime accurate basate su dimensioni funzionali.
 \section{Service Oriented Architecture}
-\label{sec:org97a6949}
+\label{sec:orgd23acd0}
 La SOA é un'architettura software distribuita che consiste in molteplici servizi.
 I Servizi sono distribuiti in maniera tale da poter essere eseguiti su nodi differenti con differenti service provider.
 L'obiettivo é quello di sviluppare applicazioni software composte da servizi distribuiti, in modo tale che i singoli servizi possano essere eseguiti su piú piattaforme differenti e implementati con differenti linguaggi di programmazione
@@ -146,7 +146,7 @@ Oltre che ai web services, le SOA utilizzano altri servizi, tra cui:
 \textbf{\textbf{UDDI:}} aiuta a localizzare e identificare i servizi presenti in una rete.
 \textbf{\textbf{WSDL:}} Linguaggio basato su XML utilizzato per descrivere le interfacce dei servizi in un'architettura di
 \section{Secondo quali attivitá va declinata la fase di testing?}
-\label{sec:orga31793c}
+\label{sec:orgcf49327}
 La fase di testing é articolata in una serie di attivitá che assicurano la soddisfazione dei requisiti definiti.
 Queste attivitá sono:
 
@@ -193,22 +193,22 @@ Queste attivitá sono:
 \end{itemize}
 \end{enumerate}
 \section{Come si chiama il testing di validazione per i software a contratto?}
-\label{sec:org23d0d9e}
+\label{sec:org8bed084}
 Il testing di validazione per i software a contratto é chiamato \textbf{\textbf{Acceptance Testing.}}
 \begin{itemize}
 \item \textbf{\textbf{Definizione:}} É l'utlima fase del ciclo di testing, in cui il cliente o l'utente finale verifica che il software soddisfi i requisiti contrattuali e sia pronto per il rilascio.
 \item \textbf{\textbf{Scopo:}} Validare che il software sia conforme alle specifiche contrattuali e garantire la piena utilizabilitá nel contesto operativo del cliente.
 \end{itemize}
 \section{Ciclo di vita del Software}
-\label{sec:org8d0b3e7}
+\label{sec:org561f414}
 \subsection{Definizione Formale}
-\label{sec:org07e1312}
+\label{sec:org6386e9d}
 Il ciclo di vita di un software é il quadro strutturale che organizza in fasi, attivitá e compiti tutti i processi di sviluppo, esericizo e manutenzione di un prodotto software, dalla definizione dei requisiti fino alla dismissione del sistema.
 É suddiviso in 3 stadi, il primo stadio a sua volta é composto da 6 fasi.
 \subsection{Stadi}
-\label{sec:orgd058837}
+\label{sec:orgcf977dc}
 \subsubsection{Stadio 1: Sviluppo}
-\label{sec:org472e602}
+\label{sec:orgc5595ff}
 \begin{itemize}
 \item Requisiti
 \item Specifiche
@@ -218,14 +218,14 @@ Il ciclo di vita di un software é il quadro strutturale che organizza in fasi, 
 \item Integrazione
 \end{itemize}
 \subsubsection{Stadio 2: Manutenzione}
-\label{sec:orgeb5bd3f}
+\label{sec:orgec9ca81}
 Copre circa il 60\% dei costi del ciclo di vita
 \subsubsection{Stadio 3: Dismissione}
-\label{sec:orga86d951}
+\label{sec:org9152601}
 \subsection{Fasi dello Stadio di Sviluppo}
-\label{sec:org36964a0}
+\label{sec:orgd3c3e49}
 \subsubsection{1. Requisiti}
-\label{sec:org075c1c9}
+\label{sec:org7dbf834}
 \textbf{\textbf{Obiettivo:}} Identificare e raccogliere le esigenze degli stakeholder.
 \textbf{\textbf{Descrizione:}} In questa fase si effettua la raccolta, l'analisi e la documentazione dettagliata delle esigenze degli utenti e degli stakeholder, per definire cosa il sistema deve fare e i suoi vincoli operativi.
 \textbf{\textbf{Attivitá Principali:}}
@@ -236,7 +236,7 @@ Copre circa il 60\% dei costi del ciclo di vita
 \item Creazione di una lista iniziale di requisiti.
 \end{itemize}
 \subsubsection{2. Specifiche}
-\label{sec:orgd98e1b4}
+\label{sec:orge78c5d3}
 \textbf{\textbf{Obiettivo:}} Documentare e dettagliare i requisiti raccolti nella fase precedente.
 \textbf{\textbf{Descrizione:}} Approfondisce i requisiti in specifiche tecniche dettagliate, producendo documenti come \textbf{\textbf{SRS (Software Require Specification)}} o \textbf{\textbf{SFS (Software Functional Specification)}} che serviranno nelle fasi successive.
 \textbf{\textbf{Attivitá Principali:}}
@@ -246,11 +246,11 @@ Copre circa il 60\% dei costi del ciclo di vita
 \item Validazione dei requisiti con il cliente per verificare che siano corretti.
 \end{itemize}
 \subsubsection{3. Pianificazione}
-\label{sec:org6a1a1b4}
+\label{sec:orga8e37f7}
 \textbf{\textbf{Obiettivo:}} Organizzare il lavoro per il completamento del progetto.
 \textbf{\textbf{Descrizione:}} Si definisce il piano del progetto: stime di costi/risorse/tempi, allocazione team, scelta strumenti/metodologie, identificazione rischi e definizione milestone. Produce il \textbf{\textbf{Project Plan}} con \textbf{Gant}, budget e criteri di monitoraggio. É cruciale per allineare stakeholder e gesstire scope.
 \subsubsection{4. Progetto}
-\label{sec:orga9fed5b}
+\label{sec:org41d6d2a}
 \textbf{\textbf{Obiettivo:}} Progettare l'architettura e i dettagli tecnici del software.
 \textbf{\textbf{Descrizione:}} Si definisce la struttura del sistema e le componenti, fornendo un modello chiaro da seguire nella fase di sviluppo.
 \textbf{\textbf{Attivitá Principali:}}
@@ -261,37 +261,37 @@ Copre circa il 60\% dei costi del ciclo di vita
 \item Redazione del piano di test iniziale per assicurarsi cjhe il progetto sia verificabile.
 \end{itemize}
 \subsubsection{5. Codifica}
-\label{sec:org1ddb5e7}
+\label{sec:orgab51890}
 \textbf{\textbf{Obiettivo:}} Tradurre il design in un software funzionante.
 \textbf{\textbf{Descrizione:}} In questa fase gli sviluppatori scrivono il codice sorgente seguendo le specifiche di progetto, standard di coding e best practice. Include unit testing durante lo sviluppo e commit in repository git. L'importanza di questa fase é per l'appunto la trasformazione da design a eseguibile, con enfasi su qualitá e leggibilitá.
 \subsubsection{6. Integrazione}
-\label{sec:org1657ba5}
+\label{sec:orgbbf9d37}
 \textbf{\textbf{Obiettivo:}} Collegare i diversi moduli e testare il sistema completo.
 \textbf{\textbf{Descrizione:}} SI assemblano i moduli/test unitari in un sistema coerente, verificando integrazioni tramite test di integrazione. Identifica e risolve difetti di interfaccia. Culmina in unn  prototipo parziale o completo pronto per essere testato.
 \section{Qual é la manutenzione piú frequentemente utilizzata?}
-\label{sec:org6535b4f}
+\label{sec:org9f8b9d9}
 La manutenzione piú frequentemente utilizzata é quella \textbf{\textbf{correttiva}}.
 La manutenzione correttiva é l'insieme delle attivitá volte a correggere difetti, errori o malfunzionamenti riscontrati nel software dopo il suo rilascio in produzione, ripristinando la funzionalitá conforme alle specifiche originali.
 \subsection{Altri tipi di manutenzioni}
-\label{sec:org6a2463e}
+\label{sec:org7ad7ecb}
 \begin{enumerate}
 \item Adattiva
-\label{sec:orgbd5cc84}
+\label{sec:org2c32301}
 Modifiche al software per adattarlo ai cambiamenti dell'ambiente operativo.
 \item Perfettiva
-\label{sec:org4bced5c}
+\label{sec:org5dd8a8b}
 Migliora le prestazioni o aggiunge nuove funzionalitá per soddisfare le richieste degli utenti.
 \item Preventiva
-\label{sec:orgcde0b49}
+\label{sec:org694b18b}
 Effettuare modifiche per ridurre richi di guasto o per prevenire dei problemi futuri.
 \end{enumerate}
 \section{Regola 10-90}
-\label{sec:org715dfdc}
+\label{sec:orga7fa191}
 La regola 10-90 é una variante della regola 90-90, un aforismo umoristico dell'ingegneria del software.
 Questa regola afferma che: "Solo il 10\% del codice critico consuma il 90\% delle risorse di esecuzione o sviluppo".
 Il 10\% del codice in questione si definisce \textbf{\textbf{core}} del programma.
 \section{Stima durata progetto}
-\label{sec:org806cedb}
+\label{sec:org15c2861}
 Per stimare la durata totale di un progetto software partendo dal documento di specifica, é necessario utilizzare tecniche di pianificazione e stima che si basano su dioversi fattori come la dimensione stimata del prodotto, le risorse disponibili e i processi di sviluppo.
 La prima fase della stima é quella stimare le dimensioni totali del software. usando tecniche note che vedremo avanti.
 Successivamente si stima la durata:
@@ -306,23 +306,23 @@ Successivamente si stima la durata:
 \end{itemize}
 \end{enumerate}
 \section{Organizzazione modello di qualitá del Software}
-\label{sec:orgac49020}
+\label{sec:org8ed6ee2}
 Il modello di qualitá del software si strutturs principalmente attorno allo standard \textbf{\textbf{IEEE 1061}}, che fonrnisce un framework sistematico per definire, misurare e valutare la qualitá attraverso metriche quantitative legate a obiettivi specifici del progetto.
 \subsection{Principi e struttura secondo IEEE 1061}
-\label{sec:org94433af}
+\label{sec:orge18961f}
 Lo standard organizza la qualitá del software identificando prima gli obiettivi di qualitá rilevanti per il contesto.
 Successivamente, associa a questi obiettivi attributi di qualitá misurabili e metriche per valutarli.
 Un elemento centrale sono gli indici di qualitá, che aggregano piú metriche in indicatori sintetici per monitorare le prestazioni complessive.
 Questi indici si divono in tre gruppi principali, allineati al modello McCall.
 \subsubsection{1. Attivitá di Revisione}
-\label{sec:org415cde6}
+\label{sec:org8023e31}
 \begin{itemize}
 \item \textbf{\textbf{Manutenibilitá:}} effort richiesto per individuare e correggere un errore in un programma operativo.
 \item \textbf{\textbf{Flessibilitá:}} effort per modificare un prodotto software giá in uso.
 \item \textbf{\textbf{Testabilitá:}} effort per testare il software e verificarne la correttezza funzionale.
 \end{itemize}
 \subsubsection{2. Attivitá di Transizione}
-\label{sec:org70835c3}
+\label{sec:org0548e95}
 \begin{itemize}
 \item \textbf{\textbf{Portabilitá:}} effort per traferire il software ad un nuovo ambiente hardware/software.
 \item \textbf{\textbf{Riusabilitá:}} grado in cui parti del software possono essere riutilizzate in altre applicazioni.
@@ -330,7 +330,7 @@ Questi indici si divono in tre gruppi principali, allineati al modello McCall.
 \item \textbf{\textbf{Evolutivitá:}} effort per aggiornarlo con nuovi requisiti.
 \end{itemize}
 \subsubsection{3. Attivitá di Operazioni}
-\label{sec:org7c5f0ea}
+\label{sec:orgfb118d1}
 \begin{itemize}
 \item \textbf{\textbf{Correttezza:}} misura in cui il software soddisfa specifiche e obiettivi utente.
 \item \textbf{\textbf{Affidabilitá:}} probabilmente che svolga le funzioni previste con la precisione richiesta.
@@ -339,7 +339,7 @@ Questi indici si divono in tre gruppi principali, allineati al modello McCall.
 \item \textbf{\textbf{Usabilitá:}} effort per imparere, usare, preparare input e interpretare output.
 \end{itemize}
 \subsubsection{Attributi di qualitá}
-\label{sec:org63f9415}
+\label{sec:org0cc4044}
 Oltre aghli indici, \textbf{\textbf{IEEE 1061}} elenca attributi fondamentali, come:
 \begin{itemize}
 \item \textbf{\textbf{Complessitá:}} comprensibilitá e verificabilitá degli elementi e delle loro interazioni.
@@ -356,7 +356,7 @@ Oltre aghli indici, \textbf{\textbf{IEEE 1061}} elenca attributi fondamentali, c
 
 Questi attribuit sono mappati su metriche concrete
 \subsubsection{Processo iterativo di valutazione}
-\label{sec:orgae94e21}
+\label{sec:org2f8d048}
 IEEE 1061 definisce un ciclo chiaro:
 \begin{enumerate}
 \item \textbf{\textbf{Definizione degli obiettivi:}} contestualizzati al progetto.
@@ -368,7 +368,7 @@ IEEE 1061 definisce un ciclo chiaro:
 
 Questa struttura garantisce che la qualitá sia oggettiva, misurabile e allineata agli stakeholder, riducendo soggettivitá e rischi.
 \section{Diagramma UML per interazione tra oggetti}
-\label{sec:orgd8b865c}
+\label{sec:org8b15ae6}
 Per specificare l'interazione tra oggetti, usando la struttura dei diagrammi UML, possiamo usare il \textbf{\textbf{Sequence Diagram}}
 Un altro diagramma UML che permette di fare questa cosa si chiama \textbf{\textbf{Collaboration Diagram.}}
 Questo diagramma é una rappresentazione equivalente del sequence diagram, infatti a partire da uno possiamo generare l'altro e viceversa.
@@ -378,7 +378,7 @@ Il funzionamento del Collaboration Diagram é identico a quello del sequence dia
 \item I Sequence vengono usati in fase di OOA, mentre i Collaboration in fase di OOD
 \end{itemize}
 \section{COCOMO}
-\label{sec:orgd1b0ae2}
+\label{sec:org58f5d2a}
 Modello algoritmico introdotto da Boehm per determinare il valore dell'effort in base alla dimensione del prodotto.
 Il valore dell'effort viene successivamente utilizzato per determinare durata e costi di sviluppo.
 COCOMO comprende 3 modelli:
@@ -399,7 +399,7 @@ La stima dell'effort viene effettuata a partire da:
 \end{itemize}
 \end{itemize}
 \subsection{Formula di COCOMO}
-\label{sec:orgcbd7e4f}
+\label{sec:orgc39c36b}
 \textbf{\textbf{Stima dell'effort nominale:}}
 \begin{equation}
 EffortNom = a \cdot (KLOC)^{b}
@@ -418,7 +418,7 @@ Time = c \cdot (Effort)^{d}
 \end{equation}
 \(c,d\) come \(a,b\)
 \subsubsection{Esempio}
-\label{sec:orgb608164}
+\label{sec:org56039fa}
 \textbf{\textbf{MM}} = uomo/mesi, quante persone per mese devono lavorare al progetto
 Modello intermediate, modo organic:
 \begin{itemize}
@@ -436,9 +436,9 @@ $$126 \cdot 1.15 = 145MM$$
 \end{itemize}
 $$T = 2.5 \cdot 145^{0.38} \sim 16.56$$
 \section{Design Pattern}
-\label{sec:orga2defe8}
+\label{sec:org14c90d4}
 \subsection{Cosa sono i Design Patterns? a cosa servono?}
-\label{sec:org21f5e35}
+\label{sec:orga4141b6}
 Uno dei compiti più difficili per un progettista di software è individuare un insieme di oggetti ben definiti, riusabili il più possibile e con relazioni e gerarchie chiare ed efficaci.
 I Design Patterns sono proprio la soluzione a questo problema.
 Questi trovano il fulcro della soluzione ad un problema ricorrente e fanno in modo che possa essere riutilizzata infinite volte anche non applicandola necessariamente nello stesso modo.
@@ -453,7 +453,7 @@ I Pattern si distinguono in tre categorie principali:
 \item \textbf{\textbf{Comportamentali:}} Descrivono come gli oggetti interagiscono e come si distribuiscono le responsabilitá.
 \end{itemize}
 \subsection{Come è fatta la struttura di un Design Patterns?}
-\label{sec:org8f8eb51}
+\label{sec:org6dc5873}
 Un Design Patterns ha la seguente struttura:
 Per prima cosa troviamo il nome e la classificazione che illustrano l'essenza, lo scopo e il raggio d'azione del Pattern.
 In seguito troviamo la motivazione ovvero una descrizione del problema e dello scenario al quale bisogna applicare il relativo Pattern.
@@ -474,54 +474,85 @@ Infine troviamo dei codici d'esempio che illustrano come implementare il Pattern
 \item \textbf{\textbf{Usi noti:}} Esempi di applicazioni in sistemi reali.
 \item \textbf{\textbf{Pattern collegati:}} Altri Pattern.
 \end{itemize}
-\subsection{Lista dei Design Patterns spiegati dal prof con spiegazione}
-\label{sec:orgaef4c7b}
+\subsection{Lista dei Design Pattern}
+\label{sec:orgec1d0ac}
 \subsubsection{Abstract Factory}
-\label{sec:org0ec1931}
-\textbf{\textbf{Obiettivo:}} Il suo scopo è \textbf{\textbf{fornire un'interfaccia}} per creare famiglie di oggetti correlati, senza specificare le concrete classi da usare.
-\textbf{\textbf{Vantaggi:}} Isolamento delle classi complete e la facile sostituzione dell'intera famiglia dei prodotti.
-\textbf{\textbf{Svantaggi:}} Aggiungere nuove famiglie richiede modifiche all'interfaccia della factory.
+\label{sec:org48db541}
+L'Abstract Factory è un design pattern creazionale che fornisce un'interfaccia per creare famiglie di oggetti correlati senza specificare le loro classi concrete. Ogni factory concreta produce un'intera suite di prodotti coerenti tra loro.
+\begin{enumerate}
+\item Struttura
+\label{sec:org819596a}
+\begin{itemize}
+\item \textbf{\textbf{AbstractFactory:}} Dichiara i metodi per creare ogni tipo di prodotto della famiglia.
+\item \textbf{\textbf{Factory concrete:}} Implementano tutti i metodi della Abstract Factory ritornando prodotti specifici. della famiglia.
+\item \textbf{\textbf{Interfacce Astratte:}} Per ogni tipo di prodotto.
+\item \textbf{\textbf{Client:}} Usa la factory per ottenere intere famiglie di prodotti coerenti.
+\end{itemize}
+\end{enumerate}
 \subsubsection{Factory Method}
-\label{sec:orgc2c6cd0}
-\textbf{\textbf{Obiettivo:}} Il suo scopo è quello di \textbf{\textbf{definire un metodo}} che rimanda alle sottoclassi la decisione su quale oggetto istanziare.
-\textbf{\textbf{Tipico nei framework:}}
+\label{sec:org8c9a0f7}
+Il Factory Method è un design pattern creazionale che definisce un'interfaccia per creare oggetti, ma delega alle sottoclassi la responsabilità di decidere quale classe concreta istanziare.
+\begin{enumerate}
+\item Struttura
+\label{sec:orgd1bd3d1}
 \begin{itemize}
-\item La classe astratta fornisce il flusso operativo.
-\item Le sottoclassi decidono cosa creare
+\item \textbf{\textbf{Creator:}} Classe che definisce  il metodo factoryMethod().
+\item \textbf{\textbf{ConcreteCreator:}} Sottoclasse che implementa il metodo factoryMethod().
+\item \textbf{\textbf{ConcreteProduct:}} Oggetto concreto creato dal metodo factoryMethod().
+\item \textbf{\textbf{Product:}} Rispettiva classi di ConcreteProduct.
 \end{itemize}
-\textbf{\textbf{Vantaggi:}} Disaccoppia il codice dal tipo concreto degli oggetti.
+\end{enumerate}
 \subsubsection{Adapter}
-\label{sec:org52d442c}
-\textbf{\textbf{Obiettivo:}} Il suo scopo è convertire l'interfaccia di una classe esistente incompatibile con un client, in una compatibile.
-Esistono due tipi:
+\label{sec:org7b06c8e}
+L'Adapter è un design pattern strutturale che consente a due interfacce incompatibili di lavorare insieme, permettendo a oggetti con interfacce diverse di collaborare senza modificare il loro codice sorgente.
+\begin{enumerate}
+\item Struttura
+\label{sec:orgaa8b432}
 \begin{itemize}
-\item \textbf{\textbf{Object Adapter:}} Usa la composizione.
-\item \textbf{\textbf{Class Adapter:}} Usa l'ereditarietá multipla.
+\item \textbf{\textbf{Target Interface:}} L'interfaccia che il client si aspetta.
+\item \textbf{\textbf{Adaptee:}} La classe esistente con interfaccia incompatibile che deve essere utilizzata.
+\item \textbf{\textbf{Adapter:}} Implementa il Target e "wrappa" l'adaptee, traducendo le chiamate da target ad adaptee.
+\item \textbf{\textbf{Client:}} Usa l'adapter senza sapere che dietro c'é l'adaptee.
 \end{itemize}
+\item Approcci Implementativi
+\label{sec:org736ff0b}
+\begin{itemize}
+\item \textbf{\textbf{Class Adapter:}} Usa ereditarietá.
+\item \textbf{\textbf{Object Adapter:}} Usa composizione.
+\end{itemize}
+\end{enumerate}
 \subsubsection{Composite}
-\label{sec:org049d32b}
-\textbf{\textbf{Obiettivo:}} Il suo scopo è trattare oggetti semplici e strutture composte in maniera uniforme.
-Ha 3 componenti principali:
+\label{sec:org4e27fa8}
+Il Composite è un design pattern strutturale che consente di comporre oggetti in strutture ad albero per rappresentare gerarchie parte-tutto. Permette ai client di trattare oggetti individuali e composizioni di oggetti allo stesso modo, offrendo un'interfaccia uniforme.
+\begin{enumerate}
+\item Struttura
+\label{sec:org44fedfa}
 \begin{itemize}
-\item Component (interfaccia comune),
-\item Leaf (oggetti semplici),
-\item Composite (oggetti composti).
+\item \textbf{\textbf{Component:}} Definisce l'interfaccia comune per foglie e composti.
+\item \textbf{\textbf{Leaf:}} Rappresenta gli elementi finali della gerarchia.
+\item \textbf{\textbf{Composite:}} Rappresenta i nodi interni che contengono altri componenti.
+\item \textbf{\textbf{Client:}} Lavora solo con interfacce Component, senza sapere se sta lavorando con foglia o composto
 \end{itemize}
-\textbf{\textbf{Vantaggi:}} Semplifica il codice client e facilita l'aggiunta di nuove forme.
-\textbf{\textbf{Svantaggi:}} Il sistema può risultare troppo generico.
+\end{enumerate}
 \subsubsection{Decorator}
-\label{sec:org0dcb0d0}
-\textbf{\textbf{Obiettivo:}} Il suo scopo è quello di aggiungere dinamicamente delle funzionalità ad un oggetto senza modificarne la classe. Un esempio di applicazione è la realizzazione di interfacce utente, in cui funzionalità come lo scorrimento del testo o un bordo devono essere aggiunti a livello di singolo oggetto.
-Il \textbf{\textbf{Decorator}} è un oggetto contenitore che racchiude un oggetto elementare e aggiunge una particolare responsabilità. Trasferisce le richieste all'oggetto decorato ma può svolgere funzioni aggiuntive prima o dopo il trasferimento della richiesta.
-Si applica quando è necessario aggiungere agli oggetti funzionalità a \uline{runtime} e quando il subclassing non è adatto (provocherebbe l'esplosione di sottoclassi per ogni funzionalità).
+\label{sec:org32cdf02}
+Il Decorator è un design pattern strutturale che consente di aggiungere responsabilità a un oggetto dinamicamente, offrendo un'alternativa flessibile all'ereditarietà per estendere la funzionalità. Mantiene la stessa interfaccia dell'oggetto originale mentre aggiunge nuovi comportamenti.
+\begin{enumerate}
+\item Struttura
+\label{sec:org6d502b7}
+\begin{itemize}
+\item \textbf{\textbf{Component:}} Definisce l'interfaccia per gli oggetti a cui aggiungere responsabilitá.
+\item \textbf{\textbf{ConcreteComponent:}} L'oggetto base a cui aggiungiamo funzionalitá.
+\item \textbf{\textbf{Decorator:}} Implementa Component e ottiene un'istanza di component.
+\item \textbf{\textbf{ConcreteDecorator:}} Estende Decorator e aggiunge specifiche responsabilitá.
+\item \textbf{\textbf{Client:}} Lavora con l'interfaccia Component senza sapere se sta usando un componente base o un decorator.
+\end{itemize}
+\end{enumerate}
 \subsubsection{Observer}
-\label{sec:orgb4c8e4c}
-\textbf{\textbf{Obiettivo:}} Il suo scopo è quello di definire una dipendenza uno a molti tra oggetti. Quando più oggetti dipendono dallo stato di un altro oggetto, bisogna assicurarsi che questi oggetti si aggiornino automaticamente.
-È necessario quando un oggetto (detto \textbf{\textbf{Subject}} o \textbf{\textbf{Observable}}) deve informare automaticamente altri oggetti (\textbf{\textbf{Observer}}) ogni volta che cambia stato.
-Il Pattern Observer prevede che gli osservatori si registrino presso l'oggetto osservato. In questo modo l'oggetto osservato notifica ogni cambiamento agli osservatori. Quando l'osservatore rileva la notifica può interrogare l'oggetto osservato o svolgere operazioni indipendenti dallo stato dell'osservato. Si applica quando una azione può essere scomposta in due ambiti, ciascuno incapsulato in oggetti separati e quando bisogna gestire le modifiche di oggetti in seguito alla variazione di un altro oggetto.
-L'accoppiamento tra \textbf{\textbf{subject}} e \textbf{\textbf{observer}} è astratto, il subject conosce solo la lista degli osservatori e la \uline{notifica} avviene in modalità broadcast, quindi il subject non si occupa di quanti sono gli observer registrati.
+\label{sec:org44341ef}
+L'Observer è un design pattern comportamentale che definisce una dipendenza uno-a-molti tra oggetti, in modo che quando un oggetto cambia stato, tutti gli oggetti dipendenti vengono notificati automaticamente e aggiornati. Implementa un meccanismo di sottoscrizione/notifica.
 \subsubsection{Template Method}
-\label{sec:orgbc61ff3}
+\label{sec:org722994b}
 \textbf{\textbf{Obiettivo:}} Ha lo scopo di definire la struttura di un algoritmo, delegando alle sottoclassi l'implementazione di passaggi specifici.
 La classe base decide come è organizzato l'algoritmo, le sottoclassi decidono come implementare i passaggi variabili
 
@@ -545,7 +576,7 @@ Si utilizzano però in problemi diversi:
 \item Il factory method è un metodo astratto che deve creare e restituire l'istanza di classe concreta per sganciare il cliente dalla scelta del tipo specifico
 \end{itemize}
 \subsubsection{Strategy}
-\label{sec:org7bcebc6}
+\label{sec:org7d5eb46}
 \textbf{\textbf{Obiettivo:}} Ha lo scopo di definire ed incapsulare una famiglia di algoritmi in modo da renderli intercambiabili indipendentemente dal client che li usa.
 Pensiamo alla classe degli algoritmi di ordinamento, in cui ne esistono diversi (BucketSort, QuickSort ecc). Costruiamo un'applicazione che li supporti tutti e che permette una scelta rapida dell'algoritmo.
 Molte classi differiscono solo per il comportamento. Il Pattern \textbf{\textbf{strategy}} offre un modo per avere un interfaccia comune. Questo Pattern è applicabile quando sono necessarie più varianti di uno stesso algoritmo, in base al tipo di dato in ingresso o a delle condizioni operative.
