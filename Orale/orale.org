@@ -52,7 +52,7 @@ Modello sequenziale a fasi successive copn verifica alla fine di ogni fase; adat
 Modello iterativo che combina l'approccio del Waterfall con una forte enfasi sull'analisi dei rischi; ideale per progetti complessi e soggetti a cambiamenti nei requisiti.
 
 * Risk Analysis
-È il processo di identificazione, valutazione e gestione dei potenziali problemi che possono compromettere il successo di un progetto software.
+É il processo di identificazione, valutazione e gestione dei potenziali problemi che possono compromettere il successo di un progetto software.
 
 ** Fasi principali:
 1. Identificazione dei rischi:
@@ -70,7 +70,7 @@ Modello iterativo che combina l'approccio del Waterfall con una forte enfasi sul
 5. Monitoraggio continuo:
    Assicurarsi che i rischi siano monitorati durante tutto il ciclo di vita del software.
 
-* Architettura software - Architettura oggetti distribuiti
+* Architettura softwares - Architettura oggetti distribuiti
 L'architettura di sistema definisce la struttura dei componenti del sistema software, insieme alle relazioni tra questi ultimi.
 L'architettura ad oggetti distribuiti é un'architettura di sistema che non fa distinzioni tra client/server, infatti ogni oggetto distribuito puó fungere sia da client che da server.
 La comunicazione remota fra gli oggetti é resa trasparente usando middleware basati sul concetto di software bus.
@@ -116,7 +116,7 @@ Oltre che ai web services, le SOA utilizzano altri servizi, tra cui:
 **UDDI:** aiuta a localizzare e identificare i servizi presenti in una rete.
 **WSDL:** Linguaggio basato su XML utilizzato per descrivere le interfacce dei servizi in un'architettura di
 
-* Secondo quali attivitá va declinata la fase di testing?
+* Secondo quali attivitá va suddivisa la fase di testing?
 La fase di testing é articolata in una serie di attivitá che assicurano la soddisfazione dei requisiti definiti.
 Queste attivitá sono:
 
@@ -128,10 +128,10 @@ Queste attivitá sono:
    - Creazione di scenari di test basati sui requisiti funzionali e non funzionali.
    - Identificazione delle versioni software da testare.
 3. **Preparazione dell'ambiente di test:**
-   - Configurazione degli ambienti (Hardware, Software, Reti). 
-   - Installazione delle versioni del software da testare. 
+   - Configurazione degli ambienti (Hardware, Software, Reti).
+   - Installazione delle versioni del software da testare.
 4. **Esecuzione dei test:**
-   - Esecuzione dei casi di test progettati. 
+   - Esecuzione dei casi di test progettati.
    - Registrazione dei risultati (Successo o Fallimento) e documentazione delle anomalie.
 5. **Analisi dei risultati:**
    - Confronto tra risultati ottenuti e quelli attesi.
@@ -266,11 +266,11 @@ Questi indici si divono in tre gruppi principali, allineati al modello McCall.
 Oltre aghli indici, **IEEE 1061** elenca attributi fondamentali, come:
 - **Complessitá:** comprensibilitá e verificabilitá degli elementi e delle loro interazioni.
 - **Precisione:** accuratezza dei calcoli e e risultati.
-- **Completezza:** implementazione esaustiva delle funzionalità richieste.
-- **Coerenza:** uniformità di design, implementazione e notazioni.
-- **Tolleranza:** capacità di operare in condizioni avverse.
+- **Completezza:** implementazione esaustiva delle funzionalitá richieste.
+- **Coerenza:** uniformitá di design, implementazione e notazioni.
+- **Tolleranza:** capacitá di operare in condizioni avverse.
 - **Tracciabilitá:** legami chiari tra elementi del processo di sviluppo.
-- **Espandibilitá:** possibilità di ampliare memorie o funzioni.
+- **Espandibilitá:** possibilitá di ampliare memorie o funzioni.
 - **Generalitá:** ampiezza delle applicazioni potenziali.
 - **Modularitá:** indipendenza dei moduli.
 - **Autodocumentazione:** presenza di documentazione inline.
@@ -341,32 +341,149 @@ $$126 \cdot 1.15 = 145MM$$
 - **Passo3:** Stima del tempo della consegna. USare formula $(3)$
 $$T = 2.5 \cdot 145^{0.38} \sim 16.56$$
 
+* Differenze tra testing black/white box
+Sono due approcci per il testing di software, ma si differenziano per il loro focus e il livello di conoscenza da parte del tester.
+
+** Black Box
+Approccio in cui il software viene considerato come una scatola nera.
+I Test Case vengono derivati dalle specifiche del software.
+Il Tester presenta gli input al componente o al sistema ed esamina l'output corrispondente.
+Se gli output non sono quelli specificati, allora il test ha rilevato un problema all'interno del software.
+Questo test viene spesso chiamato **Testing Funzionale**, perché il tester si concentra solo sulle funzionalitá del Software e non considera per niente l'implementazione interna del software.
+
+** White Box
+Il testing strutturale in cui si va a testare la struttura interna del codice. Si testano tutti i flussi di esecuzione. Se alcuni flussi non vengono eseguiti o vengono eseguiti in maniera errata, allora il software presenta dei problema.
+Si usa per rendere efficiente e pulire il codice.
+
+* Affidabilitá del Software
+In maniera informale, l'affidabilitá del software é la credibilitá del software mentre in maniera formale é la probabilitá che il prodotto software lavori "correttamente" in un determinato intervallo temporale.
+Intuitivamente un prodotto software é inaffidabile se presenta molti difetti.
+L'affidabilitá migliora quando si riducono i difetti.
+
+*** Caratteristiche dell'affidabilitá
+É una relazione non semplice tra:
+- Affidabilitá osservata,
+- Numero di difetti latenti.
+
+- Eliminare difetti nella parte di prodotto raramente utilizzata migliora l'affidabilitá di un fattore molto piccolo.
+- Il miglioramento dell'affidabilitá per l'eliminazione del difetto dipende da quale porzione di sistema contiene quel difetto (Regola 10-90). Se il difetto é presente nel 10% di software piú usato dall'utenza, allora l'affidabilitá aumenterá di molto.
+- Quindi l'affidabilitá Software dipende da come é usato quel prodotto.
+- Un utente che usa una porzione di software puó riscontrare un difetto che un altro utente che non usa quella porzione non ha riscontrato.
+QUindi si afferma che l'affidabilitá del software dipende dall'utenza che utilizza quel software.
+
+* Specifica requisito di affidabilitá.
+I requisiti di affidabilitá fanno parte dei requisiti
+
+* Stima della dimensione del prodotto software
+Per stimare la dimensione del prodotto software a partire dal documento di specifica vengono utilizzate diverse tecniche che analizzano i requisiti del sistema e cercano di quantificare la dimensione in termini di linee di codice, funzionalitá, o altri parametri. Tra i metodi principali troviamo:
+
+** Analisi Bottom-Up
+Che include:
+- **FPA (Function Points Analysis)**
+- **LOC (Lines Of Codes)**
+- **Algoritmi Empirici**
+- Stime su progetti giá completati
+
+** Tecniche di scomposizione
+Le tecniche di scomposizione utilizzano una strategia "divide et impera" e sono basate su:
+- Stime dimensionali, come **LOC** o **FP**
+- Suddivisione dei task e/o delle funzioni con relativa stima di allocazione dell'effort
+
+*** LOC (Lines-Of-Code)
+**LOC** stima il numero complessivo di linee di codice all'interno dell'intero software
+
+*** FP (Function Points)
+**FP** é una misura pesata delle funzionlitá del software.
+Misura l'ammontare di funzionalitá all'interno del sistema basandosi sulle specifiche dello stesso.
+
+Si calcola in due step:
+1) Calcolare **UFC** (Unadjusted Function point Count)
+2) Moltiplicare **UFC** per il **TCF** (Tecnical Complexity Factor)
+$$FP = UFC \cdot TCF$$
+
+**** UFC (Unadjusted Function point Count)
+
+É il risultato della somma ponderata di 5 componenti, ognuno classificato per la complessitá.
+1. **EI (External Input):** Input esterni che attraversano l'applicazione.
+2. **EO (External Output):** Output derivati che escono dal sistema.
+3. **EQ (External Inquiries):** Richieste di Interrogazione (Input + Output senza derivazioni).
+4. **ILF (Internal Logic Files):** File di dati logicamente correlati, interni all'applicazione.
+5. **EIF (External Interface Files):** File di dati esterni, referenziati ma non mantenuti.
+
+Ogni componente ha dei pesi definiti da 3 livelli di complessitá:
+
+| Componente | Low | Average | High |
+| EI         |   3 |       4 |    6 |
+| EO         |   4 |       5 |    7 |
+| EQ         |   3 |       4 |    6 |
+| ILF        |   7 |      10 |   15 |
+| EIF        |   5 |       7 |   10 |
+
+$$UFC = \sum^{5}_{i=1}(Numero \ Componenti \ \cdot \ Peso_{i})$$
+
+**** TCF (Tecnical Complexity Factor)
+
+Esistono 15 diversi fattori chiamati **Fattori di Degree of Influence**.
+Ad ogni fattore viene associato un valore intero compreso fra:
+- 0 (**Irrilevante**)
+- 5 (**Essenziale**)
+
+Una volta stabilita la rilevanza di ogni fattore, il **TCF** viene calcolato:
+$$TCF = 0.65 + 0.01 \sum^{14}_{j=1} F_{j}$$
+
+Il **TCF** varia da 0.65 (se tutti i fattori $F_{j}$ sono irrilevanti) a 1.35 (se tutti i fattori $F_{j}$ sono essenziali), quindi l'adjustment é $\pm 35$  %
+
+* Che cos'é un Software Critico?
+Un software critico é un sistema software la cui malfunzione puó avere gravi conseguenze, come la perdita di vite umane, danni significativi a infrastrutture o elevati costi economici.
+
+** Caratteristiche
+- **Alta Affidabilitá:** Deve funzionare correttamente in tutte le condizioni previste.
+- **Sicurezza:** Deve essere protetto da guasti,attacchi e accessi non autorizzati.
+- **Performance rigorose:** Spesso deve operare in tempo reale.
+
+** Esempi
+- Software per dispositivi medici
+- Software per controllo del traffico aereo
+- Sistemi finanziari critici
+- Sistemi di controllo industriale o infrastrutture energetiche
+
+* Cosa si intende per durata di un prodotto software?
+É il periodo di tempo durante il quale il prodotto software é considerato utile, operativo e rilevante per soddisfare i bisogni degli utenti o degli stakeholder.
+Quindi la durata altro non é che il ciclo di vita stesso del prodotto.
+
+* DRE
+Defect removal efficiency é un rapporto:
+
+$$DRE = \frac{#bug \ fixxati \ durante \ lo \ sviluppo \ software }{# bug totali}$$
+
+Serve per vedere quanto uno sviluppatore lavora al codice. DRE > 92% sviluppatore lavora bene.
+
 * Design Pattern
 ** Cosa sono i Design Patterns? a cosa servono?
-Uno dei compiti più difficili per un progettista di software è individuare un insieme di oggetti ben definiti, riusabili il più possibile e con relazioni e gerarchie chiare ed efficaci.
+Uno dei compiti piú difficili per un progettista di software é individuare un insieme di oggetti ben definiti, riusabili il piú possibile e con relazioni e gerarchie chiare ed efficaci.
 I Design Patterns sono proprio la soluzione a questo problema.
 Questi trovano il fulcro della soluzione ad un problema ricorrente e fanno in modo che possa essere riutilizzata infinite volte anche non applicandola necessariamente nello stesso modo.
 In particolare essi creano un linguaggio condiviso tra gli sviluppatori in modo tale da offrire soluzioni a problemi che ritornano spesso nello sviluppo software e creano un codice strutturato in modo corretto.
 Inoltre capitalizzano l'esperienza della progettazione OO e ne favoriscono il riuso.
-Le soluzioni che propongono non sono mai già note ma allo stesso tempo non sono neanche soluzioni universali e quindi non sono sempre applicabili a qualsiasi problema.
+Le soluzioni che propongono non sono mai giá note ma allo stesso tempo non sono neanche soluzioni universali e quindi non sono sempre applicabili a qualsiasi problema.
 
 I Pattern si distinguono in tre categorie principali:
 - **Creazionali:** Riguardano la creazione degli oggetti.
 - **Strutturali:** Si concentrano sull'organizzazione di classi e oggetti.
 - **Comportamentali:** Descrivono come gli oggetti interagiscono e come si distribuiscono le responsabilitá.
 
-** Come è fatta la struttura di un Design Patterns?
+** Come é fatta la struttura di un Design Patterns?
 Un Design Patterns ha la seguente struttura:
 Per prima cosa troviamo il nome e la classificazione che illustrano l'essenza, lo scopo e il raggio d'azione del Pattern.
 In seguito troviamo la motivazione ovvero una descrizione del problema e dello scenario al quale bisogna applicare il relativo Pattern.
-In seguito troviamo l'applicazione del Pattern e subito dopo la struttura cioè una descrizione grafica della configurazione degli elementi che risolvono il problema.
+In seguito troviamo l'applicazione del Pattern e subito dopo la struttura cioé una descrizione grafica della configurazione degli elementi che risolvono il problema.
 Troviamo anche le classi, gli oggetti che ne fanno parte e i risultati dopo l'applicazione di tale Pattern (conseguenze).
 Sono presenti poi alcune tecniche e consigli per applicare il Pattern (implementazione).
 Infine troviamo dei codici d'esempio che illustrano come implementare il Pattern in un certo linguaggio, degli esempi di applicazioni reali che lo utilizzano e altri Pattern che sono collegati a questo.
 
 - **Nome e Classificazione:** Il nome illustra l'essenza di un Pattern; la classificazione lo identifica in termini di scopo e raggio d'azione.
 - **Motivazione:** Scenario che descrive in modo astratto il problema al quale applicare il Pattern.
-- **Applicabilità:** Applicazioni del Pattern.
+- **Applicabilitá:** Applicazioni del Pattern.
 - **Struttura:** Descrive graficamente la configurazione di elementi che risolvono il roproblema.
 - **Partecipanti:** Classi ed oggetti che fanno parte del Pattern.
 - **Conseguenze:** Risultati dopo l'applicazione del Pattern.
@@ -375,65 +492,81 @@ Infine troviamo dei codici d'esempio che illustrano come implementare il Pattern
 - **Usi noti:** Esempi di applicazioni in sistemi reali.
 - **Pattern collegati:** Altri Pattern.
 
-** Lista dei Design Patterns spiegati dal prof con spiegazione
+** Lista dei Design Pattern
 *** Abstract Factory
-**Obiettivo:** Il suo scopo è **fornire un'interfaccia** per creare famiglie di oggetti correlati, senza specificare le concrete classi da usare.
-**Vantaggi:** Isolamento delle classi complete e la facile sostituzione dell'intera famiglia dei prodotti.
-**Svantaggi:** Aggiungere nuove famiglie richiede modifiche all'interfaccia della factory.
+L'Abstract Factory é un design pattern creazionale che fornisce un'interfaccia per creare famiglie di oggetti correlati senza specificare le loro classi concrete. Ogni factory concreta produce un'intera suite di prodotti coerenti tra loro.
+
+**** Struttura
+- **AbstractFactory:** Dichiara i metodi per creare ogni tipo di prodotto della famiglia.
+- **Factory concrete:** Implementano tutti i metodi della Abstract Factory ritornando prodotti specifici. della famiglia.
+- **Interfacce Astratte:** Per ogni tipo di prodotto.
+- **Client:** Usa la factory per ottenere intere famiglie di prodotti coerenti.
 
 *** Factory Method
-**Obiettivo:** Il suo scopo è quello di **definire un metodo** che rimanda alle sottoclassi la decisione su quale oggetto istanziare.
-**Tipico nei framework:**
-- La classe astratta fornisce il flusso operativo.
-- Le sottoclassi decidono cosa creare
-**Vantaggi:** Disaccoppia il codice dal tipo concreto degli oggetti.
+Il Factory Method é un design pattern creazionale che definisce un'interfaccia per creare oggetti, ma delega alle sottoclassi la responsabilitá di decidere quale classe concreta istanziare.
+
+**** Struttura
+- **Creator:** Classe che definisce il metodo factoryMethod().
+- **ConcreteCreator:** Sottoclasse che implementa il metodo factoryMethod().
+- **ConcreteProduct:** Oggetto concreto creato dal metodo factoryMethod().
+- **Product:** Rispettiva classi di ConcreteProduct.
 
 *** Adapter
-**Obiettivo:** Il suo scopo è convertire l'interfaccia di una classe esistente incompatibile con un client, in una compatibile.
-Esistono due tipi:
-- **Object Adapter:** Usa la composizione.
-- **Class Adapter:** Usa l'ereditarietá multipla.
+L'Adapter é un design pattern strutturale che consente a due interfacce incompatibili di lavorare insieme, permettendo a oggetti con interfacce diverse di collaborare senza modificare il loro codice sorgente.
+
+**** Struttura
+- **Target Interface:** L'interfaccia che il client si aspetta.
+- **Adaptee:** La classe esistente con interfaccia incompatibile che deve essere utilizzata.
+- **Adapter:** Implementa il Target e "wrappa" l'adaptee, traducendo le chiamate da target ad adaptee.
+- **Client:** Usa l'adapter senza sapere che dietro c'é l'adaptee.
+
+**** Approcci Implementativi
+- **Class Adapter:** Usa ereditarietá.
+- **Object Adapter:** Usa composizione.
 
 *** Composite
-**Obiettivo:** Il suo scopo è trattare oggetti semplici e strutture composte in maniera uniforme.
-Ha 3 componenti principali:
-- Component (interfaccia comune),
-- Leaf (oggetti semplici),
-- Composite (oggetti composti).
-**Vantaggi:** Semplifica il codice client e facilita l'aggiunta di nuove forme.
-**Svantaggi:** Il sistema può risultare troppo generico.
+Il Composite é un design pattern strutturale che consente di comporre oggetti in strutture ad albero per rappresentare gerarchie parte-tutto. Permette ai client di trattare oggetti individuali e composizioni di oggetti allo stesso modo, offrendo un'interfaccia uniforme.
+
+**** Struttura
+- **Component:** Definisce l'interfaccia comune per foglie e composti.
+- **Leaf:** Rappresenta gli elementi finali della gerarchia.
+- **Composite:** Rappresenta i nodi interni che contengono altri componenti.
+- **Client:** Lavora solo con interfacce Component, senza sapere se sta lavorando con foglia o composto
 
 *** Decorator
-**Obiettivo:** Il suo scopo è quello di aggiungere dinamicamente delle funzionalità ad un oggetto senza modificarne la classe. Un esempio di applicazione è la realizzazione di interfacce utente, in cui funzionalità come lo scorrimento del testo o un bordo devono essere aggiunti a livello di singolo oggetto.
-Il **Decorator** è un oggetto contenitore che racchiude un oggetto elementare e aggiunge una particolare responsabilità. Trasferisce le richieste all'oggetto decorato ma può svolgere funzioni aggiuntive prima o dopo il trasferimento della richiesta.
-Si applica quando è necessario aggiungere agli oggetti funzionalità a _runtime_ e quando il subclassing non è adatto (provocherebbe l'esplosione di sottoclassi per ogni funzionalità).
+Il Decorator é un design pattern strutturale che consente di aggiungere responsabilitá a un oggetto dinamicamente, offrendo un'alternativa flessibile all'ereditarietá per estendere la funzionalitá. Mantiene la stessa interfaccia dell'oggetto originale mentre aggiunge nuovi comportamenti.
+
+**** Struttura
+- **Component:** Definisce l'interfaccia per gli oggetti a cui aggiungere responsabilitá.
+- **ConcreteComponent:** L'oggetto base a cui aggiungiamo funzionalitá.
+- **Decorator:** Implementa Component e ottiene un'istanza di component.
+- **ConcreteDecorator:** Estende Decorator e aggiunge specifiche responsabilitá.
+- **Client:** Lavora con l'interfaccia Component senza sapere se sta usando un componente base o un decorator.
 
 *** Observer
-**Obiettivo:** Il suo scopo è quello di definire una dipendenza uno a molti tra oggetti. Quando più oggetti dipendono dallo stato di un altro oggetto, bisogna assicurarsi che questi oggetti si aggiornino automaticamente.
-È necessario quando un oggetto (detto **Subject** o **Observable**) deve informare automaticamente altri oggetti (**Observer**) ogni volta che cambia stato.
-Il Pattern Observer prevede che gli osservatori si registrino presso l'oggetto osservato. In questo modo l'oggetto osservato notifica ogni cambiamento agli osservatori. Quando l'osservatore rileva la notifica può interrogare l'oggetto osservato o svolgere operazioni indipendenti dallo stato dell'osservato. Si applica quando una azione può essere scomposta in due ambiti, ciascuno incapsulato in oggetti separati e quando bisogna gestire le modifiche di oggetti in seguito alla variazione di un altro oggetto.
-L'accoppiamento tra **subject** e **observer** è astratto, il subject conosce solo la lista degli osservatori e la _notifica_ avviene in modalità broadcast, quindi il subject non si occupa di quanti sono gli observer registrati.
+L'Observer é un design pattern comportamentale che definisce una dipendenza uno-a-molti tra oggetti, in modo che quando un oggetto cambia stato, tutti gli oggetti dipendenti vengono notificati automaticamente e aggiornati. Implementa un meccanismo di sottoscrizione/notifica.
+
+**** Struttura
+- **Subject:** Manitiene una lista di observer e notifica il cambiamento di stato.
+- **Observer:** Interfaccia che definisce come ricevere notifiche.
+- **ConcreteObserver:** Implementa Observer e reagisce alle notifiche del Subject.
+- **ConcreteSubject:** Mantiene lo stato e notifica gli Observers quando cambia.
+- **Client:** Registra gli Observers con il Subject.
 
 *** Template Method
-**Obiettivo:** Ha lo scopo di definire la struttura di un algoritmo, delegando alle sottoclassi l'implementazione di passaggi specifici.
-La classe base decide come è organizzato l'algoritmo, le sottoclassi decidono come implementare i passaggi variabili
+Il Template Method é un design pattern comportamentale che definisce la struttura (sequenza di passi) di un algoritmo in una superclasse, permettendo alle sottoclassi di ridefinire alcuni passi specifici senza modificare l'ordine generale dell'algoritmo.
 
-Si usa:
-- Quando implementiamo algoritmi che condividono la stessa struttura ma differiscono in alcuni dettagli
-- Quando si vuole evitare duplicazioni di passaggi perché ci sono comportamenti comuni (vengono inseriti nel template)
-
-La classe base (_AbstractClass_) contiene:
-- templateMethod: definisce la sequenza di passi dell'algoritmo
-- Metodi astratti che le sottoclassi devono implementare
-- Metodi hook che hanno un comportamento standard, ma le sottoclassi possono anche ridefinire Il template Method crea una struttura di controllo invertito dove è la classe padre che richiama le operazioni ridefinite nelle sottoclassi.
-
-Simile al factory method perché invoca metodi astratti tramite interfaccia e l'implementazione dei metodi rimandata a classi concrete.
-Si utilizzano però in problemi diversi:
-- Il template method è il metodo che invoca i metodi astratti per generalizzare un algoritmo
-- Il factory method è un metodo astratto che deve creare e restituire l'istanza di classe concreta per sganciare il cliente dalla scelta del tipo specifico
+**** Struttura
+- **AbstractClass:** Definisce il templateMethod() (Algoritmo) con alcuni passi implementati ed altri lasciati astratti per la personalizzazione
+- **templateMethod:** Struttura dell'algoritmo che chiama i passi in ordine.
+- **abstractMethod:** Metodi definiti nell'AbstractClass che vengono utilizzati e modificati
+- **ConcreteSublasses:** Forniscono l'implementazione dei metodi astratti, personalizzando step specifici ma preservando l'algoritmo standard
 
 *** Strategy
-**Obiettivo:** Ha lo scopo di definire ed incapsulare una famiglia di algoritmi in modo da renderli intercambiabili indipendentemente dal client che li usa.
-Pensiamo alla classe degli algoritmi di ordinamento, in cui ne esistono diversi (BucketSort, QuickSort ecc). Costruiamo un'applicazione che li supporti tutti e che permette una scelta rapida dell'algoritmo.
-Molte classi differiscono solo per il comportamento. Il Pattern **strategy** offre un modo per avere un interfaccia comune. Questo Pattern è applicabile quando sono necessarie più varianti di uno stesso algoritmo, in base al tipo di dato in ingresso o a delle condizioni operative.
-La strategy elimina i blocchi condizionali necessari se tutti i comportamenti fossero in un unica classe, ma i client devono conoscere le diverse strategie.
+Lo Strategy é un design pattern comportamentale che definisce una famiglia di algoritmi, li incapsula ciascuno in una propria classe e li rende intercambiabili, permettendo al contesto di variare il comportamento a runtime senza cambiare il suo codice.
+
+**** Struttura
+- **Strategy:** Definisce l'operazione astratta, ad esempio `execute()` o `calculate()`, comune a tutte le strategie.
+- **ConcreteStrategyA/B:** Implementano la strategy con algoritmi diversi ma stessa interfaccia.
+- **Context:** Contiene riferimenti a una Strategy e delega a essa il comportamento variabile.
+- **Client:** É responsabile della selezione della strategy appropiata in base al contesto
